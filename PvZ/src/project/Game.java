@@ -51,6 +51,8 @@ public class Game implements Runnable {
         g.dispose();
     }
     
+    public Graphics getGraphics(){ return g; }
+    
     
     @Override
     public void run(){
@@ -75,7 +77,7 @@ public class Game implements Runnable {
                 render();
             }
             if( timer>=1_000_000_000 ){
-                System.out.println("Fps:"+tick);
+//                System.out.println("Fps:"+tick);
                 tick = 0;
                 timer = 0;
             }

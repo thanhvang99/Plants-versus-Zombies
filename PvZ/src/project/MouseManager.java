@@ -41,22 +41,14 @@ public class MouseManager implements MouseInputListener {
     public void mousePressed(MouseEvent e) {
         
         // For active pea shooter
-<<<<<<< HEAD
-        if( isPressedOnFrame(e.getX(),e.getY(),10,110, GameBackground.getWidth(), GameBackground.getHeight()) ) {
-=======
         if( isPressedOnFrame(e.getX(),e.getY(),10,110,GameBackground.DEFAULT_WIDTH_CARD,GameBackground.DEFAULT_HEIGHT_CARD) ){
->>>>>>> d14b494b012f9bac650ffc9e850cfe36fb9e1cd5
             isPressed = true;
             currentImage = Stuffs.getActivePeaShooter();
             identifier = IDENTIFIER.BASIC_PLANT;
             
         }
         // For active sunflower
-<<<<<<< HEAD
-        else if( isPressedOnFrame(e.getX(),e.getY(),10,210,GameBackground.getWidth(),GameBackground.getHeight()) ) {
-=======
         else if( isPressedOnFrame(e.getX(),e.getY(),10,210,GameBackground.DEFAULT_WIDTH_CARD,GameBackground.DEFAULT_HEIGHT_CARD) ){
->>>>>>> d14b494b012f9bac650ffc9e850cfe36fb9e1cd5
             isPressed = true;
             currentImage = Stuffs.getActiveSunflower();
         }

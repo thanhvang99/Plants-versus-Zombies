@@ -16,7 +16,7 @@ public class GameState extends State {
     
     public GameState() {
         background = new GameBackground();
-        map = new Map(9,5);
+        map = new Map(12,5);
         mouseManager = new MouseManager(map);
         
         Window.getInstance().getCanvas().addMouseListener(mouseManager);
@@ -24,13 +24,12 @@ public class GameState extends State {
         Window.getInstance().getFrame().addMouseListener(mouseManager);
         Window.getInstance().getFrame().addMouseMotionListener(mouseManager);
         
+        // Initializing zombie
+        GameObjectManager.getInstance().addObject(new BasicZombie(5,4));
+        
     }
     
     @Override
-<<<<<<< HEAD
-    public void tick() {
-    
-=======
     public void tick(){
         // Update map
         map.tick();
@@ -41,7 +40,6 @@ public class GameState extends State {
             object.tick();
         }
         
->>>>>>> d14b494b012f9bac650ffc9e850cfe36fb9e1cd5
     }
 
     @Override

@@ -10,21 +10,20 @@ public class Stuffs {
     private static BufferedImage gameBackground,
                                  activePeaShooter,
                                  activeSunflower,
+                                 basicBullet,
                                  test;
     
-<<<<<<< HEAD
-    public static void init() {
-=======
     public static void init(){
         // Initialize Frame Combination
         FrameCombination.init();
-        
->>>>>>> d14b494b012f9bac650ffc9e850cfe36fb9e1cd5
         gameBackground = ImageLoader.load("/images/backgrounds/game_background.jpg");
         
         // Card
         activePeaShooter = ImageLoader.load("/images/plants/active_peashooter.png");
         activeSunflower = ImageLoader.load("/images/plants/active_sunflower.png");
+        
+        // Basic Bullet
+        basicBullet = ImageLoader.load("/images/bullets/basic_bullet.png");
         
         
         // Test
@@ -33,28 +32,11 @@ public class Stuffs {
     }
     
     // Get stuffs
-<<<<<<< HEAD
-    public static BufferedImage getGameBackground() {
-        return gameBackground;
-    }
 
-    public static BufferedImage[] getPlant() {
-        return plant;
-    }
-
-    public static BufferedImage getActivePeaShooter() {
-        return activePeaShooter;
-    }
-
-    public static BufferedImage getActiveSunflower() {
-        return activeSunflower;
-    }
-
-=======
     public static BufferedImage getGameBackground(){ return gameBackground; }
     public static BufferedImage[] getBasicPlant(){ return FrameCombination.BASIC_PLANT; }
     public static BufferedImage[] getBasicZombie(){ return FrameCombination.BASIC_ZOMBIE; }
     public static BufferedImage getActivePeaShooter(){ return activePeaShooter; }
     public static BufferedImage getActiveSunflower(){ return activeSunflower; }
->>>>>>> d14b494b012f9bac650ffc9e850cfe36fb9e1cd5
+    public static BufferedImage getBasicBullet(){ return basicBullet; }
 }

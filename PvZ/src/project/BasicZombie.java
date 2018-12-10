@@ -14,7 +14,7 @@ public class BasicZombie extends Creature {
         animation = new Animation(Stuffs.getBasicZombie(),400);
         
         // Test
-        velX = 0.002f;
+//        velX = 0.002f;
     }
     
     public void move(){

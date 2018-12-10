@@ -4,14 +4,22 @@ import java.awt.Graphics;
 
 public class GameState extends State {
     
+    private GameBackground background;
+    
     private Animation plantAmt;
     private MouseManager mouseManager;
     
+    
     public GameState(){
+        background = new GameBackground();
+        
         mouseManager = new MouseManager();
         
         Window.getInstance().getCanvas().addMouseListener(mouseManager);
         Window.getInstance().getFrame().addMouseListener(mouseManager);
+        
+        Window.getInstance().getCanvas().addMouseMotionListener(mouseManager);
+        Window.getInstance().getFrame().addMouseMotionListener(mouseManager);
         
     }
     
@@ -21,13 +29,15 @@ public class GameState extends State {
     }
     @Override
     public void render(Graphics g){
-        g.drawImage(Stuffs.getGameBackground(), 0, 0, Window.getInstance().getWidth(),Window.getInstance().getHeight(),null);
+        background.render(g);
+        mouseManager.render(g);
         
         /*
         
         deltaX = 105
         deltaY = 120
         
+        */
         g.drawLine(360, 50, 360, Window.getInstance().getHeight());
         g.drawLine(465, 50, 465, Window.getInstance().getHeight());
         g.drawLine(570, 50, 570, Window.getInstance().getHeight());
@@ -45,7 +55,7 @@ public class GameState extends State {
         g.drawLine(360, 460, Window.getInstance().getWidth(), 460);
         g.drawLine(360, 600, Window.getInstance().getWidth(), 600);
 
-        */
+        
         
     }
     

@@ -10,7 +10,7 @@ public class GameState extends State {
     private MouseManager mouseManager;
     
     
-    public GameState(){
+    public GameState() {
         background = new GameBackground();
         
         mouseManager = new MouseManager();
@@ -24,11 +24,12 @@ public class GameState extends State {
     }
     
     @Override
-    public void tick(){
+    public void tick() {
     
     }
+
     @Override
-    public void render(Graphics g){
+    public void render(Graphics g) {
         background.render(g);
         mouseManager.render(g);
         
@@ -55,8 +56,6 @@ public class GameState extends State {
         g.drawLine(360, 460, Window.getInstance().getWidth(), 460);
         g.drawLine(360, 600, Window.getInstance().getWidth(), 600);
 
-        
-        
     }
     
     

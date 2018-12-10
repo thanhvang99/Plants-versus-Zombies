@@ -12,15 +12,17 @@ public class MouseManager implements MouseInputListener {
     
     
     
-    public boolean isPressedOnFrame(int x,int y, int xOrigin,int yOrigin,int width,int height){
-        if( (x > xOrigin && x < xOrigin+width) && (y > yOrigin && y < yOrigin+height) ){
+    public boolean isPressedOnFrame(int x,int y, int xOrigin,int yOrigin,int width,int height) {
+        if( (x > xOrigin && x < xOrigin+width) && (y > yOrigin && y < yOrigin+height) ) {
             return true;
-        }else
+        } else {
             return false;
+        }
+
     }
     
-    public void render(Graphics g){
-        if( isPressed ){
+    public void render(Graphics g) {
+        if( isPressed ) {
             g.drawImage(currentImage, xDragged-50, yDragged-50, null);      // -50 means mouse at center
         }
     }
@@ -30,13 +32,13 @@ public class MouseManager implements MouseInputListener {
     public void mousePressed(MouseEvent e) {
         
         // For active pea shooter
-        if( isPressedOnFrame(e.getX(),e.getY(),10,110,GameBackground.getWidth(),GameBackground.getHeight()) ){
+        if( isPressedOnFrame(e.getX(),e.getY(),10,110, GameBackground.getWidth(), GameBackground.getHeight()) ) {
             isPressed = true;
             currentImage = Stuffs.getActivePeaShooter();
 //            System.out.println(isPressed);
         }
         // For active sunflower
-        else if( isPressedOnFrame(e.getX(),e.getY(),10,210,GameBackground.getWidth(),GameBackground.getHeight()) ){
+        else if( isPressedOnFrame(e.getX(),e.getY(),10,210,GameBackground.getWidth(),GameBackground.getHeight()) ) {
             isPressed = true;
             currentImage = Stuffs.getActiveSunflower();
 //            System.out.println(isPressed);

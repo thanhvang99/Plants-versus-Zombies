@@ -5,7 +5,7 @@ import java.awt.Graphics;
 public class MenuState extends State {
     
     @Override
-    public void tick(){
+    public void tick() {
     
     }
     
@@ -13,4 +13,5 @@ public class MenuState extends State {
     public void render(Graphics g){
     
     }
+
 }

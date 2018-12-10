@@ -14,7 +14,7 @@ public class Stuffs {
     
     private static BufferedImage[] plant = new BufferedImage[2];
     
-    public static void init(){
+    public static void init() {
         gameBackground = ImageLoader.load("/images/backgrounds/game_background.jpg");
         
         // Card
@@ -27,8 +27,20 @@ public class Stuffs {
     }
     
     // Get stuffs
-    public static BufferedImage getGameBackground(){ return gameBackground; }
-    public static BufferedImage[] getPlant(){ return plant; }
-    public static BufferedImage getActivePeaShooter(){ return activePeaShooter; }
-    public static BufferedImage getActiveSunflower(){ return activeSunflower; }
+    public static BufferedImage getGameBackground() {
+        return gameBackground;
+    }
+
+    public static BufferedImage[] getPlant() {
+        return plant;
+    }
+
+    public static BufferedImage getActivePeaShooter() {
+        return activePeaShooter;
+    }
+
+    public static BufferedImage getActiveSunflower() {
+        return activeSunflower;
+    }
+
 }

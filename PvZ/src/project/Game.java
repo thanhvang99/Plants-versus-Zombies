@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
 public class Game implements Runnable {
+
     private Window window;
     private Thread thread;
     private boolean isRunning;
@@ -14,25 +15,26 @@ public class Game implements Runnable {
     
     // State
     private State gameState,menuState;
-    private Game(){
+
+    private Game() {
         window = Window.getInstance();
         keyManager = new KeyManager();                  // Using ESC to exit program
         gameState = new GameState();
         menuState = new MenuState();
     }
-    public void init(){
+
+    public void init() {
         window.getFrame().addKeyListener(keyManager);
         State.setState(gameState);
         Stuffs.init();
-        
     }
     
     public void tick(){
         State.getState().tick();
     }
-    public void render(){
+    public void render() {
         bs = window.getCanvas().getBufferStrategy();
-        if( bs == null ){
+        if( bs == null ) {
             window.getCanvas().createBufferStrategy(3);
             return;
         }
@@ -51,17 +53,17 @@ public class Game implements Runnable {
         g.dispose();
     }
     
-    public Graphics getGraphics(){ return g; }
+    public Graphics getGraphics() { return g; }
     
     
     @Override
-    public void run(){
+    public void run() {
         init();
         int fps = 60;
         int tick = 0;
         long timer = 0;
         double delta = 0;
-        double timePerTick = 1_000_000_000/fps;
+        double timePerTick = 1_000_000_000 / fps;
         long lastTime;
         long now = System.nanoTime();
         
@@ -70,13 +72,15 @@ public class Game implements Runnable {
             delta += (lastTime - now)/timePerTick;
             timer += (lastTime - now);
             now = lastTime;
-            if( delta>=1 ){
+
+            if( delta>=1 ) {
                 tick++;
                 delta = 0;
                 tick();
                 render();
             }
-            if( timer>=1_000_000_000 ){
+
+            if( timer>=1_000_000_000 ) {
 //                System.out.println("Fps:"+tick);
                 tick = 0;
                 timer = 0;
@@ -86,26 +90,29 @@ public class Game implements Runnable {
         
     }
     
-    public synchronized void start(){
+    public synchronized void start() {
         isRunning = true;
         thread = new Thread(this);
         thread.start();
     }
     
-    public synchronized void stop(){
+    public synchronized void stop() {
         isRunning = false;
-        try{
+        try {
             thread.join();
-        }catch(InterruptedException ex){
+        } catch(InterruptedException ex) {
             ex.printStackTrace();
         }
     }
-    public static Game getInstance(){
-        if( game == null ){
+
+    public static Game getInstance() {
+        if( game == null ) {
             game = new Game();
             return game;
-        }else
+        } else {
             return game;
+        }
+
     }
     
 }

@@ -10,10 +10,10 @@ public class Animation {
     private long lastTime;
     
     
-    public void tick(){
+    public void tick() {
         timer += System.currentTimeMillis() - lastTime;
         lastTime = System.currentTimeMillis();
-        if( timer>=speed ){
+        if( timer >= speed ) {
             index++;
             timer = 0;
             
@@ -23,11 +23,14 @@ public class Animation {
         }
     }
     
-    public Animation(BufferedImage[] frame,int speed){
+    public Animation(BufferedImage[] frame,int speed) {
         this.frame = frame;
         this.speed = speed;
         
         lastTime = System.currentTimeMillis();
     }
-    public BufferedImage getCurrentFrame(){ return frame[index]; }
+
+    public BufferedImage getCurrentFrame() {
+        return frame[index];
+    }
 }

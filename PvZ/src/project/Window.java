@@ -4,7 +4,7 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 
-public class Window  {
+public class Window {
     private static final int DEFAULT_WIDTH = 1375,
                              DEFAULT_HEIGHT = 765;
     
@@ -13,7 +13,7 @@ public class Window  {
     private int height,width;
     private static Window window = null;
     
-    private Window(int width,int height){
+    private Window(int width,int height) {
         this.width = width;
         this.height = height;
         
@@ -27,23 +27,26 @@ public class Window  {
         frame.add(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        frame.setSize(width,height);
+        frame.setSize(width, height);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         frame.pack();
         
     }
     
-    public static Window getInstance(){
-        if( window == null ){
+    public static Window getInstance() {
+        if( window == null ) {
             window = new Window(DEFAULT_WIDTH,DEFAULT_HEIGHT);
             return window;
-        }else
+        } else {
             return window;
+        }
+
     }
     
-    public int getWidth(){ return width; }
-    public int getHeight(){ return height; }
-    public JFrame getFrame(){ return frame; }
-    public Canvas getCanvas(){ return canvas; }
+    public int getWidth() { return width; }
+    public int getHeight() { return height; }
+    public JFrame getFrame() { return frame; }
+    public Canvas getCanvas() { return canvas; }
+
 }

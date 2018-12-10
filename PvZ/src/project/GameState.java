@@ -8,36 +8,51 @@ public class GameState extends State {
     
     private Animation plantAmt;
     private MouseManager mouseManager;
+    private Map map;
+    
+    // Test
+    
     
     
     public GameState(){
         background = new GameBackground();
-        
-        mouseManager = new MouseManager();
+        map = new Map(9,5);
+        mouseManager = new MouseManager(map);
         
         Window.getInstance().getCanvas().addMouseListener(mouseManager);
-        Window.getInstance().getFrame().addMouseListener(mouseManager);
-        
         Window.getInstance().getCanvas().addMouseMotionListener(mouseManager);
+        Window.getInstance().getFrame().addMouseListener(mouseManager);
         Window.getInstance().getFrame().addMouseMotionListener(mouseManager);
         
     }
     
     @Override
     public void tick(){
-    
+        // Update map
+        map.tick();
+        
+        // Update GameObjectManager
+        for(int i=0;i<GameObjectManager.getInstance().getList().size();i++){
+            GameObject object = GameObjectManager.getInstance().getList().get(i);
+            object.tick();
+        }
+        
     }
     @Override
     public void render(Graphics g){
         background.render(g);
         mouseManager.render(g);
+        for(int i=0;i<GameObjectManager.getInstance().getList().size();i++){
+            GameObject object = GameObjectManager.getInstance().getList().get(i);
+            object.render(g);
+        }
         
         /*
         
         deltaX = 105
-        deltaY = 120
+        deltaY = 140
         
-        */
+        
         g.drawLine(360, 50, 360, Window.getInstance().getHeight());
         g.drawLine(465, 50, 465, Window.getInstance().getHeight());
         g.drawLine(570, 50, 570, Window.getInstance().getHeight());
@@ -54,6 +69,10 @@ public class GameState extends State {
         g.drawLine(360, 320, Window.getInstance().getWidth(), 320);
         g.drawLine(360, 460, Window.getInstance().getWidth(), 460);
         g.drawLine(360, 600, Window.getInstance().getWidth(), 600);
+        
+        */
+        
+        
 
         
         

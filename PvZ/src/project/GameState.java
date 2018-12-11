@@ -25,7 +25,7 @@ public class GameState extends State {
         Window.getInstance().getFrame().addMouseMotionListener(mouseManager);
         
         // Initializing zombie
-        GameObjectManager.getInstance().addObject(new BasicZombie(5,4));
+        GameObjectManager.getInstance().addObject(new BasicZombie(5,4,ID.BASIC_ZOMBIE));
         
     }
     

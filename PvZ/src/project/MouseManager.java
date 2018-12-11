@@ -10,11 +10,7 @@ public class MouseManager implements MouseInputListener {
     private BufferedImage currentImage;
     private boolean isPressed;
     private int xDragged,yDragged;
-    
-    private enum IDENTIFIER{
-        BASIC_PLANT;
-    }
-    private IDENTIFIER identifier;
+    private ID identifier;
     
     public MouseManager(Map map){
         this.map = map;
@@ -44,7 +40,7 @@ public class MouseManager implements MouseInputListener {
         if( isPressedOnFrame(e.getX(),e.getY(),10,110,GameBackground.DEFAULT_WIDTH_CARD,GameBackground.DEFAULT_HEIGHT_CARD) ){
             isPressed = true;
             currentImage = Stuffs.getActivePeaShooter();
-            identifier = IDENTIFIER.BASIC_PLANT;
+            identifier = ID.BASIC_PLANT;
             
         }
         // For active sunflower
@@ -65,12 +61,22 @@ public class MouseManager implements MouseInputListener {
             
             // Debug ArrayIndexOutOfBounds
             if( x>8 )   x=8;
-            
+        /*   
             if( !map.isExist(x, y) ){
-                if( identifier == IDENTIFIER.BASIC_PLANT ){
-                    GameObjectManager.getInstance().addObject(new BasicPlant(x,y));
+                if( identifier == ID.BASIC_PLANT ){
+                    GameObjectManager.getInstance().addObject(new BasicPlant(x,y,ID.BASIC_PLANT));
                 }
             }
+        */
+            // Test for new_map
+            
+            if( map.getMap()[x][y] == null || map.getMap()[x][y] == ID.BASIC_BULLET){
+                if( identifier == ID.BASIC_PLANT ){
+                    GameObjectManager.getInstance().addObject(new BasicPlant(x,y,ID.BASIC_PLANT));
+                } 
+            } 
+            
+            
             
         }
         

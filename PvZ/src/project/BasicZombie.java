@@ -1,6 +1,7 @@
 package project;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class BasicZombie extends Creature {
     public static final int DEFAULT_WIDTH = 96,
@@ -9,8 +10,8 @@ public class BasicZombie extends Creature {
     private Animation animation;
     private float velX;
     
-    public BasicZombie(float x,float y){
-        super(x,y);
+    public BasicZombie(float x,float y,ID id){
+        super(x,y,id);
         animation = new Animation(Stuffs.getBasicZombie(),400);
         
         // Test
@@ -31,5 +32,9 @@ public class BasicZombie extends Creature {
     @Override
     public void render(Graphics g){
         g.drawImage(animation.getCurrentFrame(), (int)(getX()*Map.DELTA_X + Map.START_X), (int)(getY()*Map.DELTA_Y+ Map.START_Y),DEFAULT_WIDTH, DEFAULT_HEIGHT, null);
+    }
+    @Override
+    public Rectangle getRect(){
+        return new Rectangle((int)(getX()*Map.DELTA_X + Map.START_X), (int)(getY()*Map.DELTA_Y+ Map.START_Y),DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
 }

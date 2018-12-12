@@ -15,10 +15,10 @@ public abstract class GameObject {
     }
     public float getX(){ return x; }
     public float getY(){ return y; }
+    public ID getID(){ return id; }
     
     public void setX(float x){ this.x = x; }
     public void setY(float y){ this.y = y; }
     public boolean isSolid(){ return true; }
-    public ID getID(){ return id; }
     public abstract Rectangle getRect();
 }

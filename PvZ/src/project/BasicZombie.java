@@ -26,6 +26,8 @@ public class BasicZombie extends Creature {
     public void tick(){
         animation.tick();
         move();
+        if( isDied() )
+            GameObjectManager.getInstance().removeObject(this);
     
     }
     
@@ -37,4 +39,5 @@ public class BasicZombie extends Creature {
     public Rectangle getRect(){
         return new Rectangle((int)(getX()*Map.DELTA_X + Map.START_X), (int)(getY()*Map.DELTA_Y+ Map.START_Y),DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
+    
 }

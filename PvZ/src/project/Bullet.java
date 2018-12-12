@@ -8,6 +8,7 @@ public class Bullet extends GameObject {
                             DEFAULT_HEIGHT = 20;
     private float velX;
     
+    
     // Atribute column to avoid jump pixel;
     private int column;
     
@@ -24,6 +25,8 @@ public class Bullet extends GameObject {
     @Override
     public void tick(){
         fly();
+        if( isCollised() )
+            GameObjectManager.getInstance().removeObject(this);
     
     }
     
@@ -43,5 +46,18 @@ public class Bullet extends GameObject {
         else
             return new Rectangle((int)(getX()*Map.DELTA_X + Map.START_X + 60), (int)(getY()*Map.DELTA_Y+ Map.START_Y + 30),DEFAULT_WIDTH,DEFAULT_HEIGHT);
             
+    }
+    public boolean isCollised(){
+        for(int i=0;i<GameObjectManager.getInstance().getList().size();i++){
+            GameObject object = GameObjectManager.getInstance().getList().get(i);
+            if( object.getID() == ID.BASIC_ZOMBIE ){
+                Creature creature = (Creature)object;
+                if( getRect().intersects(object.getRect()) ){
+                    creature.setHealth(creature.getHealth()-30);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

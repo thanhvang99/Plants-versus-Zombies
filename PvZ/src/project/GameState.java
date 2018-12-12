@@ -56,7 +56,7 @@ public class GameState extends State {
         deltaX = 105
         deltaY = 140
         
-        
+        */
         g.drawLine(360, 50, 360, Window.getInstance().getHeight());
         g.drawLine(465, 50, 465, Window.getInstance().getHeight());
         g.drawLine(570, 50, 570, Window.getInstance().getHeight());
@@ -74,7 +74,7 @@ public class GameState extends State {
         g.drawLine(360, 460, Window.getInstance().getWidth(), 460);
         g.drawLine(360, 600, Window.getInstance().getWidth(), 600);
         
-        */
+        
         
         
 

@@ -23,6 +23,7 @@ public class BasicPlant extends Creature {
         random_shoot_frequency = (r.nextInt(3)+3)*1000;
     }
     public void shoot(){
+        // new Bullet(...);
         GameObjectManager.getInstance().addObject(new Bullet((int)getX(),(int)getY(),ID.BASIC_BULLET));
     }
     

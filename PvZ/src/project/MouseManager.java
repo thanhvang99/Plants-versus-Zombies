@@ -9,7 +9,7 @@ public class MouseManager implements MouseInputListener {
     private Map map;
     private BufferedImage currentImage;
     private boolean isPressed;
-    private int xDragged,yDragged;
+    private int xDragged,yDragged,xComponent,yComponent;
     private ID identifier;
     
     public MouseManager(Map map){
@@ -42,12 +42,24 @@ public class MouseManager implements MouseInputListener {
             currentImage = Stuffs.getActivePeaShooter();
             identifier = ID.BASIC_PLANT;
             
+            // Debug ....
+            xComponent = 10;
+            yComponent = 110;
+            
         }
         // For active sunflower
         else if( isPressedOnFrame(e.getX(),e.getY(),10,210,GameBackground.DEFAULT_WIDTH_CARD,GameBackground.DEFAULT_HEIGHT_CARD) ){
             isPressed = true;
             currentImage = Stuffs.getActiveSunflower();
+            
+            // Debug ....
+            xComponent = 10;
+            yComponent = 210;
         }
+        
+        // Reset xDragged,yDragged
+        xDragged = xComponent;
+        yDragged = yComponent;
         
     }
 

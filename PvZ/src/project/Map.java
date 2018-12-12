@@ -50,7 +50,9 @@ public class Map {
         // Map x,y --> Assign --> its ID
         for(int i=0;i<GameObjectManager.getInstance().getList().size();i++){
             GameObject object = GameObjectManager.getInstance().getList().get(i);
-            new_map[(int)Math.ceil(object.getX())][(int)Math.ceil(object.getY())] = object.getID();
+            int x = (int)Math.ceil(object.getX());
+            int y = (int)Math.ceil(object.getY());
+            new_map[x][y] = object.getID();
         }
         
         

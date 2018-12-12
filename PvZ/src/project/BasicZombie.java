@@ -72,7 +72,7 @@ public class BasicZombie extends Creature {
                 }
             }
         }
-//        velX = DEFAULT_SPEED;
+        velX = DEFAULT_SPEED;
         return false;
     }
 }

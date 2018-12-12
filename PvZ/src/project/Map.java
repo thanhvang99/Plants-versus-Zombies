@@ -50,9 +50,17 @@ public class Map {
         // Map x,y --> Assign --> its ID
         for(int i=0;i<GameObjectManager.getInstance().getList().size();i++){
             GameObject object = GameObjectManager.getInstance().getList().get(i);
-            int x = (int)Math.ceil(object.getX());
-            int y = (int)Math.ceil(object.getY());
-            new_map[x][y] = object.getID();
+            // Debug display at midle of two cell
+            
+                // Cell old
+            int xCeil = (int)Math.ceil(object.getX());
+            int yCeil = (int)Math.ceil(object.getY());
+                // Cell new
+            int xFloor = (int)Math.floor(object.getX());
+            int yFloor = (int)Math.floor(object.getY());
+            
+            new_map[xCeil][yCeil] = object.getID();
+            new_map[xFloor][yFloor] = object.getID();
         }
         
         

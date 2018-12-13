@@ -51,10 +51,13 @@ public class MouseManager implements MouseInputListener {
         else if( isPressedOnFrame(e.getX(),e.getY(),10,210,GameBackground.DEFAULT_WIDTH_CARD,GameBackground.DEFAULT_HEIGHT_CARD) ){
             isPressed = true;
             currentImage = Stuffs.getActiveSunflower();
+            identifier = ID.SUNFLOWER;
+            
             
             // Debug ....
             xComponent = 10;
             yComponent = 210;
+            
         }
         
         // Reset xDragged,yDragged
@@ -85,12 +88,15 @@ public class MouseManager implements MouseInputListener {
             if( map.getMap()[x][y] == null || map.getMap()[x][y] == ID.BASIC_BULLET){
                 if( identifier == ID.BASIC_PLANT ){
                     GameObjectManager.getInstance().addObject(new BasicPlant(x,y,ID.BASIC_PLANT));
+                }else if( identifier ==ID.SUNFLOWER ){
+                    GameObjectManager.getInstance().addObject(new Sunflower(x,y,ID.SUNFLOWER));
                 } 
             } 
             
             
             
         }
+        identifier = null;
         
     }
     @Override

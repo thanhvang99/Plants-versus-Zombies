@@ -36,6 +36,7 @@ public class Stuffs {
     public static BufferedImage getGameBackground(){ return gameBackground; }
     public static BufferedImage[] getBasicPlant(){ return FrameCombination.BASIC_PLANT; }
     public static BufferedImage[] getBasicZombie(){ return FrameCombination.BASIC_ZOMBIE; }
+    public static BufferedImage[] getSunflower(){ return FrameCombination.SUNFLOWER; }
     public static BufferedImage getActivePeaShooter(){ return activePeaShooter; }
     public static BufferedImage getActiveSunflower(){ return activeSunflower; }
     public static BufferedImage getBasicBullet(){ return basicBullet; }

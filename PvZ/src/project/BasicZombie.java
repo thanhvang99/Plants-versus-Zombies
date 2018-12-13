@@ -11,6 +11,7 @@ public class BasicZombie extends Creature {
     
     private Animation animation;
     private BasicPlant plantAttacked;
+    private Sunflower flowerAttacked;
     
     // Timer Collision
     private long lastTime,timer;
@@ -41,10 +42,15 @@ public class BasicZombie extends Creature {
             lastTime = System.currentTimeMillis();
             if( timer >= DEFAULT_HIT_FREQUENCY ){
                 timer = 0;
-                plantAttacked.setHealth(plantAttacked.getHealth()-30);
+//                plantAttacked.setHealth(plantAttacked.getHealth()-30);
+                flowerAttacked.setHealth(flowerAttacked.getHealth()-30);
             }
-            if( plantAttacked.isDied() ){
-                GameObjectManager.getInstance().removeObject(plantAttacked);
+//            if( plantAttacked.isDied() ){
+//                GameObjectManager.getInstance().removeObject(plantAttacked);
+//                plantAttacked = null;
+//            }
+            if( flowerAttacked.isDied() ){
+                GameObjectManager.getInstance().removeObject(flowerAttacked);
                 plantAttacked = null;
             }
         }
@@ -67,6 +73,13 @@ public class BasicZombie extends Creature {
                 BasicPlant plant = (BasicPlant)object;
                 if( getRect().intersects(plant.getRect())  ){
                     plantAttacked = plant;
+                    velX = 0;
+                    return true;
+                }
+            }else if( object.getID() == ID.SUNFLOWER ){
+                Sunflower flower = (Sunflower)object;
+                if( getRect().intersects(flower.getRect())  ){
+                    flowerAttacked = flower;
                     velX = 0;
                     return true;
                 }

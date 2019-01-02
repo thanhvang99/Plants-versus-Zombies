@@ -1,5 +1,4 @@
-package GameObject;
-
+package Models;
 public class Others {
     
 }

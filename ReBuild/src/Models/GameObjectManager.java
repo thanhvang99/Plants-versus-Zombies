@@ -1,7 +1,7 @@
-package GameObject;
+package Models;
 
-import GameObject.GameObject;
-import PvZ.ID;
+import Helper.ID;
+import Views.GameObject;
 import java.util.ArrayList;
 
 // Store list of game object

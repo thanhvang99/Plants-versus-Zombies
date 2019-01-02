@@ -1,8 +1,8 @@
 package GameInterface;
 
-import GameInterface.ObjectController;
+import GameInterface.ObjectInterface;
 
-public interface ZombieController extends ObjectController{
+public interface ZombieInterface extends ObjectInterface{
     public abstract void move();
     public abstract void isDied();
     public abstract void meetPlant();

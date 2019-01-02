@@ -1,6 +1,5 @@
-package State;
+package Views;
 
-import State.State;
 import java.awt.Graphics;
 
 public class MenuState extends State {

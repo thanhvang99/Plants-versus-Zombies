@@ -1,4 +1,7 @@
-package PvZ;
+package Controllers;
+
+import Helper.Application;
+import Helper.GUI;
 
 public class Game  implements Runnable {
     private Application application;

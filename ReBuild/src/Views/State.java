@@ -1,9 +1,8 @@
-package State;
+package Views;
 
-import GameInterface.GameView;
-import GameInterface.GameController;
+import Services.GameInterface;
 
-public abstract class State implements GameView,GameController {
+public abstract class State implements GameView,GameInterface {
     private static State currentState;
     
     public static State getCurrentState(){ return currentState; }

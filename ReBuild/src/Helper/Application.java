@@ -1,8 +1,8 @@
-package PvZ;
+package Helper;
 
-import GameInterface.GameController;
+import Services.GameInterface;
 
-public abstract class Application implements GameController {    
+public abstract class Application implements GameInterface {    
     public abstract void render();
     
 }

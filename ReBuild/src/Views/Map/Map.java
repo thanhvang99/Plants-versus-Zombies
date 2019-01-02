@@ -1,11 +1,11 @@
 
 package Map;
 
-import GameInterface.GameController;
 import GameInterface.GameView;
 import java.awt.Graphics;
+import GameInterface.GameInterface;
 
-public class Map implements GameView,GameController {
+public class Map implements GameView,GameInterface {
     private Background background;
     
     public Map(Background background){

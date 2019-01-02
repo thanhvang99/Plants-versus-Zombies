@@ -5,6 +5,6 @@ package GameInterface;
 import java.awt.Rectangle;
 
 
-public interface ObjectController {
+public interface ObjectInterface {
     public abstract Rectangle getRect();
 }

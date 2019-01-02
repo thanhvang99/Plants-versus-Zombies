@@ -1,4 +1,4 @@
-package Stuffs;
+package Resources;
 
 public class ImageFrame {
 }

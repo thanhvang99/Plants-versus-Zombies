@@ -1,8 +1,8 @@
 package Map;
 
-import GameInterface.GameController;
 import GameInterface.GameView;
+import GameInterface.GameInterface;
 
-public abstract class Background implements GameView,GameController {
+public abstract class Background implements GameView,GameInterface {
     
 }

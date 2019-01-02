@@ -1,7 +1,6 @@
-package GameObject;
+package Views;
 
-import GameInterface.GameView;
-import PvZ.ID;
+import Helper.ID;
 
 public abstract class GameObject implements GameView {
     private float x,y;

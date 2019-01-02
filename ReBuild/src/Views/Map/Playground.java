@@ -1,9 +1,9 @@
-package Map;
+package Views.Map;
 
-import GameInterface.GameController;
-import PvZ.ID;
+import Helper.ID;
+import Services.GameInterface;
 
-public class Playground implements GameController {
+public class Playground implements GameInterface {
     private static final int DELTA_X = 105,
                              DELTA_Y = 140,
                              START_X = 360,

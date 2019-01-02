@@ -1,4 +1,4 @@
-package Map;
+package Views.Map;
 
 import java.awt.Graphics;
 

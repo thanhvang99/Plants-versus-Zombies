@@ -1,8 +1,8 @@
-package PvZ;
+package Helper;
 
-import State.GameState;
-import State.MenuState;
-import State.State;
+import Views.GameState;
+import Views.MenuState;
+import Views.State;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;

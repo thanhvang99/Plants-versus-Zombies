@@ -1,4 +1,4 @@
-package PvZ;
+package Helper;
 
 public enum ID {
     PLANT,

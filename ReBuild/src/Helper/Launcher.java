@@ -1,4 +1,7 @@
-package PvZ;
+package Helper;
+
+import Controllers.Game;
+
 
 public class Launcher {
     public static void main(String[] args){

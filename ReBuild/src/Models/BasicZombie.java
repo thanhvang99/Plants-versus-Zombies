@@ -1,11 +1,12 @@
-package GameObject;
+package Models;
 
-import GameInterface.ZombieController;
-import PvZ.ID;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import Helper.ID;
+import Services.ZombieInterface;
+import Views.GameObject;
 
-public class BasicZombie extends GameObject implements ZombieController {
+public class BasicZombie extends GameObject implements ZombieInterface {
     
     public BasicZombie(float x,float y){
         super(x,y,ID.ZOMBIE);

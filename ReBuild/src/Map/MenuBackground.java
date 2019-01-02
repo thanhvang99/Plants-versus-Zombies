@@ -1,16 +1,15 @@
-package PvZ;
+package Map;
 
 import java.awt.Graphics;
 
-public class MenuState extends State {
+public class MenuBackground extends Background {
+
     @Override
     public void render(Graphics g) {
-        
     }
 
     @Override
     public void tick() {
-        
     }
     
 }

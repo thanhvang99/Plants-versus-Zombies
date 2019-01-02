@@ -1,4 +1,4 @@
-package PvZ;
+package GameObject;
 
 public class Bullet extends Others {
     

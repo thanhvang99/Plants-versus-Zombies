@@ -1,4 +1,4 @@
-package PvZ;
+package GameInterface;
 
 import java.awt.Graphics;
 

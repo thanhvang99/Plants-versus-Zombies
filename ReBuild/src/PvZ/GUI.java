@@ -1,5 +1,8 @@
 package PvZ;
 
+import State.GameState;
+import State.MenuState;
+import State.State;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;

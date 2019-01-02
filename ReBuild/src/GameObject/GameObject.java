@@ -1,4 +1,7 @@
-package PvZ;
+package GameObject;
+
+import GameInterface.GameView;
+import PvZ.ID;
 
 public abstract class GameObject implements GameView {
     private float x,y;
@@ -11,6 +14,6 @@ public abstract class GameObject implements GameView {
     }
     public float getX(){ return x; }
     public float getY(){ return y; }
-    
+    public ID getID(){ return id; }
     
 }

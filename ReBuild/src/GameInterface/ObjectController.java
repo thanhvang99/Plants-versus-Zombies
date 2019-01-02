@@ -1,4 +1,4 @@
-package PvZ;
+package GameInterface;
 
 // Obtain logic for Objects like zombie, plant, other...
 

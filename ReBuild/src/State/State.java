@@ -1,4 +1,7 @@
-package PvZ;
+package State;
+
+import GameInterface.GameView;
+import GameInterface.GameController;
 
 public abstract class State implements GameView,GameController {
     private static State currentState;

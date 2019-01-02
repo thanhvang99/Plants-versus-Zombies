@@ -1,4 +1,4 @@
-package GameInterface;
+package Services;
 
 import java.awt.Rectangle;
 

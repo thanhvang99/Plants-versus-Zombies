@@ -5,29 +5,13 @@ import java.awt.Rectangle;
 import Helper.ID;
 import Services.GameInterface;
 import Services.PlantInterface;
-import Views.GameObject;
 
-public class BasicPlant extends GameObject implements PlantInterface {
-
+public abstract class BasicPlant extends GameObject implements PlantInterface {
+    protected final int HEALTH = 100;
+    protected final int DEFAULT_WIDTH = 76,
+                        DEFAULT_HEIGHT = 76;
     public BasicPlant(float x,float y){
         super(x,y,ID.PLANT);
-    }
-        
-    @Override
-    public void render(Graphics g) {
-    }
-
-    @Override
-    public void act() {
-    }
-
-    @Override
-    public void isDied() {
-    }
-
-    @Override
-    public Rectangle getRect() {
-        return null;
     }
     
 }

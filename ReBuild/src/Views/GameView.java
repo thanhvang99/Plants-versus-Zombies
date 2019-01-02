@@ -1,4 +1,4 @@
-package GameInterface;
+package Views;
 
 import java.awt.Graphics;
 

@@ -16,7 +16,6 @@ public class Game  implements Runnable {
         isRunning = true;
         thread = new Thread(this);
         
-        GUI.getInstance().setUp();
         thread.start();
     }
     public synchronized void stop(){

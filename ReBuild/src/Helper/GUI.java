@@ -35,7 +35,7 @@ public class GUI extends Application {
     
     @Override
     public void tick() {
-    
+        State.getCurrentState().tick();
     }
     @Override
     public void render() {
@@ -83,7 +83,12 @@ public class GUI extends Application {
         // Set up currentState
         State.setState(gameState);
         
+        
+        
     }
+    
+    public int getWidth(){ return width; }
+    public int getHeight(){ return height; }
     
     
     

@@ -1,7 +1,7 @@
 package Models;
 
 import Helper.ID;
-import Views.GameObject;
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 // Store list of game object
@@ -26,6 +26,17 @@ public class GameObjectManager {
     public void removeObject(GameObject object){
         list.remove(object);
     }
+    
+    public void renderAllObject(Graphics g){
+        for( GameObject object : list )
+            object.render(g);
+    }
+    public void tickAllObject(){
+        for( GameObject object : list ){
+            object.tick();
+        }
+    }
+    
     public ArrayList<GameObject> getListID(ID id){
         ArrayList<GameObject> zombieList = new ArrayList<GameObject>();
         ArrayList<GameObject> plantList = new ArrayList<GameObject>();
@@ -47,4 +58,5 @@ public class GameObjectManager {
         else 
             return id == ID.PLANT ? plantList : zombieList;
     }
+    public ArrayList<GameObject> getList(){ return list; }
 }

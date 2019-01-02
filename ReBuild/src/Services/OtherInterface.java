@@ -1,6 +1,6 @@
-package GameInterface;
+package Services;
 
-import GameInterface.GameInterface;
+
 
 public interface OtherInterface extends GameInterface {
     

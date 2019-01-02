@@ -1,6 +1,5 @@
-package GameInterface;
+package Services;
 
-import GameInterface.ObjectInterface;
 
 public interface PlantInterface extends ObjectInterface {
     public abstract void act();

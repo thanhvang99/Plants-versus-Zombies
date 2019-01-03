@@ -81,7 +81,7 @@ public class GUI extends Application {
         gameState = new GameState();
         
         // Set up currentState
-        State.setState(gameState);
+        State.setState(menuState);
         
         
         

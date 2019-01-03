@@ -1,5 +1,6 @@
 package Helper;
 
+import Services.ImageFrames;
 import Views.GameState;
 import Views.MenuState;
 import Views.State;

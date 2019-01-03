@@ -1,10 +1,10 @@
 package Models;
 
 import Helper.ID;
-import Services.GameInterface;
-import Views.GameView;
+import Services.GameLogic;
+import Services.GameDraw;
 
-public abstract class GameObject implements GameView,GameInterface {
+public abstract class GameObject implements GameDraw,GameLogic {
     private float x,y;
     private ID id;
     public GameObject(float x,float y,ID id){

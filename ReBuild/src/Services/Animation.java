@@ -1,9 +1,9 @@
 package Services;
 
-import Services.GameInterface;
 import java.awt.image.BufferedImage;
+import Services.GameLogic;
 
-public class Animation implements GameInterface{
+public class Animation implements GameLogic{
     private BufferedImage[] frames;
     private int index = 0;
     private int timeSpeed;
@@ -14,6 +14,7 @@ public class Animation implements GameInterface{
     public Animation(int timeSpeed,BufferedImage[] frames){
         this.timeSpeed = timeSpeed;
         this.frames = frames;
+        System.out.println(frames);
         
         clock();
     }

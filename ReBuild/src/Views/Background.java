@@ -1,8 +1,9 @@
 package Views;
 
-import Services.GameInterface;
-import Views.GameView;
+import Services.GameDraw;
+import Services.GameLogic;
 
-public abstract class Background implements GameView,GameInterface {
+public abstract class Background implements GameDraw,GameLogic {
+    public abstract void setUp();
     
 }

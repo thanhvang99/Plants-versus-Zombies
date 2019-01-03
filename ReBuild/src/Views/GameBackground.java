@@ -1,10 +1,16 @@
 package Views;
 
 import Helper.GUI;
-import Resources.ImageFrames;
+import Services.ImageFrames;
 import java.awt.Graphics;
 
 public class GameBackground extends Background {
+    private OptionColumn column;
+    
+    public GameBackground(){
+        
+        column = new OptionColumn();
+    }
 
     @Override
     public void render(Graphics g) {
@@ -26,11 +32,28 @@ public class GameBackground extends Background {
           g.drawLine(360, 320, GUI.getInstance().getWidth(), 320);
           g.drawLine(360, 460, GUI.getInstance().getWidth(), 460);
           g.drawLine(360, 600, GUI.getInstance().getWidth(), 600);
+          
+          column.render(g);
+          
+          
     }
 
     @Override
     public void tick() {
         // Nothing
+    }
+    
+    @Override
+    public void setUp(){
+        setUpColumn();
+    }
+    
+    public void setUpColumn(){
+        setUpCards();
+    }   
+    public void setUpCards(){
+        column.addNewCard(new Card(ImageFrames.getPeashooterCandicate(),100));
+        column.addNewCard(new Card(ImageFrames.getBeetrootCandicate(),100));
     }
     
 }

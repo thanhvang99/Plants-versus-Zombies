@@ -1,25 +1,24 @@
 package Views;
 
 import Models.GameObjectManager;
-import Resources.ImageFrames;
+import Services.ImageFrames;
 import java.awt.Graphics;
 
 public class GameState extends State {
-    private Map map;
+    private Background background;
     private Playground playground;
-    private OptionColumn column;
+    
     
     public GameState(){
-        map = new Map(new GameBackground());
-        playground = new Playground(10,10);
-        column = new OptionColumn();
+        background = new GameBackground();
+        playground = new Playground(10,10);        
         
-//        initializeCards();
+        // Set up
+        background.setUp();
     }
     @Override
     public void render(Graphics g) {
-        map.render(g);
-        column.render(g);
+        background.render(g);
         GameObjectManager.getInstance().renderAllObject(g);
     }
 
@@ -30,9 +29,6 @@ public class GameState extends State {
     }
     
     public void initializeCards(){
-//        column.addCard(ImageFrames.getPeashooterCandicateOn());
-//        column.addCard(ImageFrames.getBeetrootCandicateOn());
     }
-    
     
 }

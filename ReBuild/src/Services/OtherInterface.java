@@ -2,6 +2,6 @@ package Services;
 
 
 
-public interface OtherInterface extends GameInterface {
+public interface OtherInterface extends GameLogic {
     
 }

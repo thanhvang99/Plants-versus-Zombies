@@ -1,20 +1,24 @@
 package Helper;
 
 import Controllers.Game;
-import Resources.ImageFrames;
+import Services.ImageFrames;
+import Views.TestView;
 
 
 public class Launcher {
     public static void main(String[] args){
         
-        GUI gui = GUI.getInstance();
+        GUI Gui = GUI.getInstance();
         
-        gui.setUp();
-        ImageFrames.setUp();
-        Test.setUp();
+        // Set up for game
         
-        Game game = new Game(gui);
-        game.start();
+        ImageFrames.setUpAllFrames();       // Load all image
+        Gui.setUp();                        // Create canvas, frame as Window
+        
+        
+        Game game = new Game(Gui);          // Create Game run by Gui
+        game.start();                       // Start loop game!
+        
     }
     
 }

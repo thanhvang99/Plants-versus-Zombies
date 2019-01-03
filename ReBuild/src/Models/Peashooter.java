@@ -1,7 +1,7 @@
 package Models;
 
-import Resources.ImageFrames;
 import Services.Animation;
+import Services.ImageFrames;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -13,6 +13,8 @@ public class Peashooter extends BasicPlant {
     public Peashooter(float x,float y){
         super(x,y);
         
+        System.out.println(ImageFrames.getPeashooterAct());
+     
         setAnimation();
     }
     

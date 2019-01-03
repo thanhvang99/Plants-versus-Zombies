@@ -2,15 +2,16 @@ package Views;
 
 import Helper.ID;
 import Models.GameObjectManager;
-import Services.GameInterface;
 import Models.GameObject;
+import Services.ImageFrames;
 import java.util.ArrayList;
+import Services.GameLogic;
 
-public class Playground implements GameInterface {
-    private static final int DELTA_X = 105,
-                             DELTA_Y = 140,
-                             START_X = 360,
-                             START_Y = 40;
+public class Playground implements GameLogic {
+    public static final int DELTA_WIDTH_CELL = 105,
+                            DELTA_HEIGHT_CELL = 140,
+                            START_X = 360,
+                            START_Y = 40;
     
     private int x,y;
     private ID[][] ground;
@@ -20,6 +21,7 @@ public class Playground implements GameInterface {
         this.y = y;
         
         ground = new ID[y][x];
+        
     }
     
     public boolean isInPlayground(int xPixel,int yPixel){

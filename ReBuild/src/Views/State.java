@@ -1,8 +1,9 @@
 package Views;
 
-import Services.GameInterface;
+import Services.GameDraw;
+import Services.GameLogic;
 
-public abstract class State implements GameView,GameInterface {
+public abstract class State implements GameDraw,GameLogic {
     private static State currentState;
     
     public static State getCurrentState(){ return currentState; }

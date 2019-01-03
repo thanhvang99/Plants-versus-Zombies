@@ -11,5 +11,9 @@ public class MenuBackground extends Background {
     @Override
     public void tick() {
     }
+
+    @Override
+    public void setUp() {
+    }
     
 }

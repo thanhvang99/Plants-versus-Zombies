@@ -1,7 +1,7 @@
 package Helper;
 
 import Controllers.Game;
-import Resources.ImageFrames;
+import Services.ImageFrames;
 
 
 public class Launcher {

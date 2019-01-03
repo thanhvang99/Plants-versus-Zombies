@@ -2,8 +2,8 @@ package Views;
 
 import Models.GameObject;
 import Models.Peashooter;
-import Resources.ImageFrames;
-import Resources.ImageLoader;
+import Services.ImageFrames;
+import Helper.ImageLoader;
 import Services.GameInterface;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

@@ -1,6 +1,6 @@
 package Models;
 
-import Resources.ImageFrames;
+import Services.ImageFrames;
 import Services.Animation;
 import java.awt.Graphics;
 import java.awt.Rectangle;

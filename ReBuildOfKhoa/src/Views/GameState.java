@@ -1,7 +1,7 @@
 package Views;
 
 import Models.GameObjectManager;
-import Resources.ImageFrames;
+import Services.ImageFrames;
 import java.awt.Graphics;
 
 public class GameState extends State {

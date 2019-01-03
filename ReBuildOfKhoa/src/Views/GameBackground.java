@@ -1,7 +1,7 @@
 package Views;
 
 import Helper.GUI;
-import Resources.ImageFrames;
+import Services.ImageFrames;
 import java.awt.Graphics;
 
 public class GameBackground extends Background {

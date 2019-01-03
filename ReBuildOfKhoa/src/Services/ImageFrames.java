@@ -1,5 +1,7 @@
-package Resources;
+package Services;
 
+import Helper.ImageLoader;
+import Views.MenuBackground;
 import java.awt.image.BufferedImage;
 
 public class ImageFrames {
@@ -29,12 +31,15 @@ public class ImageFrames {
     
     // Backgrounds
     private static BufferedImage GameBackground;
+    private static BufferedImage menuBackground;
+    
+    private static BufferedImage clickToStart;
     
     public static void setUp(){
         setUpPeashooterFrames();
         setUpBeetrootFrames();
         setUpBackground();
-    
+        setupMenuBackground();
     }
     public static void setUpPeashooterFrames(){
         PeashooterCandicateOn = ImageLoader.load("/Plants/Peashooter/candicate_on.png");
@@ -57,8 +62,18 @@ public class ImageFrames {
         GameBackground = ImageLoader.load("/plants/background/game.jpg");
     }
     
+    public static void setupMenuBackground() {
+        menuBackground = ImageLoader.load("/MenuBackground/menuBackground.png");   
+    }
+    
+    public static void clickToStart() {
+        clickToStart = ImageLoader.load("/MenuBackground/click_to_start.gif");
+    }
+    
     public static BufferedImage[] getPeashooterAct(){ return PeashooterAct; }
     public static BufferedImage getPeashooterCandicateOn(){ return PeashooterCandicateOn; }
     public static BufferedImage getBeetrootCandicateOn(){ return BeetrootCandicateOn; }
     public static BufferedImage getGameBackground(){ return GameBackground; }
+    public static BufferedImage getMenuBackground() { return menuBackground; }
+    public static BufferedImage getClickToStart() { return clickToStart; }
 }

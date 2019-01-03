@@ -3,6 +3,7 @@ package Views;
 import Models.GameObject;
 import Models.Peashooter;
 import Resources.ImageFrames;
+import Resources.ImageLoader;
 import Services.GameInterface;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -22,11 +23,20 @@ public class OptionColumn implements GameView,GameInterface {
     
     public OptionColumn(){
         cards = new BufferedImage[10];
+        
+        cards[0] = ImageFrames.getPeashooterCandicateOn() ;
+        cards[1] = ImageLoader.load("/plants/peashooter/candicate_on.png");
+        
+        System.out.println(cards[0]);
+        System.out.println(cards[1]);
     }
     
     @Override
     public void render(Graphics g) {
-        renderAllCard(g);
+//        renderAllCard(g);
+        g.drawImage(cards[0], 100, 100, null);
+        g.drawImage(cards[1], 200, 200, null);
+//         System.out.println(cards[0]);
 
     }
 

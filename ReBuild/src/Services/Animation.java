@@ -1,4 +1,4 @@
-package Views;
+package Services;
 
 import Services.GameInterface;
 import java.awt.image.BufferedImage;

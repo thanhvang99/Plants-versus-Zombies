@@ -14,7 +14,7 @@ public class GameState extends State {
         playground = new Playground(10,10);
         column = new OptionColumn();
         
-        initializeCards();
+//        initializeCards();
     }
     @Override
     public void render(Graphics g) {
@@ -30,8 +30,8 @@ public class GameState extends State {
     }
     
     public void initializeCards(){
-        column.addCard(ImageFrames.getPeashooterCandicateOn());
-        column.addCard(ImageFrames.getBeetrootCandicateOn());
+//        column.addCard(ImageFrames.getPeashooterCandicateOn());
+//        column.addCard(ImageFrames.getBeetrootCandicateOn());
     }
     
     

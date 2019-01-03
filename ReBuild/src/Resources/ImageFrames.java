@@ -4,6 +4,9 @@ import java.awt.image.BufferedImage;
 
 public class ImageFrames {
     
+    // Cards
+    private static BufferedImage[] cards = new BufferedImage[10];
+    
     // Peashooter
     private static BufferedImage PeashooterCandicateOn,
                                  PeashooterCandicateOff,
@@ -40,6 +43,7 @@ public class ImageFrames {
         PeashooterAct = new BufferedImage[2];
         PeashooterAct[0] = ImageLoader.load("/plants/peashooter/act1.gif");
         PeashooterAct[1] = ImageLoader.load("/plants/peashooter/act2.gif");
+        
     }
     public static void setUpBeetrootFrames(){
         BeetrootCandicateOn = ImageLoader.load("/plants/beetroot/candicate_on.png");

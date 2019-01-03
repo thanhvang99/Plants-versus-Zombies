@@ -2,7 +2,7 @@ package Services;
 
 import java.awt.Rectangle;
 
-public interface GameInterface {
+public interface GameLogic {
     public abstract void tick();
     
 }

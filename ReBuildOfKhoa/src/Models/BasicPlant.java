@@ -3,8 +3,8 @@ package Models;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import Helper.ID;
-import Services.GameInterface;
 import Services.PlantInterface;
+import Services.GameLogic;
 
 public abstract class BasicPlant extends GameObject implements PlantInterface {
     protected final int HEALTH = 100;

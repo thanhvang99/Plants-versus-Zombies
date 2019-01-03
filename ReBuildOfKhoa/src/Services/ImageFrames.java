@@ -1,29 +1,24 @@
 package Services;
 
-import Helper.ImageLoader;
-import Views.MenuBackground;
+
+
 import java.awt.image.BufferedImage;
 
 public class ImageFrames {
     
-    // Cards
-    private static BufferedImage[] cards = new BufferedImage[10];
-    
     // Peashooter
-    private static BufferedImage PeashooterCandicateOn,
-                                 PeashooterCandicateOff,
-                                 PeashooterBullet;
+    private static BufferedImage   PeashooterBullet;
     
     private static BufferedImage[] PeashooterAct,
-                                   PeashooterDie;
+                                   PeashooterDie,
+                                   PeashooterCandicate;
     
     // Betroot
-    private static BufferedImage BeetrootCandicateOn,
-                                 BeetrootCandicateOff,
-                                 BeetrootBullet;
+    private static BufferedImage   BeetrootBullet;
     
     private static BufferedImage[] BeetrootAct,
-                                   BeetrootDie;
+                                   BeetrootDie,
+                                   BeetrootCandicate;
     
     // Normal Zombie
     private static BufferedImage[] NormalZombieDie,
@@ -33,17 +28,21 @@ public class ImageFrames {
     private static BufferedImage GameBackground;
     private static BufferedImage menuBackground;
     
-    private static BufferedImage clickToStart;
+    private static BufferedImage clickButton;
     
-    public static void setUp(){
+    public static void setUpAllFrames(){
         setUpPeashooterFrames();
         setUpBeetrootFrames();
         setUpBackground();
         setupMenuBackground();
+        setupMenuButton();
+    
     }
     public static void setUpPeashooterFrames(){
-        PeashooterCandicateOn = ImageLoader.load("/Plants/Peashooter/candicate_on.png");
-        PeashooterCandicateOff = ImageLoader.load("/plants/peashooter/candicate_off.png");
+        
+        PeashooterCandicate = new BufferedImage[2];
+        PeashooterCandicate[0] = ImageLoader.load("/Plants/Peashooter/candicate_on.png");
+        PeashooterCandicate[1] = ImageLoader.load("/plants/peashooter/candicate_off.png");
         
         PeashooterAct = new BufferedImage[2];
         PeashooterAct[0] = ImageLoader.load("/plants/peashooter/act1.gif");
@@ -51,8 +50,10 @@ public class ImageFrames {
         
     }
     public static void setUpBeetrootFrames(){
-        BeetrootCandicateOn = ImageLoader.load("/plants/beetroot/candicate_on.png");
-        BeetrootCandicateOff = ImageLoader.load("/plants/beetroot/candicate_off.png");
+        
+        BeetrootCandicate = new BufferedImage[2];
+        BeetrootCandicate[0] = ImageLoader.load("/plants/beetroot/candicate_on.png");
+        BeetrootCandicate[1] = ImageLoader.load("/plants/beetroot/candicate_off.png");
         
         BeetrootAct = new BufferedImage[2];
         BeetrootAct[0] = ImageLoader.load("/plants/beetroot/act1.gif");
@@ -63,17 +64,29 @@ public class ImageFrames {
     }
     
     public static void setupMenuBackground() {
-        menuBackground = ImageLoader.load("/MenuBackground/menuBackground.png");   
+        menuBackground = ImageLoader.load("/Menu/menuBackground.png");
+        
     }
     
-    public static void clickToStart() {
-        clickToStart = ImageLoader.load("/MenuBackground/click_to_start.gif");
+    public static void setupMenuButton() {
+        clickButton = ImageLoader.load("/Menu/click_to_start.gif");
     }
     
+    // Image Peashooter
     public static BufferedImage[] getPeashooterAct(){ return PeashooterAct; }
-    public static BufferedImage getPeashooterCandicateOn(){ return PeashooterCandicateOn; }
-    public static BufferedImage getBeetrootCandicateOn(){ return BeetrootCandicateOn; }
+    public static BufferedImage[] getPeashooterCandicate(){ return PeashooterCandicate; }
+    
+    // Image Beetroot
+    public static BufferedImage[] getBeetrootAct(){ return BeetrootAct; }
+    public static BufferedImage[] getBeetrootCandicate(){ return BeetrootCandicate; }
+    
     public static BufferedImage getGameBackground(){ return GameBackground; }
+    
     public static BufferedImage getMenuBackground() { return menuBackground; }
-    public static BufferedImage getClickToStart() { return clickToStart; }
+    
+    public static BufferedImage getMenuButton() { return clickButton; }
+        
+    
+    
+    
 }

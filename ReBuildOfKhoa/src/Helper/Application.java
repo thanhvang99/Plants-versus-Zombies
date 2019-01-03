@@ -1,8 +1,8 @@
 package Helper;
 
-import Services.GameInterface;
+import Services.GameLogic;
 
-public abstract class Application implements GameInterface {    
+public abstract class Application implements GameLogic {    
     public abstract void render();
     
 }

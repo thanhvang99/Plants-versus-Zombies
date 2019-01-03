@@ -1,26 +1,35 @@
 package Views;
 
+import Controllers.GameMouse;
+import Helper.GUI;
 import Models.GameObjectManager;
-import Services.ImageFrames;
 import java.awt.Graphics;
 
 public class GameState extends State {
-    private Map map;
+    private GameBackground background;
     private Playground playground;
-    private OptionColumn column;
+    private GameMouse mouse;
+    
     
     public GameState(){
-        map = new Map(new GameBackground());
-        playground = new Playground(10,10);
-        column = new OptionColumn();
+        background = new GameBackground();
+        playground = new Playground(10,10);        
+        mouse = new GameMouse(background,playground);
         
-//        initializeCards();
+        // Set up
+        background.setUp();
+        GUI.getInstance().getFrame().addMouseListener(mouse);
+        GUI.getInstance().getCanvas().addMouseListener(mouse);
+        
+        GUI.getInstance().getFrame().addMouseMotionListener(mouse);
+        GUI.getInstance().getCanvas().addMouseMotionListener(mouse);
+        
     }
     @Override
     public void render(Graphics g) {
-        map.render(g);
-        column.render(g);
+        background.render(g);
         GameObjectManager.getInstance().renderAllObject(g);
+        mouse.render(g);
     }
 
     @Override
@@ -30,9 +39,6 @@ public class GameState extends State {
     }
     
     public void initializeCards(){
-//        column.addCard(ImageFrames.getPeashooterCandicateOn());
-//        column.addCard(ImageFrames.getBeetrootCandicateOn());
     }
-    
     
 }

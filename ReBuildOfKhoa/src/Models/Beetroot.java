@@ -6,12 +6,12 @@ import Views.Playground;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class Peashooter extends BasicPlant {
+public class Beetroot extends BasicPlant {
     
     private Animation actAnimation,
                       dieAnimation;
 
-    public Peashooter(float x,float y){
+    public Beetroot(float x,float y){
         super(x,y);
         
      
@@ -46,7 +46,7 @@ public class Peashooter extends BasicPlant {
 
     @Override
     public void setAnimation() {
-        actAnimation = new Animation(500,ImageFrames.getPeashooterAct());
+        actAnimation = new Animation(500,ImageFrames.getBeetrootAct());
     }
     
 }

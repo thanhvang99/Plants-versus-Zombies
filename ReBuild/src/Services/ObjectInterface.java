@@ -5,7 +5,7 @@ package Services;
 import java.awt.Rectangle;
 
 
-public interface ObjectInterface extends GameLogic {
+public interface ObjectInterface {
     public abstract Rectangle getRect();
     public abstract void setAnimation();
 }

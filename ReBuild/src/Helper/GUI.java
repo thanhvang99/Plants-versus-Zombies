@@ -90,6 +90,8 @@ public class GUI extends Application {
     
     public int getWidth(){ return width; }
     public int getHeight(){ return height; }
+    public JFrame getFrame(){ return frame; }
+    public Canvas getCanvas(){ return canvas; }
     
     
     

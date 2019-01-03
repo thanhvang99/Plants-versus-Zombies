@@ -3,7 +3,6 @@ package Views;
 import Helper.ID;
 import Models.GameObjectManager;
 import Models.GameObject;
-import Services.ImageFrames;
 import java.util.ArrayList;
 import Services.GameLogic;
 
@@ -23,8 +22,14 @@ public class Playground implements GameLogic {
         ground = new ID[y][x];
         
     }
+    public int calculateXPosition(int xPixel){
+        return ( xPixel - START_X )/ DELTA_WIDTH_CELL;
+    }
+    public int calculateYPosition(int yPixel){
+        return ( yPixel - START_Y )/ DELTA_HEIGHT_CELL;
+    }
     
-    public boolean isInPlayground(int xPixel,int yPixel){
+    public boolean isInSide(int xPixel,int yPixel){
         return ( (xPixel > START_X) && (yPixel > START_Y) ) ? true : false;
     }
     
@@ -38,22 +43,28 @@ public class Playground implements GameLogic {
         ArrayList<GameObject> listObject = GameObjectManager.getInstance().getList();
         for(GameObject object : listObject){
             int XCeil = (int)Math.ceil(object.getX());
-            int YCeil = (int)Math.ceil(object.getX());
+            int YCeil = (int)Math.ceil(object.getY());
             
             int XFloor = (int)Math.floor(object.getX());
-            int YFloor = (int)Math.floor(object.getX());
+            int YFloor = (int)Math.floor(object.getY());
             
             ground[YCeil][XCeil] = object.getID();
-            ground[YFloor][YFloor] = object.getID();
+            ground[YFloor][XFloor] = object.getID();
             
         }
     }
     public void initializeGround(){
-        for(int i=0;i<x;i++){
-            for(int j=0;j<y;j++){
+        for(int i=0;i<y;i++){
+            for(int j=0;j<x;j++){
                 ground[j][i] = null;
             }
         }
+    }
+    public boolean isExistCreature(int xPosition,int yPosition){
+        if( ground[yPosition][xPosition] == ID.OTHER || ground[yPosition][xPosition] == null  )
+            return false;
+        else
+            return true;
     }
     
 }

@@ -30,6 +30,7 @@ public class ImageFrames {
     public static void setUpAllFrames(){
         setUpPeashooterFrames();
         setUpBeetrootFrames();
+        setUpZombieFrames();
         setUpBackground();
     
     }
@@ -43,6 +44,8 @@ public class ImageFrames {
         PeashooterAct[0] = ImageLoader.load("/plants/peashooter/act1.gif");
         PeashooterAct[1] = ImageLoader.load("/plants/peashooter/act2.gif");
         
+        PeashooterBullet = ImageLoader.load("/plants/peashooter/bullet.png");
+        
     }
     public static void setUpBeetrootFrames(){
         
@@ -53,6 +56,15 @@ public class ImageFrames {
         BeetrootAct = new BufferedImage[2];
         BeetrootAct[0] = ImageLoader.load("/plants/beetroot/act1.gif");
         BeetrootAct[1] = ImageLoader.load("/plants/beetroot/act2.gif");
+        
+        BeetrootBullet = ImageLoader.load("/plants/beetroot/bullet.png");
+    }
+    public static void setUpZombieFrames(){
+        
+        NormalZombieMove = new BufferedImage[2];
+        NormalZombieMove[0] = ImageLoader.load("/zombies/normalZombie/move1.gif");
+        NormalZombieMove[1] = ImageLoader.load("/zombies/normalZombie/move2.gif");
+        
     }
     public static void setUpBackground(){
         GameBackground = ImageLoader.load("/plants/background/game.jpg");
@@ -61,10 +73,17 @@ public class ImageFrames {
     // Image Peashooter
     public static BufferedImage[] getPeashooterAct(){ return PeashooterAct; }
     public static BufferedImage[] getPeashooterCandicate(){ return PeashooterCandicate; }
+    public static BufferedImage getPeashooterBullet(){ return PeashooterBullet; }
     
     // Image Beetroot
     public static BufferedImage[] getBeetrootAct(){ return BeetrootAct; }
     public static BufferedImage[] getBeetrootCandicate(){ return BeetrootCandicate; }
+    public static BufferedImage getBeetrootBullet(){ return BeetrootBullet; }
     
+    // Image NormalZombie
+    public static BufferedImage[] getNormalZombieMove(){ return NormalZombieMove; }
+    
+            
+    // Image Background
     public static BufferedImage getGameBackground(){ return GameBackground; }
 }

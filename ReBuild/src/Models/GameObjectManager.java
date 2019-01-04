@@ -1,6 +1,5 @@
 package Models;
 
-import Helper.ID;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -31,32 +30,24 @@ public class GameObjectManager {
         for( GameObject object : list )
             object.render(g);
     }
+    
+    // If using for( : ) cause ERROR:ConcurrentModificationException
+    // For example, it is not generally permissible for one thread to modify a Collection while another thread is iterating over it ....
+    
     public void tickAllObject(){
-        for( GameObject object : list ){
-            object.tick();
+        for( int i=0;i<list.size();i++ ){
+            list.get(i).tick();
         }
     }
     
-    public ArrayList<GameObject> getListID(ID id){
-        ArrayList<GameObject> zombieList = new ArrayList<GameObject>();
-        ArrayList<GameObject> plantList = new ArrayList<GameObject>();
-        ArrayList<GameObject> otherList = new ArrayList<GameObject>();
-        for(GameObject object : list){
-            if( object.getID() == ID.ZOMBIE ){
-                zombieList.add(object);
-            }
-            if( object.getID() == ID.PLANT ){
-                plantList.add(object);
-            }
-            if( object.getID() == ID.ZOMBIE ){
-                otherList.add(object);
+    public ArrayList<GameObject> getList(){ return list; }
+    public ArrayList<GameObject> getList(int KIND){
+        ArrayList<GameObject> tempList = new ArrayList<GameObject>();
+        for( GameObject object : list ){
+            if( object.getKind() == KIND ){
+                tempList.add(object);
             }
         }
-        
-        if( id == ID.OTHER )
-            return otherList;
-        else 
-            return id == ID.PLANT ? plantList : zombieList;
+        return tempList;
     }
-    public ArrayList<GameObject> getList(){ return list; }
 }

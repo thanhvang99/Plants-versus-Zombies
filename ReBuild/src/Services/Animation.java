@@ -7,36 +7,25 @@ public class Animation implements GameLogic{
     private BufferedImage[] frames;
     private int index = 0;
     private int timeSpeed;
-    
-    private long timer = 0;
-    private long startTime,endTime;
+    private Timer timer;
     
     public Animation(int timeSpeed,BufferedImage[] frames){
         this.timeSpeed = timeSpeed;
         this.frames = frames;
+        timer = new Timer(timeSpeed);
         
-        clock();
+        
     }
 
     @Override
     public void tick() {
-        endTime = System.currentTimeMillis();
-        timer += (endTime - startTime);
-        startTime = endTime;
-        
-        if( timer >= timeSpeed ){
-            timer = 0;
-            
-            index ++;
+        if( timer.isReng() ){
+            index++;
             if( index >= frames.length )
                 index = 0;
-            
         }
+    }
+            
         
-    }
-    public void clock(){
-        startTime = System.currentTimeMillis();
-    }
-
     public BufferedImage getCurrentFrame(){ return frames[index]; }
 }

@@ -53,8 +53,8 @@ public class GameMouse implements MouseInterface {
                 tempCard = null;
             
         }else if( playground.isInSide(x, y) && tempCard != null ){
-            int xPosition = playground.calculateXPosition(x);
-            int yPostion = playground.calculateYPosition(y);
+            int xPosition = Playground.convert_Pixel_to_CordinateX(x);
+            int yPostion = Playground.convert_Pixel_to_CordinateY(y);
             
             
             if( !playground.isExistCreature(xPosition, yPostion) ){

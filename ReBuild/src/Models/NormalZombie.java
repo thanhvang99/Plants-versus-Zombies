@@ -2,24 +2,19 @@ package Models;
 
 import Services.Animation;
 import Services.ImageFrames;
-import Services.Timer;
 import Views.Playground;
 import java.awt.Graphics;
 
-public class Peashooter extends BasicPlant {
-    
-    private static final int DEFAULT_SPEED_SHOOT = 2000;     // ms
+public class NormalZombie extends BasicZombie {
     private Animation actAnimation,
                       dieAnimation;
     
-    private Timer timer;
-    public Peashooter(float x,float y){
-        super(x,y);
-        timer = new Timer(DEFAULT_SPEED_SHOOT);
-        setAnimation();
+    public NormalZombie(float x,float y,float speed){
+        super(x,y,speed);
         
+        setAnimation();
     }
-    
+
     @Override
     public void render(Graphics g) {
         float xPixel = Playground.convert_CordinateX_to_Pixel(getX());
@@ -29,19 +24,19 @@ public class Peashooter extends BasicPlant {
         
         // Test
         g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
-
     }
 
     @Override
     public void tick() {
         actAnimation.tick();
-        if( timer.isReng() )
-            act();
+        act();
+        
     }
 
     @Override
     public void act() {
-        GameObjectManager.getInstance().addObject(new NormalBullet(getX(), getY(), 6f, ImageFrames.getPeashooterBullet()));
+        setX(getX()-getSpeed()/1000);        //  x -= speed/1000;
+        moveRect();
     }
 
     @Override
@@ -49,8 +44,13 @@ public class Peashooter extends BasicPlant {
     }
 
     @Override
+    public void meetPlant() {
+    }
+
+
+    @Override
     public void setAnimation() {
-        actAnimation = new Animation(500,ImageFrames.getPeashooterAct());
+        actAnimation = new Animation(500,ImageFrames.getNormalZombieMove());
     }
     
 }

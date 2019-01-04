@@ -1,20 +1,41 @@
 package Models;
 
-import Helper.ID;
 import Services.GameLogic;
 import Services.GameDraw;
+import Services.ObjectInterface;
+import Views.Playground;
+import java.awt.Rectangle;
 
-public abstract class GameObject implements GameDraw,GameLogic {
+public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
+    public static final int ZOMBIE = 0,
+                            PLANT = 1,
+                            BULLET = 2;
+    
+    private int kind;
     private float x,y;
-    private ID id;
-    public GameObject(float x,float y,ID id){
+    private Rectangle currentRect;
+    public GameObject(float x,float y,int kind){
         this.x = x;
         this.y = y;
-        this.id = id;
-    
+        this.kind = kind;
+        
+    }
+    public void moveRect(){
+        float xPixel = Playground.convert_CordinateX_to_Pixel(getX());
+        float yPixel = Playground.convert_CordinateY_to_Pixel(getY());
+        getCurrentRect().move((int)xPixel, (int)yPixel);
     }
     public float getX(){ return x; }
     public float getY(){ return y; }
-    public ID getID(){ return id; }
+    public void setX(float x){ this.x = x; }
+    
+    public void setRect(Rectangle rect){ this.currentRect = rect; }
+    public abstract void createRectangle();
+    public Rectangle getCurrentRect(){ return currentRect; }
+    
+    @Override
+    public boolean isSolid(){ return true; }
+    @Override
+    public int getKind(){ return kind; }
     
 }

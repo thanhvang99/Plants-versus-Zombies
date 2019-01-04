@@ -1,10 +1,10 @@
 package Views;
 
-import Helper.ID;
 import Models.GameObjectManager;
 import Models.GameObject;
 import java.util.ArrayList;
 import Services.GameLogic;
+import java.awt.Rectangle;
 
 public class Playground implements GameLogic {
     public static final int DELTA_WIDTH_CELL = 105,
@@ -13,24 +13,33 @@ public class Playground implements GameLogic {
                             START_Y = 40;
     
     private int x,y;
-    private ID[][] ground;
+    private boolean[][] ground;
+    private Rectangle rect;
     
     public Playground(int x,int y){
         this.x = x;
         this.y = y;
         
-        ground = new ID[y][x];
+        ground = new boolean[y][x];
+        
+        rect = new Rectangle(START_X,START_Y,x*DELTA_WIDTH_CELL,y*DELTA_HEIGHT_CELL);
         
     }
-    public int calculateXPosition(int xPixel){
+    public static int convert_Pixel_to_CordinateX(int xPixel){
         return ( xPixel - START_X )/ DELTA_WIDTH_CELL;
     }
-    public int calculateYPosition(int yPixel){
+    public static int convert_Pixel_to_CordinateY(int yPixel){
         return ( yPixel - START_Y )/ DELTA_HEIGHT_CELL;
+    }
+    public static float convert_CordinateX_to_Pixel(float xCordinate){
+        return ( START_X + xCordinate*DELTA_WIDTH_CELL );
+    }
+    public static float convert_CordinateY_to_Pixel(float yCordinate){
+        return ( START_Y + yCordinate*DELTA_HEIGHT_CELL );
     }
     
     public boolean isInSide(int xPixel,int yPixel){
-        return ( (xPixel > START_X) && (yPixel > START_Y) ) ? true : false;
+        return rect.contains(xPixel, yPixel) ? true : false;
     }
     
     @Override
@@ -48,23 +57,21 @@ public class Playground implements GameLogic {
             int XFloor = (int)Math.floor(object.getX());
             int YFloor = (int)Math.floor(object.getY());
             
-            ground[YCeil][XCeil] = object.getID();
-            ground[YFloor][XFloor] = object.getID();
-            
+            if( XFloor >= 0 ){
+                ground[YCeil][XCeil] = object.isSolid();
+                ground[YFloor][XFloor] = object.isSolid();
+            }
         }
     }
     public void initializeGround(){
         for(int i=0;i<y;i++){
             for(int j=0;j<x;j++){
-                ground[j][i] = null;
+                ground[j][i] = false;
             }
         }
     }
     public boolean isExistCreature(int xPosition,int yPosition){
-        if( ground[yPosition][xPosition] == ID.OTHER || ground[yPosition][xPosition] == null  )
-            return false;
-        else
-            return true;
+        return ground[yPosition][xPosition];
     }
     
 }

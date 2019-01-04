@@ -15,8 +15,8 @@ public class Launcher {
         ImageFrames.setUpAllFrames();       // Load all image
         Gui.setUp();                        // Create canvas, frame as Window
         
-        
         Game game = new Game(Gui);          // Create Game run by Gui
+        Test.setUp();
         game.start();                       // Start loop game!
         
     }

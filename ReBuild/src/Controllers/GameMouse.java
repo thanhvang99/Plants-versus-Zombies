@@ -4,7 +4,7 @@ import Services.MouseInterface;
 import Views.Card;
 import Views.GameBackground;
 import Views.Playground;
-import Views.SetCardsComponent;
+import Views.ListCardComponent;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -14,7 +14,8 @@ public class GameMouse implements MouseInterface {
     private Playground playground;
     private Card tempCard = null;
     private BufferedImage tempImage = null;
-//    private boolean 
+    private boolean isBuySuccess = false;
+    private boolean isCollectSuccess = false;
     
     public GameMouse(GameBackground background,Playground playground){
         this.background = background;
@@ -31,11 +32,18 @@ public class GameMouse implements MouseInterface {
         int y = e.getY();
         
         clickAndReleaseCard(x,y);
+        if( isBuySuccess ){
+            background.getMoney().setIncreasable(true,tempCard.getCost());
+            isBuySuccess = false;
+        }
+        if( isCollectSuccess ){
+            // nothing
+        }
         
             
     }
     public void clickAndReleaseCard(int x,int y){
-        SetCardsComponent cardsComponent = background.getColumnComponent().getCardsComponent();
+        ListCardComponent cardsComponent = background.getCardComponent();
         if( cardsComponent.isInside(x, y) ){
             tempCard = cardsComponent.getList().get(cardsComponent.calculateIndexCard(x, y));
             tempImage = tempCard.getImageCard();
@@ -44,8 +52,10 @@ public class GameMouse implements MouseInterface {
             int xPosition = playground.calculateXPosition(x);
             int yPostion = playground.calculateYPosition(y);
             
-            if( !playground.isExistCreature(xPosition, yPostion) )
+            if( !playground.isExistCreature(xPosition, yPostion) ){
                 tempCard.createObject(xPosition, yPostion);
+                isBuySuccess = true;
+            }
             
             tempImage = null;
         }else

@@ -7,14 +7,14 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
-public class SetCardsComponent implements GameLogic,GameDraw {
+public class ListCardComponent implements GameLogic,GameDraw {
     
     public static final int  START_X = 10,
                              START_Y = 80;
     private ArrayList<Card> cards;
     private Rectangle rect;
     
-    public SetCardsComponent(int x,int y){
+    public ListCardComponent(int x,int y){
         rect = new Rectangle();
         cards = new ArrayList<Card>();
     }

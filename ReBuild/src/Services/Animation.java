@@ -14,7 +14,6 @@ public class Animation implements GameLogic{
     public Animation(int timeSpeed,BufferedImage[] frames){
         this.timeSpeed = timeSpeed;
         this.frames = frames;
-        System.out.println(frames);
         
         clock();
     }

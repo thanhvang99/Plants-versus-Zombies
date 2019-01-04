@@ -26,6 +26,7 @@ public abstract class Card implements GameDraw{
         return true;
     }
     public abstract BufferedImage getImageCard();
+    public int getCost(){ return cost; }
     
 
 }

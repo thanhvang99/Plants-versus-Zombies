@@ -5,12 +5,13 @@ import Services.ImageFrames;
 import java.awt.Graphics;
 
 public class GameBackground extends Background {
-    private ColumnComponent column;
-    
+    private ListCardComponent listCard;
+    private Money money;
     
     public GameBackground(){
         
-        column = new ColumnComponent();
+        listCard = new ListCardComponent(ListCardComponent.START_X,ListCardComponent.START_Y);
+        money = new Money(1000);
     }
 
     @Override
@@ -34,7 +35,8 @@ public class GameBackground extends Background {
 //          g.drawLine(360, 460, GUI.getInstance().getWidth(), 460);
 //          g.drawLine(360, 600, GUI.getInstance().getWidth(), 600);
           
-          column.render(g);
+          listCard.render(g);
+          money.render(g);
           
           
     }
@@ -42,17 +44,22 @@ public class GameBackground extends Background {
     @Override
     public void tick() {
         // Nothing
+        money.tick();
+        
     }
     
     @Override
     public void setUp(){
-        setUpColumnComponent();
+        setUpCardComponent();
     }
     
-    public void setUpColumnComponent(){
-        column.setUpCardsComponent();;
+    public void setUpCardComponent(){
+        listCard.addNewCard(new PeashooterCard(100));
+        listCard.addNewCard(new BeetrootCard(125));
+        
     }   
     
-    public ColumnComponent getColumnComponent(){ return column; }
+    public ListCardComponent getCardComponent(){ return listCard; }
+    public Money getMoney(){ return money; }
     
 }

@@ -14,7 +14,6 @@ public class GameMouse implements MouseInterface {
     private Playground playground;
     private Card tempCard = null;
     private BufferedImage tempImage = null;
-//    private boolean 
     
     public GameMouse(GameBackground background,Playground playground){
         this.background = background;
@@ -51,6 +50,7 @@ public class GameMouse implements MouseInterface {
         }else
             tempImage = null;
     }
+    
     @Override
     public void render(Graphics g) {
         g.drawImage(tempImage, xCurrent, yCurrent, null);

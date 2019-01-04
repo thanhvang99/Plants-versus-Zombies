@@ -8,4 +8,6 @@ public abstract class State implements GameDraw,GameLogic {
     
     public static State getCurrentState(){ return currentState; }
     public static void setState(State state){ currentState = state; }
+    
+    public abstract void setupState();
 }

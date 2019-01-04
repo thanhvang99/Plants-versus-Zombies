@@ -81,6 +81,7 @@ public class GUI extends Application {
         menuState = new MenuState();
         gameState = new GameState();
         
+        
         // Set up currentState
         State.setState(menuState);
         
@@ -92,6 +93,8 @@ public class GUI extends Application {
     public int getHeight(){ return height; }
     public JFrame getFrame(){ return frame; }
     public Canvas getCanvas(){ return canvas; }
+    public State getGameState(){ return gameState; }
+    public State getMenuState(){ return menuState; }
     
     
     

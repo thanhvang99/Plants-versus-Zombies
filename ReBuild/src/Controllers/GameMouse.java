@@ -33,8 +33,9 @@ public class GameMouse implements MouseInterface {
         
         clickAndReleaseCard(x,y);
         if( isBuySuccess ){
-            background.getMoney().setIncreasable(true,tempCard.getCost());
+            background.getMoney().setDecreasable(true,tempCard.getCost());
             isBuySuccess = false;
+            tempCard = null;
         }
         if( isCollectSuccess ){
             // nothing
@@ -46,11 +47,15 @@ public class GameMouse implements MouseInterface {
         ListCardComponent cardsComponent = background.getCardComponent();
         if( cardsComponent.isInside(x, y) ){
             tempCard = cardsComponent.getList().get(cardsComponent.calculateIndexCard(x, y));
-            tempImage = tempCard.getImageCard();
+            if( tempCard.getActive() == Card.ON ){
+                tempImage = tempCard.getImageCard();
+            }else
+                tempCard = null;
             
-        }else if( playground.isInSide(x, y) ){
+        }else if( playground.isInSide(x, y) && tempCard != null ){
             int xPosition = playground.calculateXPosition(x);
             int yPostion = playground.calculateYPosition(y);
+            
             
             if( !playground.isExistCreature(xPosition, yPostion) ){
                 tempCard.createObject(xPosition, yPostion);
@@ -58,8 +63,9 @@ public class GameMouse implements MouseInterface {
             }
             
             tempImage = null;
-        }else
+        }else{
             tempImage = null;
+        }
     }
     @Override
     public void render(Graphics g) {

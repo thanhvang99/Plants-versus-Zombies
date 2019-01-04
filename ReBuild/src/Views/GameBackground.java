@@ -44,6 +44,7 @@ public class GameBackground extends Background {
     @Override
     public void tick() {
         // Nothing
+        listCard.tick();
         money.tick();
         
     }
@@ -51,6 +52,7 @@ public class GameBackground extends Background {
     @Override
     public void setUp(){
         setUpCardComponent();
+        listCard.setRelationWithMoney(money);
     }
     
     public void setUpCardComponent(){

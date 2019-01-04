@@ -36,6 +36,7 @@ public class GameState extends State {
     public void tick() {
         GameObjectManager.getInstance().tickAllObject();
         playground.tick();
+        background.tick();
     }
     
     public void initializeCards(){

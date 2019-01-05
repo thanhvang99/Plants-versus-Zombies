@@ -34,7 +34,7 @@ public class Beetroot extends BasicPlant {
     @Override
     public void tick() {
         actAnimation.tick();
-        if( timer.isReng() )
+        if( timer.isTimeOut() )
             act();
     }
 

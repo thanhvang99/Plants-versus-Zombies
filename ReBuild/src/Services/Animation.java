@@ -23,7 +23,7 @@ public class Animation implements GameLogic{
 
     @Override
     public void tick() {
-        if( timer.isReng() ){
+        if( timer.isTimeOut() ){
             index++;
             if( index >= frames.length ){
                 index = 0;

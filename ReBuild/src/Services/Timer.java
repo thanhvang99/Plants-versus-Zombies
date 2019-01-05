@@ -17,7 +17,7 @@ public class Timer {
     }
     
     
-    public boolean isReng() {
+    public boolean isTimeOut() {
         endTime = System.currentTimeMillis();
         delta += (endTime - startTime);
         startTime = endTime;

@@ -34,27 +34,36 @@ public class NormalZombie extends BasicZombie {
     @Override
     public void tick() {
         animation[getState()].tick();
-        act();
-        
         checkCollision();
+        act();
         checkDied();
         
     }
 
     @Override
     public void act() {
-        setX(getX()-getSpeed()/1000);        //  x -= speed/1000;
+        if (plantCollision == null) {
+            changeSpeedTo(getInitialSpeed());
+            
+        }else{
+            changeSpeedTo(0);
+            attack(plantCollision);
+            
+            if( plantCollision.getHealth() <= 0 ){
+                plantCollision = null;
+            }
+        }
+        setX(getX() - getCurrentSpeed() / 1000);        //  x -= speed/1000;
         moveRect();
+        
     }
 
     @Override
     public void checkCollision(){
         ArrayList<GameObject> listPlant = GameObjectManager.getInstance().getList(PLANT);
         for(GameObject object : listPlant){
-            System.out.println(getCurrentRect().intersects(object.getCurrentRect()));
             if( getCurrentRect().intersects(object.getCurrentRect()) ){
-                decreaseSpeedUntilZero();
-                attack(object);
+                plantCollision = object;
             }
         }
     }
@@ -70,16 +79,11 @@ public class NormalZombie extends BasicZombie {
         }
     }
     
-    public void decreaseSpeedUntilZero() {
-        setSpeed(getSpeed() - 0.02f);
-        if (getSpeed() <= 0) {
-            setSpeed(0);
-        }
-    }
     
     public void attack(GameObject object){
-        if( timer.isReng() )
-            object.setHealth(getHealth()-30);
+        if( timer.isTimeOut() ){
+            object.setHealth(object.getHealth()-30);
+        }
     }
     @Override
     public void meetPlant() {

@@ -13,7 +13,6 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
     public static final int ACT = 0,
                             DIE = 1;
     
-    
     private int kind,state;
     private float x,y;
     private int health;
@@ -38,7 +37,7 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
     public float getY(){ return y; }
     public void setHealth(int health){ this.health = health; }
     public int getHealth(){ return health; }
-    
+
     @Override
     public boolean isSolid(){ return true; }
     @Override

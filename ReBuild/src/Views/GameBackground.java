@@ -20,7 +20,7 @@ public class GameBackground extends Background {
         
         // This is for testingg.drawLine(360, 50, 360, Window.getInstance().getHeight());
            
-          g.drawLine(350, 50, 350, GUI.getInstance().getHeight());
+          g.drawLine(360, 50, 360, GUI.getInstance().getHeight());
           g.drawLine(465, 50, 465, GUI.getInstance().getHeight());
           g.drawLine(570, 50, 570, GUI.getInstance().getHeight());
           g.drawLine(675, 50, 675, GUI.getInstance().getHeight());

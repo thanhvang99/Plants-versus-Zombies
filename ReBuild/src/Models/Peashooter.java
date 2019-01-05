@@ -41,14 +41,13 @@ public class Peashooter extends BasicPlant {
 
     @Override
     public void act() {
-        if (timer.isReng()) {
+        if (timer.isTimeOut()) {
             GameObjectManager.getInstance().addObject(new NormalBullet(getX(), getY(), 6f, ImageFrames.getPeashooterBullet()));
         }
     }
 
     @Override
     public void checkDied() {
-//        System.out.println(getHealth());
         if( getHealth() <= 0 ){
             setState(DIE);
             if( !animation[getState()].isFirstLoop() ){

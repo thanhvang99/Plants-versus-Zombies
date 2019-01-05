@@ -57,9 +57,9 @@ public class Playground implements GameLogic {
             int XFloor = (int)Math.floor(object.getX());
             int YFloor = (int)Math.floor(object.getY());
             
-            if( XFloor >= 0 ){
-                ground[YCeil][XCeil] = object.isSolid();
-                ground[YFloor][XFloor] = object.isSolid();
+            if( XFloor >= 0 && object.isSolid() ){
+                ground[YCeil][XCeil] = true;
+                ground[YFloor][XFloor] = true;
             }
         }
     }

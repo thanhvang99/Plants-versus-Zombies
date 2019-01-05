@@ -70,7 +70,9 @@ public class NormalBullet extends GameObject {
         ArrayList<GameObject> listZombie = GameObjectManager.getInstance().getList(ZOMBIE);
         for( GameObject object : listZombie ){
             if( getCurrentRect().intersects(object.getCurrentRect()) ){
+                object.setHealth(object.getHealth()-30);                // health -= 30;
                 GameObjectManager.getInstance().removeObject(this);
+                
             }
         }
     }

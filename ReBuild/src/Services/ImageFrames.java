@@ -65,6 +65,14 @@ public class ImageFrames {
         NormalZombieMove[0] = ImageLoader.load("/zombies/normalZombie/move1.gif");
         NormalZombieMove[1] = ImageLoader.load("/zombies/normalZombie/move2.gif");
         
+        NormalZombieDie = new BufferedImage[6];
+        NormalZombieDie[0] = ImageLoader.load("/zombies/normalZombie/die1.gif");
+        NormalZombieDie[1] = ImageLoader.load("/zombies/normalZombie/die2.gif");
+        NormalZombieDie[2] = ImageLoader.load("/zombies/normalZombie/die3.gif");
+        NormalZombieDie[3] = ImageLoader.load("/zombies/normalZombie/die4.gif");
+        NormalZombieDie[4] = ImageLoader.load("/zombies/normalZombie/die5.gif");    
+        NormalZombieDie[5] = ImageLoader.load("/zombies/normalZombie/die6.gif");
+        
     }
     public static void setUpBackground(){
         GameBackground = ImageLoader.load("/plants/background/game.jpg");
@@ -82,6 +90,7 @@ public class ImageFrames {
     
     // Image NormalZombie
     public static BufferedImage[] getNormalZombieMove(){ return NormalZombieMove; }
+    public static BufferedImage[] getNormalZombieDie(){ return NormalZombieDie; }
     
             
     // Image Background

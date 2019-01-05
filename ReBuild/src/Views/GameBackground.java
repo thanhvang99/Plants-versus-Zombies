@@ -60,6 +60,7 @@ public class GameBackground extends Background {
     public void setUpCardComponent(){
         listCard.addNewCard(new PeashooterCard(100));
         listCard.addNewCard(new BeetrootCard(125));
+        listCard.addNewCard(new SunflowerCard(50));
         
     }   
     

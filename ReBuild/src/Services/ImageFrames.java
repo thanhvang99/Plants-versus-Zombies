@@ -20,6 +20,9 @@ public class ImageFrames {
                                    BeetrootDie,
                                    BeetrootCandicate;
     
+    // sunflower
+    private static BufferedImage[] SunflowerCandicate;
+    
     // Normal Zombie
     private static BufferedImage[] NormalZombieDie,
                                    NormalZombieMove;
@@ -33,6 +36,8 @@ public class ImageFrames {
         setUpZombieFrames();
         setUpBackground();
     
+        setupSunflowerFrames();
+        
     }
     public static void setUpPeashooterFrames(){
         
@@ -79,6 +84,14 @@ public class ImageFrames {
         NormalZombieDie[5] = ImageLoader.load("/zombies/normalZombie/die6.gif");
         
     }
+    
+    public static void setupSunflowerFrames() {
+        SunflowerCandicate = new BufferedImage[2];
+        SunflowerCandicate[0] = ImageLoader.load("/plants/sunflower/candicate_on.png");
+        SunflowerCandicate[1] = ImageLoader.load("/plants/sunflower/candicate_off.png");
+        
+    }
+    
     public static void setUpBackground(){
         GameBackground = ImageLoader.load("/plants/background/game.jpg");
     }
@@ -97,6 +110,9 @@ public class ImageFrames {
     // Image NormalZombie
     public static BufferedImage[] getNormalZombieMove(){ return NormalZombieMove; }
     public static BufferedImage[] getNormalZombieDie(){ return NormalZombieDie; }
+    
+    // Image Sunflower
+    public static BufferedImage[] getSunflowerCandicate() { return SunflowerCandicate; }
     
             
     // Image Background

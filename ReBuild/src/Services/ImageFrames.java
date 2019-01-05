@@ -22,6 +22,7 @@ public class ImageFrames {
     
     // sunflower
     private static BufferedImage[] SunflowerCandicate;
+    private static BufferedImage[] SunflowerAct, SunflowerDie;
     
     // Normal Zombie
     private static BufferedImage[] NormalZombieDie,
@@ -90,6 +91,12 @@ public class ImageFrames {
         SunflowerCandicate[0] = ImageLoader.load("/plants/sunflower/candicate_on.png");
         SunflowerCandicate[1] = ImageLoader.load("/plants/sunflower/candicate_off.png");
         
+        SunflowerAct = new BufferedImage[1];
+        SunflowerAct[0] = ImageLoader.load("/plants/sunflower/act.gif");
+        
+        SunflowerDie = new BufferedImage[1];
+        SunflowerDie[0] = ImageLoader.load("/plants/sunflower/die.gif");
+        
     }
     
     public static void setUpBackground(){
@@ -113,7 +120,8 @@ public class ImageFrames {
     
     // Image Sunflower
     public static BufferedImage[] getSunflowerCandicate() { return SunflowerCandicate; }
-    
+    public static BufferedImage[] getSunflowerAct() { return SunflowerAct; }
+    public static BufferedImage[] getSunflowerDie() { return SunflowerDie; }
             
     // Image Background
     public static BufferedImage getGameBackground(){ return GameBackground; }

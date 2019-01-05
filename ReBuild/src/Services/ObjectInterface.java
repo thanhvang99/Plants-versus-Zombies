@@ -11,4 +11,5 @@ public interface ObjectInterface {
     public abstract boolean isSolid();
     public abstract int getKind();
     public abstract void checkCollision();
+    public abstract void checkDied();
 }

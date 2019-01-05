@@ -44,6 +44,11 @@ public class ImageFrames {
         PeashooterAct[0] = ImageLoader.load("/plants/peashooter/act1.gif");
         PeashooterAct[1] = ImageLoader.load("/plants/peashooter/act2.gif");
         
+        PeashooterDie = new BufferedImage[3];
+        PeashooterDie[0] = ImageLoader.load("/plants/peashooter/die1.gif");
+        PeashooterDie[1] = ImageLoader.load("/plants/peashooter/die2.gif");
+        PeashooterDie[2] = ImageLoader.load("/plants/peashooter/die3.gif");
+        
         PeashooterBullet = ImageLoader.load("/plants/peashooter/bullet.png");
         
     }
@@ -81,6 +86,7 @@ public class ImageFrames {
     // Image Peashooter
     public static BufferedImage[] getPeashooterAct(){ return PeashooterAct; }
     public static BufferedImage[] getPeashooterCandicate(){ return PeashooterCandicate; }
+    public static BufferedImage[] getPeashooterDie(){ return PeashooterDie; }
     public static BufferedImage getPeashooterBullet(){ return PeashooterBullet; }
     
     // Image Beetroot

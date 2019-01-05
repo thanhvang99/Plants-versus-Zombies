@@ -77,4 +77,8 @@ public class NormalBullet extends GameObject {
         }
     }
 
+    @Override
+    public void checkDied() {
+    }
+
 }

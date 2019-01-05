@@ -44,7 +44,7 @@ public class Beetroot extends BasicPlant {
     }
 
     @Override
-    public void isDied() {
+    public void checkDied() {
     }
 
 

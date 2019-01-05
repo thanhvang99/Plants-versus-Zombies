@@ -9,8 +9,7 @@ import java.awt.Graphics;
 public class Peashooter extends BasicPlant {
     
     private static final int DEFAULT_SPEED_SHOOT = 2000;     // ms
-    private Animation actAnimation,
-                      dieAnimation;
+    private Animation[] animation;
     
     private Timer timer;
     public Peashooter(float x,float y){
@@ -25,7 +24,7 @@ public class Peashooter extends BasicPlant {
         float xPixel = Playground.convert_CordinateX_to_Pixel(getX());
         float yPixel = Playground.convert_CordinateY_to_Pixel(getY());
         
-        g.drawImage(actAnimation.getCurrentFrame(), (int)xPixel,(int)yPixel, DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
+        g.drawImage(animation[getState()].getCurrentFrame(), (int)xPixel,(int)yPixel, DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
         
         // Test
         g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
@@ -34,23 +33,35 @@ public class Peashooter extends BasicPlant {
 
     @Override
     public void tick() {
-        actAnimation.tick();
-        if( timer.isReng() )
-            act();
+        animation[getState()].tick();
+        
+        act();
+        checkDied();
     }
 
     @Override
     public void act() {
-        GameObjectManager.getInstance().addObject(new NormalBullet(getX(), getY(), 6f, ImageFrames.getPeashooterBullet()));
+        if (timer.isReng()) {
+            GameObjectManager.getInstance().addObject(new NormalBullet(getX(), getY(), 6f, ImageFrames.getPeashooterBullet()));
+        }
     }
 
     @Override
-    public void isDied() {
+    public void checkDied() {
+//        System.out.println(getHealth());
+        if( getHealth() <= 0 ){
+            setState(DIE);
+            if( !animation[getState()].isFirstLoop() ){
+                GameObjectManager.getInstance().removeObject(this);
+            }
+        }
     }
 
     @Override
     public void setAnimation() {
-        actAnimation = new Animation(500,ImageFrames.getPeashooterAct());
+        animation = new Animation[2];
+        animation[0] = new Animation(500,ImageFrames.getPeashooterAct());
+        animation[1] = new Animation(500,ImageFrames.getPeashooterDie());
     }
     
 }

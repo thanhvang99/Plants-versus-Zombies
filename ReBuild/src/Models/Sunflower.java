@@ -7,30 +7,28 @@ package Models;
 
 import Services.Animation;
 import Services.ImageFrames;
-import Views.Playground;
+import Services.Timer;
 import java.awt.Graphics;
+import java.util.Random;
 
 /**
  *
  * @author ldakhoa
  */
 public class Sunflower extends BasicPlant {
-    
     private Animation[] animation;
+    private Timer timer;
     
     public Sunflower(float x, float y) {
         super(x, y);
+        timer = new Timer(15000);
         
         setAnimation();
     }
 
     @Override
     public void render(Graphics g) {
-        float xPixel = Playground.convert_CordinateX_to_Pixel(getX());
-        float yPixel = Playground.convert_CordinateY_to_Pixel(getY());
-        
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)xPixel,(int)yPixel, DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
-        
+        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
         // Test
         g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
     }
@@ -38,6 +36,9 @@ public class Sunflower extends BasicPlant {
     @Override
     public void tick() {
         animation[getState()].tick();
+        
+        act();
+        checkDied();
     }
 
     @Override
@@ -49,7 +50,11 @@ public class Sunflower extends BasicPlant {
 
     @Override
     public void act() {
-//        GameObjectManager.getInstance().addObject();
+        if (timer.isTimeOut()) {
+            Random r = new Random();
+            
+            GameObjectManager.getInstance().addObject(new Sun(r.nextInt(5), -1));
+        }
     }
 
     @Override

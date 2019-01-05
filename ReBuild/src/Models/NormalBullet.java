@@ -11,22 +11,19 @@ public class NormalBullet extends GameObject {
     private BufferedImage image;
     private float speed;
     private static final int DEFAULT_WIDTH = 20,
-            DEFAULT_HEIGHT = 20;
+                             DEFAULT_HEIGHT = 20;
 
     public NormalBullet(float x, float y, float speed, BufferedImage image) {
-        super(x, y, BULLET);
+        super(x, y, STUFF_NO_MOUSE);
         this.image = image;
         this.speed = speed;
-
+        
         createRectangle();
     }
 
     @Override
     public void render(Graphics g) {
-        float xPixel = Playground.convert_CordinateX_to_Pixel(getX());
-        float yPixel = Playground.convert_CordinateY_to_Pixel(getY());
-
-        g.drawImage(image, (int) xPixel, (int) yPixel, DEFAULT_WIDTH, DEFAULT_HEIGHT, null);
+        g.drawImage(image, (int) getXPixel(), (int) getYPixel(), DEFAULT_WIDTH, DEFAULT_HEIGHT, null);
         
         // Test
         g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
@@ -39,10 +36,11 @@ public class NormalBullet extends GameObject {
 
     @Override
     public void act() {
-        setX(getX() + speed / 1000);        //  x += speed/1000;
+        setX(getXCordinate() + speed/ 1000);        //  x += speed/1000;
         moveRect();
+        updateXYPixel();
 
-        if (getX() >= 9) {
+        if (getXCordinate() >= 9) {
             GameObjectManager.getInstance().removeObject(this);
         }
         checkCollision();
@@ -50,11 +48,7 @@ public class NormalBullet extends GameObject {
 
     @Override
     public void createRectangle() {
-
-        float xPixel = Playground.convert_CordinateX_to_Pixel(getX());
-        float yPixel = Playground.convert_CordinateY_to_Pixel(getY());
-
-        setRect(new Rectangle((int) xPixel, (int) yPixel, DEFAULT_WIDTH, DEFAULT_HEIGHT));
+        setRect(new Rectangle((int) getXPixel(), (int) getYPixel(), DEFAULT_WIDTH, DEFAULT_HEIGHT));
     }
 
     @Override

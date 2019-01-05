@@ -22,10 +22,7 @@ public class Beetroot extends BasicPlant {
     
     @Override
     public void render(Graphics g) {
-        float xPixel = Playground.convert_CordinateX_to_Pixel(getX());
-        float yPixel = Playground.convert_CordinateY_to_Pixel(getY());
-        
-        g.drawImage(actAnimation.getCurrentFrame(), (int)xPixel,(int)yPixel, DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
+        g.drawImage(actAnimation.getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
         
         // Test
         g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
@@ -40,7 +37,7 @@ public class Beetroot extends BasicPlant {
 
     @Override
     public void act() {
-        GameObjectManager.getInstance().addObject(new NormalBullet(getX(),getY(),8.0f,ImageFrames.getBeetrootBullet()));
+        GameObjectManager.getInstance().addObject(new NormalBullet(getXCordinate(),getYCordinate(),8.0f,ImageFrames.getBeetrootBullet()));
     }
 
     @Override
@@ -51,6 +48,10 @@ public class Beetroot extends BasicPlant {
     @Override
     public void setAnimation() {
         actAnimation = new Animation(500,ImageFrames.getBeetrootAct());
+    }
+
+    @Override
+    public void checkCollision() {
     }
 
     

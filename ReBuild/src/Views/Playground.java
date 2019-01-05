@@ -51,13 +51,13 @@ public class Playground implements GameLogic {
     public void updateNewIDPosition(){
         ArrayList<GameObject> listObject = GameObjectManager.getInstance().getList();
         for(GameObject object : listObject){
-            int XCeil = (int)Math.ceil(object.getX());
-            int YCeil = (int)Math.ceil(object.getY());
+            int XCeil = (int)Math.ceil(object.getXCordinate());
+            int YCeil = (int)Math.ceil(object.getYCordinate());
             
-            int XFloor = (int)Math.floor(object.getX());
-            int YFloor = (int)Math.floor(object.getY());
+            int XFloor = (int)Math.floor(object.getXCordinate());
+            int YFloor = (int)Math.floor(object.getYCordinate());
             
-            if( XFloor >= 0 && object.isSolid() ){
+            if( XFloor >= 0 && XCeil< x && object.isSolid() ){
                 ground[YCeil][XCeil] = true;
                 ground[YFloor][XFloor] = true;
             }

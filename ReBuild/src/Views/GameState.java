@@ -1,11 +1,13 @@
 package Views;
 
 import Controllers.GameMouse;
+import Controllers.Spawner;
 import Helper.GUI;
 import Models.GameObjectManager;
 import java.awt.Graphics;
 
 public class GameState extends State {
+    private Spawner spawner;
     private GameBackground background;
     private Playground playground;
     private GameMouse mouse;
@@ -15,6 +17,7 @@ public class GameState extends State {
         background = new GameBackground();
         playground = new Playground(10,10);        
         mouse = new GameMouse(background,playground);
+        spawner = new Spawner();
         
         // Set up
         background.setUp();
@@ -34,12 +37,11 @@ public class GameState extends State {
 
     @Override
     public void tick() {
+        spawner.tick();
         GameObjectManager.getInstance().tickAllObject();
         playground.tick();
         background.tick();
     }
     
-    public void initializeCards(){
-    }
     
 }

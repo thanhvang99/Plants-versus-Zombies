@@ -21,8 +21,10 @@ public class ImageFrames {
                                    BeetrootCandicate;
     
     // sunflower
-    private static BufferedImage[] SunflowerCandicate;
-    private static BufferedImage[] SunflowerAct, SunflowerDie;
+    private static BufferedImage[] SunflowerCandicate,
+                                   SunflowerAct,
+                                   SunflowerDie,
+                                   Sun;
     
     // Normal Zombie
     private static BufferedImage[] NormalZombieDie,
@@ -91,12 +93,21 @@ public class ImageFrames {
         SunflowerCandicate[0] = ImageLoader.load("/plants/sunflower/candicate_on.png");
         SunflowerCandicate[1] = ImageLoader.load("/plants/sunflower/candicate_off.png");
         
-        SunflowerAct = new BufferedImage[1];
-        SunflowerAct[0] = ImageLoader.load("/plants/sunflower/act.gif");
+        SunflowerAct = new BufferedImage[2];
+        SunflowerAct[0] = ImageLoader.load("/plants/sunflower/act1.gif");
+        SunflowerAct[1] = ImageLoader.load("/plants/sunflower/act2.gif");
         
-        SunflowerDie = new BufferedImage[1];
-        SunflowerDie[0] = ImageLoader.load("/plants/sunflower/die.gif");
-        
+        SunflowerDie = new BufferedImage[5];
+        SunflowerDie[0] = ImageLoader.load("/plants/sunflower/die1.gif");
+        SunflowerDie[1] = ImageLoader.load("/plants/sunflower/die2.gif");
+        SunflowerDie[2] = ImageLoader.load("/plants/sunflower/die3.gif");
+        SunflowerDie[3] = ImageLoader.load("/plants/sunflower/die4.gif");
+        SunflowerDie[4] = ImageLoader.load("/plants/sunflower/die5.gif");
+
+        Sun = new BufferedImage[3];
+        Sun[0] = ImageLoader.load("/plants/sunflower/sun1.gif");
+        Sun[1] = ImageLoader.load("/plants/sunflower/sun2.gif");
+        Sun[2] = ImageLoader.load("/plants/sunflower/sun3.gif");
     }
     
     public static void setUpBackground(){
@@ -122,6 +133,7 @@ public class ImageFrames {
     public static BufferedImage[] getSunflowerCandicate() { return SunflowerCandicate; }
     public static BufferedImage[] getSunflowerAct() { return SunflowerAct; }
     public static BufferedImage[] getSunflowerDie() { return SunflowerDie; }
+    public static BufferedImage[] getSun(){ return Sun; }
             
     // Image Background
     public static BufferedImage getGameBackground(){ return GameBackground; }

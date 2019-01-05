@@ -3,7 +3,6 @@ package Models;
 import Services.Animation;
 import Services.ImageFrames;
 import Services.Timer;
-import Views.Playground;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -22,10 +21,8 @@ public class NormalZombie extends BasicZombie {
 
     @Override
     public void render(Graphics g) {
-        float xPixel = Playground.convert_CordinateX_to_Pixel(getX());
-        float yPixel = Playground.convert_CordinateY_to_Pixel(getY());
         
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)xPixel,(int)yPixel, DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
+        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
         
         // Test
         g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
@@ -37,6 +34,8 @@ public class NormalZombie extends BasicZombie {
         checkCollision();
         act();
         checkDied();
+        
+        
         
     }
 
@@ -53,9 +52,9 @@ public class NormalZombie extends BasicZombie {
                 plantCollision = null;
             }
         }
-        setX(getX() - getCurrentSpeed() / 1000);        //  x -= speed/1000;
+        setX(getXCordinate() - getCurrentSpeed() / 1000);        //  x -= speed/1000;
         moveRect();
-        
+        updateXYPixel();
     }
 
     @Override

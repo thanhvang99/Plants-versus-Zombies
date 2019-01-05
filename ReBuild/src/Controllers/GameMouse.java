@@ -1,5 +1,7 @@
 package Controllers;
 
+import Models.GameObject;
+import Models.GameObjectManager;
 import Services.MouseInterface;
 import Views.Card;
 import Views.GameBackground;
@@ -8,6 +10,7 @@ import Views.ListCardComponent;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class GameMouse implements MouseInterface {
     private GameBackground background;
@@ -32,14 +35,8 @@ public class GameMouse implements MouseInterface {
         int y = e.getY();
         
         clickAndReleaseCard(x,y);
-        if( isBuySuccess ){
-            background.getMoney().setDecreasable(true,tempCard.getCost());
-            isBuySuccess = false;
-            tempCard = null;
-        }
-        if( isCollectSuccess ){
-            // nothing
-        }
+        checkBuySuccess();
+        checkCollectSun(x,y);
         
             
     }
@@ -60,6 +57,8 @@ public class GameMouse implements MouseInterface {
             if( !playground.isExistCreature(xPosition, yPostion) ){
                 tempCard.createObject(xPosition, yPostion);
                 isBuySuccess = true;
+            }else{
+                tempCard = null;
             }
             
             tempImage = null;
@@ -67,6 +66,21 @@ public class GameMouse implements MouseInterface {
             tempImage = null;
         }
     }
+    
+    public void checkBuySuccess(){
+        if( isBuySuccess ){
+            background.getMoney().setDecreasable(tempCard.getCost());
+            isBuySuccess = false;
+            tempCard = null;
+        }
+    }
+    public void checkCollectSun(int xPixel,int yPixel){
+        ArrayList<GameObject> list = GameObjectManager.getInstance().getList(GameObject.STUFF_WITH_MOUSE);
+        for(GameObject object : list){
+            object.checkMouseClick(xPixel, yPixel);
+        }
+    }
+    
     @Override
     public void render(Graphics g) {
         g.drawImage(tempImage, xCurrent, yCurrent, null);

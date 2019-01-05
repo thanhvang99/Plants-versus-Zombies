@@ -1,7 +1,9 @@
 package Helper;
 
 import Models.GameObjectManager;
+import Models.NormalBullet;
 import Models.NormalZombie;
+import Services.ImageFrames;
 
 public class Test {
     public static void setUp(){
@@ -15,5 +17,8 @@ public class Test {
         GameObjectManager.getInstance().addObject(z3);
         GameObjectManager.getInstance().addObject(z4);
         GameObjectManager.getInstance().addObject(z5);
+        
+        NormalBullet b1= new NormalBullet(1,1,1,ImageFrames.getPeashooterBullet());
+        GameObjectManager.getInstance().addObject(b1);
     }
 }

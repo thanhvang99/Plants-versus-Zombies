@@ -28,4 +28,7 @@ public class Timer {
         return false;
         
     }
+    public void setTimeOut(int timeOut){
+        this.timeOut = timeOut;
+    }
 }   

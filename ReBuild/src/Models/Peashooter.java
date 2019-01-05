@@ -3,7 +3,6 @@ package Models;
 import Services.Animation;
 import Services.ImageFrames;
 import Services.Timer;
-import Views.Playground;
 import java.awt.Graphics;
 
 public class Peashooter extends BasicPlant {
@@ -21,10 +20,8 @@ public class Peashooter extends BasicPlant {
     
     @Override
     public void render(Graphics g) {
-        float xPixel = Playground.convert_CordinateX_to_Pixel(getX());
-        float yPixel = Playground.convert_CordinateY_to_Pixel(getY());
         
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)xPixel,(int)yPixel, DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
+        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
         
         // Test
         g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
@@ -42,12 +39,13 @@ public class Peashooter extends BasicPlant {
     @Override
     public void act() {
         if (timer.isTimeOut()) {
-            GameObjectManager.getInstance().addObject(new NormalBullet(getX(), getY(), 6f, ImageFrames.getPeashooterBullet()));
+            GameObjectManager.getInstance().addObject(new NormalBullet(getXCordinate(), getYCordinate(), 6f, ImageFrames.getPeashooterBullet()));
         }
     }
 
     @Override
     public void checkDied() {
+//        System.out.println(getHealth());
         if( getHealth() <= 0 ){
             setState(DIE);
             if( !animation[getState()].isFirstLoop() ){

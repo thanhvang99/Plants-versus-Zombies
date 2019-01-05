@@ -21,6 +21,7 @@ public class GameObjectManager {
     }
     public void addObject(GameObject object){
         list.add(object);
+        
     }
     public void removeObject(GameObject object){
         list.remove(object);

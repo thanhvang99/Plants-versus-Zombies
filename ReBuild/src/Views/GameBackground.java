@@ -1,6 +1,7 @@
 package Views;
 
 import Helper.GUI;
+import Models.Sun;
 import Services.ImageFrames;
 import java.awt.Graphics;
 
@@ -12,6 +13,7 @@ public class GameBackground extends Background {
         
         listCard = new ListCardComponent(ListCardComponent.START_X,ListCardComponent.START_Y);
         money = new Money(1000);
+        Sun.setAssociationWithMoney(money);
     }
 
     @Override

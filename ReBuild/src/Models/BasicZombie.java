@@ -20,12 +20,7 @@ public abstract class BasicZombie extends GameObject implements ZombieInterface 
     }
     
     public void createRectangle(){
-        
-        float xPixel = Playground.convert_CordinateX_to_Pixel(getX());
-        float yPixel = Playground.convert_CordinateY_to_Pixel(getY());
-        
-        setRect(new Rectangle((int)xPixel,(int)yPixel,DEFAULT_WIDTH,DEFAULT_HEIGHT));
-        
+        setRect(new Rectangle((int)getXPixel(),(int)getYPixel(),DEFAULT_WIDTH,DEFAULT_HEIGHT));
     }
     
     public void changeSpeedTo(float speed){

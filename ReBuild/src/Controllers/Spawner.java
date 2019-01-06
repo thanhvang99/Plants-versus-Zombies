@@ -21,7 +21,7 @@ public class Spawner implements GameLogic {
         if( timer.isTimeOut() ){
             int xRandom = r.nextInt(1) + 10;
             int yRandom = r.nextInt(5);
-            int speedRandom = r.nextInt(3)+1;
+            int speedRandom = r.nextInt(3)+3;
 //            System.out.println(xRandom+ " " + yRandom + " " + speedRandom);
             GameObjectManager.getInstance().addObject(new NormalZombie(xRandom,yRandom,speedRandom));
         }

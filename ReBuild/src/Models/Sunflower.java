@@ -30,7 +30,7 @@ public class Sunflower extends BasicPlant {
     public void render(Graphics g) {
         g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
         // Test
-        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
     }
 
     @Override

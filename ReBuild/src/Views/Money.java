@@ -39,7 +39,7 @@ public class Money implements GameLogic,GameDraw {
     public void render(Graphics g) {
         g.setColor(Color.red);
         g.setFont(new Font(Font.SERIF, Font.BOLD + Font.ITALIC, 30));
-        g.drawRect(NumberRect.x, NumberRect.y, NumberRect.width, NumberRect.height);
+//        g.drawRect(NumberRect.x, NumberRect.y, NumberRect.width, NumberRect.height);
         g.drawString(Integer.toString(currentMoney), NumberRect.x+NumberRect.width/5, NumberRect.y+NumberRect.height);
     }
     public void setIncreasable(int cost) {

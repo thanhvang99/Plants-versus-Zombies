@@ -64,6 +64,7 @@ public class GameMouse implements MouseInterface {
             tempImage = null;
         }else{
             tempImage = null;
+            tempCard = null;
         }
     }
     

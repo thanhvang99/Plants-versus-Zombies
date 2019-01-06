@@ -15,7 +15,7 @@ public class NormalZombie extends BasicZombie {
     public NormalZombie(float x,float y,float speed){
         super(x,y,speed);
         
-        timer = new Timer(1000);
+        timer = new Timer(3000);
         setAnimation();
     }
 
@@ -25,7 +25,7 @@ public class NormalZombie extends BasicZombie {
         g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
         
         // Test
-        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
     }
 
     @Override
@@ -91,7 +91,7 @@ public class NormalZombie extends BasicZombie {
     @Override
     public void setAnimation() {
         animation = new Animation[2];
-        animation[ACT] = new Animation(500,ImageFrames.getNormalZombieMove());
+        animation[ACT] = new Animation(200,ImageFrames.getNormalZombieMove());
         animation[DIE] = new Animation(300,ImageFrames.getNormalZombieDie());
     }
     

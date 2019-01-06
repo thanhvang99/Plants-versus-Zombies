@@ -24,7 +24,7 @@ public class Peashooter extends BasicPlant {
         g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
         
         // Test
-        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
 
     }
 
@@ -45,7 +45,7 @@ public class Peashooter extends BasicPlant {
 
     @Override
     public void checkDied() {
-//        System.out.println(getHealth());
+        System.out.println(getHealth());
         if( getHealth() <= 0 ){
             setState(DIE);
             if( !animation[getState()].isFirstLoop() ){

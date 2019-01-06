@@ -2,7 +2,6 @@ package Models;
 
 import Services.Animation;
 import Services.ImageFrames;
-import Views.Money;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.Random;
@@ -34,8 +33,8 @@ public class Sun extends GameObject {
     @Override
     public void render(Graphics g) {
         g.drawImage(animation.getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
-        // Test
-//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+        
+        drawRect(g);
     }
 
     @Override
@@ -60,7 +59,7 @@ public class Sun extends GameObject {
         if( isClickByMouse ){
             moveTo(-4, 5);
             if( getXCordinate() < -3 ){
-                currentMoney.setIncreasable(50);
+                currentMoney.set(currentMoney.get()+50);
                 GameObjectManager.getInstance().removeObject(this);
             }
         }else{

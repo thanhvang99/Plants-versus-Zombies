@@ -15,6 +15,7 @@ public class Peashooter extends BasicPlant {
         super(x, y);
 
         setXYPadding();
+        moveRect();
         
         timer = new Timer(DEFAULT_SPEED_SHOOT);
         setAnimation();
@@ -26,8 +27,7 @@ public class Peashooter extends BasicPlant {
         
         g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
         
-        // Test
-//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+        drawRect(g);
 
     }
 

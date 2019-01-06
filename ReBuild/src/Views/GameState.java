@@ -1,5 +1,6 @@
 package Views;
 
+import Models.Playground;
 import Controllers.GameMouse;
 import Controllers.Spawner;
 import Helper.GUI;

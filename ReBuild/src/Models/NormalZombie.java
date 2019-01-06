@@ -24,8 +24,7 @@ public class NormalZombie extends BasicZombie {
         
         g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
         
-        // Test
-//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+        drawRect(g);
     }
 
     @Override
@@ -86,14 +85,10 @@ public class NormalZombie extends BasicZombie {
         }
     }
     @Override
-    public void meetPlant() {
-    }
-
-    @Override
     public void setAnimation() {
         animation = new Animation[2];
         animation[ACT] = new Animation(200,ImageFrames.getNormalZombieMove());
-        animation[DIE] = new Animation(300,ImageFrames.getNormalZombieDie());
+        animation[DIE] = new Animation(100,ImageFrames.getNormalZombieDie());
     }
 
 }

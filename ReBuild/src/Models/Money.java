@@ -1,4 +1,4 @@
-package Views;
+package Models;
 
 import Services.GameDraw;
 import Services.GameLogic;
@@ -7,11 +7,11 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class Money implements GameLogic,GameDraw {
+public class Money implements GameDraw {
     public static final int START_X = 10,
                             START_Y = 710;
     
-    private int currentMoney,decreasedMoney,increasedMoney;
+    private int currentMoney;
     private boolean increasable = false;
     private boolean decreasable = false;
     private Rectangle NumberRect;
@@ -23,34 +23,14 @@ public class Money implements GameLogic,GameDraw {
     }
     
     @Override
-    public void tick() {
-        if( increasable  ){
-            currentMoney += increasedMoney;
-            increasable = false;
-        }
-        if( decreasable ){
-            currentMoney -= decreasedMoney;
-            decreasable = false;
-        }
-            
-    }
-
-    @Override
     public void render(Graphics g) {
         g.setColor(Color.red);
         g.setFont(new Font(Font.SERIF, Font.BOLD + Font.ITALIC, 30));
 //        g.drawRect(NumberRect.x, NumberRect.y, NumberRect.width, NumberRect.height);
         g.drawString(Integer.toString(currentMoney), NumberRect.x+NumberRect.width/5, NumberRect.y+NumberRect.height);
     }
-    public void setIncreasable(int cost) {
-        increasable = true;
-        increasedMoney = cost;
-    }
-    public void setDecreasable(int cost) {
-        decreasable = true;
-        decreasedMoney = cost;
-    }
-    public int getMoney(){ return currentMoney; }
+    public int get(){ return currentMoney; }
+    public void set(int number){ currentMoney = number; }
     
     
     

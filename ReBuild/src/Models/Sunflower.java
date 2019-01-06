@@ -25,13 +25,14 @@ public class Sunflower extends BasicPlant {
         
         setAnimation();
         setXYPadding();
+        moveRect();
     }
 
     @Override
     public void render(Graphics g) {
         g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
-        // Test
-//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+        
+        drawRect(g);
     }
 
     @Override

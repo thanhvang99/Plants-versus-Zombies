@@ -1,6 +1,5 @@
 package Models;
 
-import Views.Playground;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -25,8 +24,7 @@ public class NormalBullet extends GameObject {
     public void render(Graphics g) {
         g.drawImage(image, (int) getXPixel(), (int) getYPixel(), DEFAULT_WIDTH, DEFAULT_HEIGHT, null);
         
-        // Test
-//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+        drawRect(g);
     }
 
     @Override

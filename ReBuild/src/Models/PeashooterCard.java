@@ -1,25 +1,25 @@
-package Views;
+package Models;
 
-import Models.Beetroot;
+import Models.Card;
+import Models.ListCardComponent;
 import Models.GameObjectManager;
+import Models.Peashooter;
 import Services.ImageFrames;
-import static Views.Card.DEFAULT_HEIGHT_CARD;
-import static Views.Card.DEFAULT_WIDTH_CARD;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-public class BeetrootCard extends Card{
-    private BufferedImage[] frames = ImageFrames.getBeetrootCandicate();
+public class PeashooterCard extends Card{
+    private BufferedImage[] frames = ImageFrames.getPeashooterCandicate();
     
 
-    public BeetrootCard(int cost){
+    public PeashooterCard(int cost){
         super(cost);
     }
     
     
     @Override
     public void createObject(int x,int y) {
-        GameObjectManager.getInstance().addObject(new Beetroot(x,y));
+        GameObjectManager.getInstance().addObject(new Peashooter(x,y));
     }
     
     @Override
@@ -32,7 +32,8 @@ public class BeetrootCard extends Card{
     public BufferedImage getImageCard() {
         return frames[0];
     }
+
     
-    
+
     
 }

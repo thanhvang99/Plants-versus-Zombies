@@ -1,4 +1,4 @@
-package Views;
+package Models;
 
 import Helper.GUI;
 import Services.GameDraw;
@@ -29,7 +29,7 @@ public class ListCardComponent implements GameLogic,GameDraw {
     @Override
     public void tick() {
         for( Card eachCard : cards ){
-            eachCard.updateActive(money.getMoney());
+            eachCard.updateActive(money.get());
         }
     }
 

@@ -1,4 +1,4 @@
-package Views;
+package Models;
 
 import Models.GameObjectManager;
 import Models.GameObject;
@@ -51,15 +51,20 @@ public class Playground implements GameLogic {
     public void updateNewIDPosition(){
         ArrayList<GameObject> listObject = GameObjectManager.getInstance().getList();
         for(GameObject object : listObject){
-            int XCeil = (int)Math.ceil(object.getXCordinate());
-            int YCeil = (int)Math.ceil(object.getYCordinate());
-            
-            int XFloor = (int)Math.floor(object.getXCordinate());
-            int YFloor = (int)Math.floor(object.getYCordinate());
-            
-            if( XFloor >= 0 && XCeil< x && object.isSolid() ){
+//            int XCeil = (int)Math.ceil(object.getXCordinate());
+//            int YCeil = (int)Math.ceil(object.getYCordinate());
+//            
+//            int XFloor = (int)Math.floor(object.getXCordinate());
+//            int YFloor = (int)Math.floor(object.getYCordinate());
+//            
+//            if( XFloor >= 0 && XCeil< x && object.isSolid() ){
+//                ground[YCeil][XCeil] = true;
+//                ground[YFloor][XFloor] = true;
+//            }
+            int XCeil = (int)object.getXCordinate();
+            int YCeil = (int)object.getYCordinate();
+            if( XCeil >= 0 && XCeil <= x && object.isSolid()) {
                 ground[YCeil][XCeil] = true;
-                ground[YFloor][XFloor] = true;
             }
         }
     }

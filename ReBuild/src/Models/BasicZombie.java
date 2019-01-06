@@ -1,10 +1,8 @@
 package Models;
 
 import java.awt.Rectangle;
-import Services.ZombieInterface;
-import Views.Score;
 
-public abstract class BasicZombie extends GameObject implements ZombieInterface {
+public abstract class BasicZombie extends GameObject {
     protected final int DEFAULT_WIDTH = 96,
                         DEFAULT_HEIGHT = 130;
     private float currentSpeed,

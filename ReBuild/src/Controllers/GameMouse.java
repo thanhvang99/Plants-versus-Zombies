@@ -2,17 +2,20 @@ package Controllers;
 
 import Models.GameObject;
 import Models.GameObjectManager;
-import Services.MouseInterface;
-import Views.Card;
+import Services.GameDraw;
+import Services.GameLogic;
+import Models.Card;
 import Views.GameBackground;
-import Views.Playground;
-import Views.ListCardComponent;
+import Models.Playground;
+import Models.ListCardComponent;
+import Models.Money;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import javax.swing.event.MouseInputListener;
 
-public class GameMouse implements MouseInterface {
+public class GameMouse implements GameLogic,GameDraw,MouseInputListener {
     private GameBackground background;
     private Playground playground;
     private Card tempCard = null;
@@ -51,11 +54,10 @@ public class GameMouse implements MouseInterface {
             
         }else if( playground.isInSide(x, y) && tempCard != null ){
             int xPosition = Playground.convert_Pixel_to_CordinateX(x);
-            int yPostion = Playground.convert_Pixel_to_CordinateY(y);
+            int yPosition = Playground.convert_Pixel_to_CordinateY(y);
             
-            
-            if( !playground.isExistCreature(xPosition, yPostion) ){
-                tempCard.createObject(xPosition, yPostion);
+            if( !playground.isExistCreature(xPosition, yPosition) ){
+                tempCard.createObject(xPosition, yPosition);
                 isBuySuccess = true;
             }else{
                 tempCard = null;
@@ -70,7 +72,8 @@ public class GameMouse implements MouseInterface {
     
     public void checkBuySuccess(){
         if( isBuySuccess ){
-            background.getMoney().setDecreasable(tempCard.getCost());
+            Money money = background.getMoney();
+            money.set(money.get() - tempCard.getCost());        // money = money - costOfCard;
             isBuySuccess = false;
             tempCard = null;
         }

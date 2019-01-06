@@ -27,12 +27,13 @@ public class Walnut extends BasicPlant {
 
     @Override
     public void setXYPadding() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void render(Graphics g) {
         g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(), (int)getYPixel(), DEFAULT_WIDTH, DEFAULT_HEIGHT, null);
+
+        drawRect(g);
     }
 
     @Override
@@ -49,7 +50,8 @@ public class Walnut extends BasicPlant {
         animation[DIE] = new Animation(500, ImageFrames.getWalnutDie());
         animation[HALF] = new Animation(500, ImageFrames.getWalnutHalfHealth());
     }
-
+    
+    
     @Override
     public void act() {
         // Nothing

@@ -3,7 +3,7 @@
 import Services.GameLogic;
 import Services.GameDraw;
 import Services.ObjectInterface;
-import Views.Playground;
+import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
@@ -13,7 +13,7 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
                             STUFF_WITH_MOUSE = 3;
     public static final int ACT = 0,
                             DIE = 1;
-    
+
     private int kind,state;
     private float xCordinate,yCordinate,
                   xPixel,yPixel;
@@ -32,16 +32,15 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
         
     }
     
-    public void moveRect(){
-        getCurrentRect().move((int)xPixel, (int)yPixel);
-    }
-    public void setX(float x){ this.xCordinate = x; }
-    public void setY(float y){ this.yCordinate = y; }
-    
     public void setRect(Rectangle rect){ this.currentRect = rect; }
     public abstract void createRectangle();
     public Rectangle getCurrentRect(){ return currentRect; }
+    public void moveRect(){
+        getCurrentRect().move((int)xPixel, (int)yPixel);
+    }
     
+    public void setX(float x){ this.xCordinate = x; }
+    public void setY(float y){ this.yCordinate = y; }
     public float getXCordinate(){ return xCordinate; }
     public float getYCordinate(){ return yCordinate; }
     
@@ -59,17 +58,24 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
     
     // DEFAULT checkMouseClick()
     public void checkMouseClick(int xPixel,int yPixel){
-        
     }
+    public void setState(int STATE){ this.state = STATE; }
+    public int getState(){ return state; }
+    
+    public boolean isDied(){
+        if( state == DIE ){
+            return true;
+        }else
+            return false;
+    }
+        
     @Override
     public boolean isSolid(){ return true; }
     @Override
     public int getKind(){ return kind; }
     
-    public void setState(int STATE){ this.state = STATE; }
-    public int getState(){ return state; }
     
-//    public abstract void setXYPadding();
-        
-    
+    public void drawRect(Graphics g){
+//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+    }
 }

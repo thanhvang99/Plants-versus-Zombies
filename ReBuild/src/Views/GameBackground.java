@@ -1,6 +1,7 @@
 package Views;
 
 import Helper.GUI;
+import Models.BasicZombie;
 import Models.Sun;
 import Services.ImageFrames;
 import java.awt.Graphics;
@@ -8,12 +9,14 @@ import java.awt.Graphics;
 public class GameBackground extends Background {
     private ListCardComponent listCard;
     private Money money;
+    private Score score;
     
     public GameBackground(){
         
         listCard = new ListCardComponent(ListCardComponent.START_X,ListCardComponent.START_Y);
         money = new Money(1000);
-        Sun.setAssociationWithMoney(money);
+        score = new Score();
+        
     }
 
     @Override
@@ -41,6 +44,7 @@ public class GameBackground extends Background {
           
           listCard.render(g);
           money.render(g);
+          score.render(g);
           
           
     }
@@ -53,10 +57,13 @@ public class GameBackground extends Background {
         
     }
     
+    
     @Override
     public void setUp(){
         setUpCardComponent();
-        listCard.setRelationWithMoney(money);
+        ListCardComponent.setRelationWithMoney(money);
+        Sun.setAssociationWithMoney(money);
+        BasicZombie.setRelationWithScore(score);
     }
     
     public void setUpCardComponent(){

@@ -13,7 +13,7 @@ public class ListCardComponent implements GameLogic,GameDraw {
                              START_Y = 80;
     private ArrayList<Card> cards;
     private Rectangle rect;
-    private Money money;
+    private static Money money;
     
     public ListCardComponent(int x,int y){
         rect = new Rectangle();
@@ -51,7 +51,7 @@ public class ListCardComponent implements GameLogic,GameDraw {
         return index;
     }
     public ArrayList<Card> getList(){ return cards; }
-    public void setRelationWithMoney(Money money){
-        this.money = money;
+    public static void setRelationWithMoney(Money moneyInput){
+        money = moneyInput;
     }
 }

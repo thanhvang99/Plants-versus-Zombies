@@ -8,6 +8,7 @@ import java.util.ArrayList;
 // Using singleton patterm
 public class GameObjectManager {
     private ArrayList<GameObject> list;
+    private static int numberOfZombieDied = 0;
     
     private static GameObjectManager manager = null;
     
@@ -51,4 +52,5 @@ public class GameObjectManager {
         }
         return tempList;
     }
+    
 }

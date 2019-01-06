@@ -18,6 +18,9 @@ public class Spawner implements GameLogic {
     
     @Override
     public void tick() {
+        randomZombie();
+    }
+    public void randomZombie(){
         if( timer.isTimeOut() ){
             int xRandom = r.nextInt(1) + 10;
             int yRandom = r.nextInt(5);
@@ -26,7 +29,5 @@ public class Spawner implements GameLogic {
             GameObjectManager.getInstance().addObject(new NormalZombie(xRandom,yRandom,speedRandom));
         }
     }
-    
-    
     
 }

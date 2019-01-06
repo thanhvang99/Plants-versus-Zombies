@@ -42,6 +42,8 @@ public class GameState extends State {
         playground.tick();
         background.tick();
     }
-    
+    public void checkLose(){
+        
+    }
     
 }

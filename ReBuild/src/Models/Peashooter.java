@@ -7,7 +7,7 @@ import java.awt.Graphics;
 
 public class Peashooter extends BasicPlant {
     
-    private static final int DEFAULT_SPEED_SHOOT = 2000;     // ms
+    private static final int DEFAULT_SPEED_SHOOT = 5000;     // ms
     private Animation[] animation;
     
     private Timer timer;
@@ -39,7 +39,7 @@ public class Peashooter extends BasicPlant {
     @Override
     public void act() {
         if (timer.isTimeOut()) {
-            GameObjectManager.getInstance().addObject(new NormalBullet(getXCordinate(), getYCordinate(), 6f, ImageFrames.getPeashooterBullet()));
+            GameObjectManager.getInstance().addObject(new NormalBullet(getXCordinate(), getYCordinate(), 10f, ImageFrames.getPeashooterBullet()));
         }
     }
 

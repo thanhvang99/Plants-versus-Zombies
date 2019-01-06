@@ -111,7 +111,9 @@ public class ImageFrames {
     }
     
     public static void setUpBackground(){
-        GameBackground = ImageLoader.load("/plants/background/game.jpg");
+        GameBackground = ImageLoader.load("background/game.jpg");
+        
+        //
     }
     
     // Image Peashooter

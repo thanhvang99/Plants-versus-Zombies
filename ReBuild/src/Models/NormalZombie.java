@@ -72,6 +72,7 @@ public class NormalZombie extends BasicZombie {
         if( getHealth() <= 0 ){
             setState(DIE);
             if ( !animation[getState()].isFirstLoop()) {
+                increaseScoreAfterDied(100);
                 GameObjectManager.getInstance().removeObject(this);
             }
                 
@@ -94,5 +95,5 @@ public class NormalZombie extends BasicZombie {
         animation[ACT] = new Animation(200,ImageFrames.getNormalZombieMove());
         animation[DIE] = new Animation(300,ImageFrames.getNormalZombieDie());
     }
-    
+
 }

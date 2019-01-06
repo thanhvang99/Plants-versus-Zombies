@@ -1,15 +1,17 @@
 package Models;
 
-import Services.Timer;
 import java.awt.Rectangle;
 import Services.ZombieInterface;
-import Views.Playground;
+import Views.Score;
 
 public abstract class BasicZombie extends GameObject implements ZombieInterface {
     protected final int DEFAULT_WIDTH = 96,
                         DEFAULT_HEIGHT = 130;
     private float currentSpeed,
                   initialSpeed;
+    
+    private static Score score;
+            
     public BasicZombie(float x,float y,float speed){
         super(x,y,ZOMBIE);
         this.currentSpeed = speed;
@@ -33,7 +35,7 @@ public abstract class BasicZombie extends GameObject implements ZombieInterface 
         if (currentSpeed <= speed) {
             currentSpeed = speed;
         } else {
-            currentSpeed -= 0.02f;
+            currentSpeed -= 0.05f;
         }
     }
 
@@ -44,6 +46,12 @@ public abstract class BasicZombie extends GameObject implements ZombieInterface 
             currentSpeed += 0.02f;
         }
 
+    }
+    public void increaseScoreAfterDied(int number){
+        score.set(score.get()+ number);
+    }
+    public static void setRelationWithScore(Score scoreInput){
+        score = scoreInput;
     }
     public void setCurrentSpeed(float speed){ this.currentSpeed = speed; }
     public float getCurrentSpeed(){ return currentSpeed; }

@@ -1,4 +1,4 @@
-package Models;
+    package Models;
 
 import Services.GameLogic;
 import Services.GameDraw;
@@ -19,7 +19,9 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
                   xPixel,yPixel;
     private int health;
     private Rectangle currentRect;
+    
     public GameObject(float x,float y,int kind){
+        
         xCordinate = x;
         yCordinate = y;
         
@@ -28,8 +30,8 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
         
         this.kind = kind;
         
-        
     }
+    
     public void moveRect(){
         getCurrentRect().move((int)xPixel, (int)yPixel);
     }
@@ -66,5 +68,8 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
     
     public void setState(int STATE){ this.state = STATE; }
     public int getState(){ return state; }
+    
+//    public abstract void setXYPadding();
+        
     
 }

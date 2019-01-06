@@ -35,7 +35,7 @@ public abstract class BasicZombie extends GameObject implements ZombieInterface 
         if (currentSpeed <= speed) {
             currentSpeed = speed;
         } else {
-            currentSpeed -= 0.05f;
+            currentSpeed -= 0.1f;
         }
     }
 

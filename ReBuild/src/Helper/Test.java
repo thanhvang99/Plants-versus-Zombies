@@ -18,7 +18,7 @@ public class Test {
         GameObjectManager.getInstance().addObject(z4);
         GameObjectManager.getInstance().addObject(z5);
         
-        NormalBullet b1= new NormalBullet(1,1,1,ImageFrames.getPeashooterBullet());
+        NormalBullet b1= new NormalBullet(1,1,1,ImageFrames.getPeashooterBullet(), 0, 0);
         GameObjectManager.getInstance().addObject(b1);
     }
 }

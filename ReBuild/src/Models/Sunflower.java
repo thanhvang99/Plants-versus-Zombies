@@ -24,6 +24,7 @@ public class Sunflower extends BasicPlant {
         timer = new Timer(15000);
         
         setAnimation();
+        setXYPadding();
     }
 
     @Override
@@ -67,6 +68,18 @@ public class Sunflower extends BasicPlant {
             }
             
         }
+    }
+
+    @Override
+    public void setXYPadding() {
+        if (getXCordinate() >= 4) {
+            setX((getXCordinate() + 0.2f));
+            setY((getYCordinate() + 0.1f));
+        } else {
+            setX((getXCordinate() + 0.1f));
+            setY(getYCordinate() + 0.1f);
+        }
+        updateXYPixel();
     }
     
     

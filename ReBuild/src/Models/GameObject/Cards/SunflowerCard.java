@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Models;
+package Models.GameObject.Cards;
 
-import Models.Card;
-import Models.ListCardComponent;
-import Models.GameObjectManager;
-import Models.Sunflower;
+import Models.GameObject.Cards.Card;
+import Models.GameObject.Cards.ListCardComponent;
+import Models.GameObjects.GameObjectManager;
+import Models.GameObjects.Sunflower;
 import Services.ImageFrames;
-import static Models.Card.DEFAULT_HEIGHT_CARD;
-import static Models.Card.DEFAULT_WIDTH_CARD;
+import static Models.GameObject.Cards.Card.DEFAULT_HEIGHT_CARD;
+import static Models.GameObject.Cards.Card.DEFAULT_WIDTH_CARD;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 

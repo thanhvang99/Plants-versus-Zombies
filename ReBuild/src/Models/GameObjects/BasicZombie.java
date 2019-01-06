@@ -1,5 +1,6 @@
-package Models;
+package Models.GameObjects;
 
+import Models.BackgroundComponents.Score;
 import java.awt.Rectangle;
 
 public abstract class BasicZombie extends GameObject {

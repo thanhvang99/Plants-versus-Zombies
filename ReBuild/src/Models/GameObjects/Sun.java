@@ -1,5 +1,8 @@
-package Models;
+package Models.GameObjects;
 
+import Models.GameObjects.GameObjectManager;
+import Models.GameObjects.GameObject;
+import Models.BackgroundComponents.Money;
 import Services.Animation;
 import Services.ImageFrames;
 import java.awt.Graphics;

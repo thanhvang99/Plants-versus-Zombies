@@ -1,7 +1,7 @@
 package Controllers;
 
-import Models.GameObjectManager;
-import Models.NormalZombie;
+import Models.GameObjects.GameObjectManager;
+import Models.GameObjects.NormalZombie;
 import Services.GameLogic;
 import Services.Timer;
 import java.util.Random;

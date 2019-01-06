@@ -1,10 +1,10 @@
 package Views;
 
-import Models.Playground;
+import Models.BackgroundComponents.Playground;
 import Controllers.GameMouse;
 import Controllers.Spawner;
 import Helper.GUI;
-import Models.GameObjectManager;
+import Models.GameObjects.GameObjectManager;
 import java.awt.Graphics;
 
 public class GameState extends State {

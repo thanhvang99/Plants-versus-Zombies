@@ -1,4 +1,4 @@
-package Models;
+package Models.GameObjects;
 
 import java.awt.Rectangle;
 

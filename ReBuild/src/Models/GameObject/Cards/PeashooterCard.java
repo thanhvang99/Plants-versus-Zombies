@@ -1,9 +1,9 @@
-package Models;
+package Models.GameObject.Cards;
 
-import Models.Card;
-import Models.ListCardComponent;
-import Models.GameObjectManager;
-import Models.Peashooter;
+import Models.GameObject.Cards.Card;
+import Models.GameObject.Cards.ListCardComponent;
+import Models.GameObjects.GameObjectManager;
+import Models.GameObjects.Peashooter;
 import Services.ImageFrames;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

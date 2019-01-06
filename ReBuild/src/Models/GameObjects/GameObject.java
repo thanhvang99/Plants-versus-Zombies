@@ -1,5 +1,6 @@
-    package Models;
+    package Models.GameObjects;
 
+import Models.BackgroundComponents.Playground;
 import Services.GameLogic;
 import Services.GameDraw;
 import Services.ObjectInterface;

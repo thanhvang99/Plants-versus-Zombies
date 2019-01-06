@@ -1,14 +1,14 @@
 package Controllers;
 
-import Models.GameObject;
-import Models.GameObjectManager;
+import Models.GameObjects.GameObject;
+import Models.GameObjects.GameObjectManager;
 import Services.GameDraw;
 import Services.GameLogic;
-import Models.Card;
+import Models.GameObject.Cards.Card;
 import Views.GameBackground;
-import Models.Playground;
-import Models.ListCardComponent;
-import Models.Money;
+import Models.BackgroundComponents.Playground;
+import Models.GameObject.Cards.ListCardComponent;
+import Models.BackgroundComponents.Money;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;

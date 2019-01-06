@@ -1,15 +1,15 @@
 package Views;
 
-import Models.BeetrootCard;
-import Models.Score;
-import Models.SunflowerCard;
-import Models.WalnutCard;
-import Models.Money;
-import Models.PeashooterCard;
-import Models.ListCardComponent;
+import Models.GameObject.Cards.BeetrootCard;
+import Models.BackgroundComponents.Score;
+import Models.GameObject.Cards.SunflowerCard;
+import Models.GameObject.Cards.WalnutCard;
+import Models.BackgroundComponents.Money;
+import Models.GameObject.Cards.PeashooterCard;
+import Models.GameObject.Cards.ListCardComponent;
 import Helper.GUI;
-import Models.BasicZombie;
-import Models.Sun;
+import Models.GameObjects.BasicZombie;
+import Models.GameObjects.Sun;
 import Services.ImageFrames;
 import java.awt.Color;
 import java.awt.Graphics;

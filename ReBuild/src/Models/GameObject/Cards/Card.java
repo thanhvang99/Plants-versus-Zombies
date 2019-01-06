@@ -1,4 +1,4 @@
-package Models;
+package Models.GameObject.Cards;
 
 import Services.GameDraw;
 import Services.GameLogic;

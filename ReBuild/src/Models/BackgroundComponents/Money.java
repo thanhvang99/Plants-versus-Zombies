@@ -1,4 +1,4 @@
-package Models;
+package Models.BackgroundComponents;
 
 import Services.GameDraw;
 import Services.GameLogic;

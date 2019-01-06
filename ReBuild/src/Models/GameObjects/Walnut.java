@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Models;
+package Models.GameObjects;
 
 import Services.Animation;
 import Services.ImageFrames;

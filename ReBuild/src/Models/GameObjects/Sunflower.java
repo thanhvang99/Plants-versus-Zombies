@@ -1,25 +1,33 @@
-package Models;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Models.GameObjects;
 
 import Services.Animation;
 import Services.ImageFrames;
 import Services.Timer;
 import java.awt.Graphics;
+import java.util.Random;
 
-public class Beetroot extends BasicPlant {
-    private static final int DEFAULT_SPEED = 1800;
+/**
+ *
+ * @author ldakhoa
+ */
+public class Sunflower extends BasicPlant {
+    private Animation[] animation;
     private Timer timer;
     
-    private Animation[] animation;
-                      
-
-    public Beetroot(float x,float y){
-        super(x,y);
+    public Sunflower(float x, float y) {
+        super(x, y);
+        timer = new Timer(15000);
         
-        timer = new Timer(DEFAULT_SPEED);
         setAnimation();
         setXYPadding();
+        moveRect();
     }
-    
+
     @Override
     public void render(Graphics g) {
         g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
@@ -36,38 +44,31 @@ public class Beetroot extends BasicPlant {
     }
 
     @Override
+    public void setAnimation() {
+        animation = new Animation[2];
+        animation[0] = new Animation(500, ImageFrames.getSunflowerAct());
+        animation[1] = new Animation(500, ImageFrames.getSunflowerDie());
+    }
+
+    @Override
     public void act() {
         if (timer.isTimeOut()) {
-            GameObjectManager.getInstance().addObject(new NormalBullet(getXCordinate(),getYCordinate(), 10.0f,ImageFrames.getBeetrootBullet(), 0.5f, 0.3f));
+            Random r = new Random();
+            
+            GameObjectManager.getInstance().addObject(new Sun(r.nextInt(5), -1));
         }
-        
     }
 
     @Override
     public void checkDied() {
-        
-        if(getHealth() <= 0) {
+        if ( getHealth() <= 0 ) {
             setState(DIE);
             
-            if(!animation[getState()].isFirstLoop()) {
+            if (!animation[getState()].isFirstLoop()) {
                 GameObjectManager.getInstance().removeObject(this);
             }
             
         }
-        
-    }
-
-
-    @Override
-    public void setAnimation() {
-        animation = new Animation[2];
-        animation[0] = new Animation(500,ImageFrames.getBeetrootAct());
-        animation[1] = new Animation(500,ImageFrames.getBeetrootDie());
-        
-    }
-
-    @Override
-    public void checkCollision() {
     }
 
     @Override
@@ -76,13 +77,12 @@ public class Beetroot extends BasicPlant {
             setX((getXCordinate() + 0.2f));
             setY((getYCordinate() + 0.1f));
         } else {
-            setX((getXCordinate() + 0.2f));
-            setY(getYCordinate());
+            setX((getXCordinate() + 0.1f));
+            setY(getYCordinate() + 0.1f);
         }
         updateXYPixel();
     }
-
     
-
+    
     
 }

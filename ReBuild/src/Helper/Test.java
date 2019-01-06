@@ -1,8 +1,8 @@
 package Helper;
 
-import Models.GameObjectManager;
-import Models.NormalBullet;
-import Models.NormalZombie;
+import Models.GameObjects.GameObjectManager;
+import Models.GameObjects.NormalBullet;
+import Models.GameObjects.NormalZombie;
 import Services.ImageFrames;
 
 public class Test {

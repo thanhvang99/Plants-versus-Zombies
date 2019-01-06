@@ -1,7 +1,7 @@
-package Models;
+package Models.BackgroundComponents;
 
-import Models.GameObjectManager;
-import Models.GameObject;
+import Models.GameObjects.GameObjectManager;
+import Models.GameObjects.GameObject;
 import java.util.ArrayList;
 import Services.GameLogic;
 import java.awt.Rectangle;

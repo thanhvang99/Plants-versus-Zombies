@@ -94,5 +94,6 @@ public class NormalZombie extends BasicZombie {
         animation[ACT] = new Animation(200,ImageFrames.getNormalZombieMove());
         animation[DIE] = new Animation(300,ImageFrames.getNormalZombieDie());
     }
+
     
 }

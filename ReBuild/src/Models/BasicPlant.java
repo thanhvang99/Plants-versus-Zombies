@@ -18,4 +18,6 @@ public abstract class BasicPlant extends GameObject implements PlantInterface {
     @Override
     public void checkCollision(){
     }
+    
+    public abstract void setXYPadding();
 }

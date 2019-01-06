@@ -26,9 +26,16 @@ public class ImageFrames {
                                    SunflowerDie,
                                    Sun;
     
+    // walnut
+    private static BufferedImage[] WalnutCandicate, 
+                                   WalnutFullHealth,
+                                   WalnutHalfHealth,
+                                   WalnutDie;
+    
     // Normal Zombie
     private static BufferedImage[] NormalZombieDie,
                                    NormalZombieMove;
+    
     
     // Backgrounds
     private static BufferedImage GameBackground;
@@ -40,6 +47,7 @@ public class ImageFrames {
         setUpBackground();
     
         setupSunflowerFrames();
+        setupWalnutFrames();
         
     }
     public static void setUpPeashooterFrames(){
@@ -69,6 +77,11 @@ public class ImageFrames {
         BeetrootAct = new BufferedImage[2];
         BeetrootAct[0] = ImageLoader.load("/plants/beetroot/act1.gif");
         BeetrootAct[1] = ImageLoader.load("/plants/beetroot/act2.gif");
+        
+        BeetrootDie = new BufferedImage[3];
+        BeetrootDie[0] = ImageLoader.load("/plants/beetroot/die1.gif");
+        BeetrootDie[1] = ImageLoader.load("/plants/beetroot/die2.gif");
+        BeetrootDie[2] = ImageLoader.load("/plants/beetroot/die3.gif");
         
         BeetrootBullet = ImageLoader.load("/plants/beetroot/bullet.png");
     }
@@ -110,6 +123,30 @@ public class ImageFrames {
         Sun[2] = ImageLoader.load("/plants/sunflower/sun3.gif");
     }
     
+    public static void setupWalnutFrames() {
+        WalnutCandicate = new BufferedImage[2];
+        WalnutCandicate[0] = ImageLoader.load("/plants/walnut/candicate_on.png");
+        WalnutCandicate[1] = ImageLoader.load("/plants/walnut/candicate_off.png");
+        
+        WalnutFullHealth = new BufferedImage[4];
+        WalnutFullHealth[0] = ImageLoader.load("/plants/walnut/full1.gif");
+        WalnutFullHealth[1] = ImageLoader.load("/plants/walnut/full2.gif");
+        WalnutFullHealth[2] = ImageLoader.load("/plants/walnut/full3.gif");
+        WalnutFullHealth[3] = ImageLoader.load("/plants/walnut/full4.gif");
+        
+        WalnutHalfHealth = new BufferedImage[4];
+        WalnutHalfHealth[0] = ImageLoader.load("/plants/walnut/half1.gif");
+        WalnutHalfHealth[1] = ImageLoader.load("/plants/walnut/half2.gif");
+        WalnutHalfHealth[2] = ImageLoader.load("/plants/walnut/half3.gif");
+        WalnutHalfHealth[3] = ImageLoader.load("/plants/walnut/half4.gif");
+        
+        WalnutDie = new BufferedImage[4];
+        WalnutDie[0] = ImageLoader.load("/plants/walnut/die1.gif");
+        WalnutDie[1] = ImageLoader.load("/plants/walnut/die2.gif");
+        WalnutDie[2] = ImageLoader.load("/plants/walnut/die3.gif");
+        WalnutDie[3] = ImageLoader.load("/plants/walnut/die4.gif");
+    }
+    
     public static void setUpBackground(){
         GameBackground = ImageLoader.load("/plants/background/game.jpg");
     }
@@ -124,6 +161,7 @@ public class ImageFrames {
     public static BufferedImage[] getBeetrootAct(){ return BeetrootAct; }
     public static BufferedImage[] getBeetrootCandicate(){ return BeetrootCandicate; }
     public static BufferedImage getBeetrootBullet(){ return BeetrootBullet; }
+    public static BufferedImage[] getBeetrootDie() { return BeetrootDie; }
     
     // Image NormalZombie
     public static BufferedImage[] getNormalZombieMove(){ return NormalZombieMove; }
@@ -134,6 +172,13 @@ public class ImageFrames {
     public static BufferedImage[] getSunflowerAct() { return SunflowerAct; }
     public static BufferedImage[] getSunflowerDie() { return SunflowerDie; }
     public static BufferedImage[] getSun(){ return Sun; }
+    
+    // Image Walnut
+    public static BufferedImage[] getWalnutCandicate() { return WalnutCandicate; }
+    public static BufferedImage[] getWalnutFullHealth() { return WalnutFullHealth; }
+    public static BufferedImage[] getWalnutHalfHealth() { return WalnutHalfHealth; }
+    public static BufferedImage[] getWalnutDie() { return WalnutDie; }
+    
             
     // Image Background
     public static BufferedImage getGameBackground(){ return GameBackground; }

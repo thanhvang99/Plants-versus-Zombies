@@ -11,7 +11,7 @@ public class Spawner implements GameLogic {
     private Timer timer;
     
     public Spawner(){
-        timer = new Timer(3000);
+        timer = new Timer(5000);
     
     }
     

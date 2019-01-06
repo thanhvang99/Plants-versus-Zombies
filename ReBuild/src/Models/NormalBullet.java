@@ -13,8 +13,8 @@ public class NormalBullet extends GameObject {
     private static final int DEFAULT_WIDTH = 20,
                              DEFAULT_HEIGHT = 20;
 
-    public NormalBullet(float x, float y, float speed, BufferedImage image) {
-        super(x, y, STUFF_NO_MOUSE);
+    public NormalBullet(float x, float y, float speed, BufferedImage image, float xAlign, float yAlign) {
+        super(x + xAlign, y + yAlign, STUFF_NO_MOUSE);
         this.image = image;
         this.speed = speed;
         
@@ -74,5 +74,6 @@ public class NormalBullet extends GameObject {
     @Override
     public void checkDied() {
     }
+
 
 }

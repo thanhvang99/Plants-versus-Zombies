@@ -58,13 +58,13 @@ public class Sun extends GameObject {
     @Override
     public void act() {
         if( isClickByMouse ){
-            moveTo(-4,5);
+            moveTo(-4, 5);
             if( getXCordinate() < -3 ){
                 currentMoney.setIncreasable(50);
                 GameObjectManager.getInstance().removeObject(this);
             }
         }else{
-            moveTo(xRandom,yRandom);
+            moveTo(xRandom + 0.25f, yRandom + 0.3f);
         }
             
     }
@@ -109,6 +109,6 @@ public class Sun extends GameObject {
     }
     @Override
     public boolean isSolid(){ return false; }
-    
+
     
 }

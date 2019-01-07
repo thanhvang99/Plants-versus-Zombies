@@ -16,7 +16,7 @@ public class Score implements GameDraw {
     public void render(Graphics g) {
         g.setColor(Color.LIGHT_GRAY);
         g.setFont(new Font(Font.SERIF, Font.BOLD + Font.ITALIC, 40));
-        g.drawString(Integer.toString(number), 10, 40);
+        g.drawString(Integer.toString(number), 50 - ((int)Math.log10(number)-1)*10, 40);
         g.setColor(Color.RED);
     }
 

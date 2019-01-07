@@ -9,10 +9,10 @@ public abstract class BasicPlant extends GameObject {
         super(x,y,PLANT);
         
         setHealth(100);
-        createRectangle();
-    }
-    public void createRectangle(){
-        setRect(new Rectangle((int)getXPixel(),(int)getYPixel(),DEFAULT_WIDTH,DEFAULT_HEIGHT));
+        setAnimation();
+        setSizeImage(DEFAULT_WIDTH,DEFAULT_HEIGHT);
+        
+        setXYPadding();
     }
     @Override
     public void checkCollision(){

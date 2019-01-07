@@ -1,5 +1,6 @@
 package Helper;
 
+import Views.GameOverState;
 import Views.GameState;
 import Views.MenuState;
 import Views.State;
@@ -19,7 +20,7 @@ public class GUI extends Application {
     private BufferStrategy bufferStrategy;
     private Graphics graphics;
     
-    private State menuState,gameState;
+    private State menuState,gameState,gameOverState;
             
     private GUI(int width,int height){
         this.width = width;
@@ -65,6 +66,7 @@ public class GUI extends Application {
         frame = new JFrame("Plants versus Zombies");
         canvas = new Canvas();
         
+        
         canvas.setPreferredSize(new Dimension(width,height));
         canvas.setMaximumSize(new Dimension(width,height));
         canvas.setMinimumSize(new Dimension(width,height));
@@ -79,11 +81,10 @@ public class GUI extends Application {
         // Set up STATE
         menuState = new MenuState();
         gameState = new GameState();
+        gameOverState = new GameOverState();
         
         // Set up currentState
-        
-        State.setState(gameState);
-        
+        State.setState(menuState);
         
     }
     
@@ -92,6 +93,9 @@ public class GUI extends Application {
     public JFrame getFrame(){ return frame; }
     public Canvas getCanvas(){ return canvas; }
     public State getGameState(){ return gameState; }
+    public State getMenuState(){ return menuState; }
+    public State getGameOverState(){ return gameOverState; }
+    public BufferStrategy getBuffer(){ return bufferStrategy; }
     
     
     

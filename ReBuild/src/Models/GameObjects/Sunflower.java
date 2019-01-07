@@ -23,14 +23,11 @@ public class Sunflower extends BasicPlant {
         super(x, y);
         timer = new Timer(15000);
         
-        setAnimation();
-        setXYPadding();
-        moveRect();
     }
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
+        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
         
         drawRect(g);
     }
@@ -73,14 +70,12 @@ public class Sunflower extends BasicPlant {
 
     @Override
     public void setXYPadding() {
+        setY((getYCordinate() + 0.2f));
         if (getXCordinate() >= 4) {
             setX((getXCordinate() + 0.2f));
-            setY((getYCordinate() + 0.1f));
         } else {
             setX((getXCordinate() + 0.1f));
-            setY(getYCordinate() + 0.1f);
         }
-        updateXYPixel();
     }
     
     

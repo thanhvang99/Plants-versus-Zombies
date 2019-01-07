@@ -2,10 +2,14 @@ package Views;
 
 import Models.BackgroundComponents.Playground;
 import Controllers.GameMouse;
+import Controllers.Mouse;
 import Controllers.Spawner;
 import Helper.GUI;
+import Models.GameObjects.GameObject;
 import Models.GameObjects.GameObjectManager;
+import Models.GameObjects.LawnMower;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 public class GameState extends State {
     private Spawner spawner;
@@ -17,34 +21,47 @@ public class GameState extends State {
     public GameState(){
         background = new GameBackground();
         playground = new Playground(10,10);        
-        mouse = new GameMouse(background,playground);
         spawner = new Spawner();
-        
-        // Set up
+        mouse = new GameMouse(background,playground);
         background.setUp();
-        GUI.getInstance().getFrame().addMouseListener(mouse);
-        GUI.getInstance().getCanvas().addMouseListener(mouse);
-        
-        GUI.getInstance().getFrame().addMouseMotionListener(mouse);
-        GUI.getInstance().getCanvas().addMouseMotionListener(mouse);
         
     }
     @Override
     public void render(Graphics g) {
         background.render(g);
         GameObjectManager.getInstance().renderAllObject(g);
+        spawner.render(g);
         mouse.render(g);
     }
 
     @Override
     public void tick() {
         spawner.tick();
+        
         GameObjectManager.getInstance().tickAllObject();
         playground.tick();
         background.tick();
+        
+        checkLose();
     }
     public void checkLose(){
-        
+        ArrayList<GameObject> list = GameObjectManager.getInstance().getList(GameObject.ZOMBIE);
+        for(GameObject object : list){
+            if( object.getXCordinate()<=-1f ){
+                GameObjectManager.getInstance().resetList();
+                switchToGameOver();
+            }
+        }
     }
+    public void switchToGameOver(){
+        GUI gui = GUI.getInstance();
+        background.getMoney().set(1000);
+        State.setState(gui.getGameOverState());
+        Mouse.removeCurrentMouseFrom(gui);
+        Mouse.setCurrentMouse(gui.getGameOverState().getMouse());
+        Mouse.addCurrentMouseTo(gui);
+    }
+    @Override
+    public Mouse getMouse() { return mouse; }
     
 }

@@ -1,7 +1,5 @@
 package Models.GameObjects;
 
-import Models.GameObjects.GameObjectManager;
-import Models.GameObjects.GameObject;
 import Models.BackgroundComponents.Money;
 import Services.Animation;
 import Services.ImageFrames;
@@ -24,18 +22,15 @@ public class Sun extends GameObject {
     public Sun(float x,float y){
         super(x,y,STUFF_WITH_MOUSE);
         
+        setSizeImage(DEFAULT_WIDTH,DEFAULT_HEIGHT);
+        setXYPadding();
         makeRandomMoveTo();
-        createRectangle();
         setAnimation();
+        
     }
-    @Override
-    public void createRectangle() {
-        setRect(new Rectangle((int)getXPixel(),(int)getYPixel(),DEFAULT_WIDTH,DEFAULT_HEIGHT));
-    }
-
     @Override
     public void render(Graphics g) {
-        g.drawImage(animation.getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
+        g.drawImage(animation.getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
         
         drawRect(g);
     }
@@ -86,8 +81,6 @@ public class Sun extends GameObject {
             setX(x1 + deltaX);
             setY(m * (getXCordinate() - x1) + y1);
 
-            updateXYPixel();
-            moveRect();
         }
         
         
@@ -99,7 +92,7 @@ public class Sun extends GameObject {
             isClickByMouse = true;
         }
     }
-    public static void setAssociationWithMoney(Money money){
+    public static void setRelationWithMoney(Money money){
         currentMoney = money;
     }
     @Override
@@ -111,6 +104,10 @@ public class Sun extends GameObject {
     }
     @Override
     public boolean isSolid(){ return false; }
+
+    @Override
+    public void setXYPadding() {
+    }
 
     
 }

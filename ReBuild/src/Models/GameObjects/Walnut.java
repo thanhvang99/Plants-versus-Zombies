@@ -19,19 +19,21 @@ public class Walnut extends BasicPlant {
     private static int HALF = 2;
     
     public Walnut(float x, float y) {
-        super(x + 0.15f, y + 0.15f);
+        super(x, y);
+        
         setHealth(300);
-        setAnimation();
         
     }
 
     @Override
     public void setXYPadding() {
+        setX(getXCordinate() + 0.15f);
+        setY(getYCordinate() + 0.15f);
     }
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(), (int)getYPixel(), DEFAULT_WIDTH, DEFAULT_HEIGHT, null);
+        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(), (int)getYPixel(), getWidth(), getHeight(), null);
 
         drawRect(g);
     }

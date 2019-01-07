@@ -2,8 +2,6 @@ package Controllers;
 
 import Models.GameObjects.GameObject;
 import Models.GameObjects.GameObjectManager;
-import Services.GameDraw;
-import Services.GameLogic;
 import Models.GameObject.Cards.Card;
 import Views.GameBackground;
 import Models.BackgroundComponents.Playground;
@@ -13,9 +11,8 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import javax.swing.event.MouseInputListener;
 
-public class GameMouse implements GameLogic,GameDraw,MouseInputListener {
+public class GameMouse extends Mouse {
     private GameBackground background;
     private Playground playground;
     private Card tempCard = null;
@@ -30,6 +27,7 @@ public class GameMouse implements GameLogic,GameDraw,MouseInputListener {
     
     private int xCurrent,
                 yCurrent;
+    
     
     
     @Override
@@ -90,10 +88,6 @@ public class GameMouse implements GameLogic,GameDraw,MouseInputListener {
         g.drawImage(tempImage, xCurrent, yCurrent, null);
     }
 
-    @Override
-    public void tick() {
-    }
-    
     @Override
     public void mouseMoved(MouseEvent e) {
         xCurrent = e.getX();

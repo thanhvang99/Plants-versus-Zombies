@@ -14,6 +14,7 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
                             STUFF_WITH_MOUSE = 3;
     public static final int ACT = 0,
                             DIE = 1;
+    private int width,height;
 
     private int kind,state;
     private float xCordinate,yCordinate,
@@ -31,22 +32,28 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
         
         this.kind = kind;
         
+        
     }
     
     public void setRect(Rectangle rect){ this.currentRect = rect; }
-    public abstract void createRectangle();
     public Rectangle getCurrentRect(){ return currentRect; }
     public void moveRect(){
         getCurrentRect().move((int)xPixel, (int)yPixel);
     }
     
-    public void setX(float x){ this.xCordinate = x; }
-    public void setY(float y){ this.yCordinate = y; }
+    public void setX(float x){
+        this.xCordinate = x;
+        updateXYPixel();
+        moveRect();
+    }
+    public void setY(float y){
+        this.yCordinate = y;
+        updateXYPixel(); 
+        moveRect();
+    }
+    public abstract void setXYPadding();
     public float getXCordinate(){ return xCordinate; }
     public float getYCordinate(){ return yCordinate; }
-    
-    public void setXPixel(float x){ this.xPixel = x; }
-    public void setYPixel(float y){ this.yPixel = y; }
     public float getXPixel(){ return xPixel; }
     public float getYPixel(){ return yPixel; }
     public void updateXYPixel(){
@@ -79,4 +86,17 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
     public void drawRect(Graphics g){
 //        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
     }
+    public void setSizeImage(int width,int height){
+        this.width = width;
+        this.height = height;
+        
+        if( currentRect == null ){
+            currentRect = new Rectangle((int)xPixel,(int)yPixel,width,height);
+        }else{
+            currentRect.width = width;
+            currentRect.height = height;
+        }
+    }
+    public int getWidth(){ return width; }
+    public int getHeight(){ return height; }
 }

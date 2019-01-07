@@ -14,15 +14,16 @@ public class NormalBullet extends GameObject {
 
     public NormalBullet(float x, float y, float speed, BufferedImage image, float xAlign, float yAlign) {
         super(x + xAlign, y + yAlign, STUFF_NO_MOUSE);
+        
+        setSizeImage(DEFAULT_WIDTH,DEFAULT_HEIGHT);
         this.image = image;
         this.speed = speed;
         
-        createRectangle();
     }
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(image, (int) getXPixel(), (int) getYPixel(), DEFAULT_WIDTH, DEFAULT_HEIGHT, null);
+        g.drawImage(image, (int) getXPixel(), (int) getYPixel(), getWidth(), getHeight(), null);
         
         drawRect(g);
     }
@@ -35,8 +36,6 @@ public class NormalBullet extends GameObject {
     @Override
     public void act() {
         setX(getXCordinate() + speed/ 1000);        //  x += speed/1000;
-        moveRect();
-        updateXYPixel();
 
         if (getXCordinate() >= 9) {
             GameObjectManager.getInstance().removeObject(this);
@@ -44,10 +43,6 @@ public class NormalBullet extends GameObject {
         checkCollision();
     }
 
-    @Override
-    public void createRectangle() {
-        setRect(new Rectangle((int) getXPixel(), (int) getYPixel(), DEFAULT_WIDTH, DEFAULT_HEIGHT));
-    }
 
     @Override
     public boolean isSolid() {
@@ -71,6 +66,11 @@ public class NormalBullet extends GameObject {
 
     @Override
     public void checkDied() {
+    }
+
+    @Override
+    public void setXYPadding() {
+    
     }
 
 

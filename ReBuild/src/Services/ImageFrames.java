@@ -32,24 +32,48 @@ public class ImageFrames {
                                    WalnutHalfHealth,
                                    WalnutDie;
     
+    // Football zombie
+    private static BufferedImage[] FootBallZombieDie,
+                                   FootBallZombieMove;
+    
     // Normal Zombie
     private static BufferedImage[] NormalZombieDie,
                                    NormalZombieMove;
+    // Fly Zombie
+    private static BufferedImage[] FlyZombieMove,
+                                   FlyZombieDie;
+    
+    // Lawn Mower
+    private static BufferedImage[] LawnMowerFrames;
     
     
     // Backgrounds
-    private static BufferedImage GameBackground;
+    private static BufferedImage GameBackground,
+                                 MenuBackground,
+                                 HugeWaveHint;
+    private static BufferedImage[] GameOverBackground;
     
     public static void setUpAllFrames(){
-        setUpPeashooterFrames();
-        setUpBeetrootFrames();
+        setUpPlantFrames();
         setUpZombieFrames();
         setUpBackground();
-    
-        setupSunflowerFrames();
-        setupWalnutFrames();
+        setUpLawnMower();
         
     }
+    public static void setUpPlantFrames(){
+        setUpPeashooterFrames();
+        setUpBeetrootFrames();
+        setupSunflowerFrames();
+        setupWalnutFrames();
+    }
+    public static void setUpZombieFrames(){
+        setUpNormalZombieFrames();
+        setUpFootBallZombieFrames();
+        setUpFlyZombie();
+    }
+    
+    
+    
     public static void setUpPeashooterFrames(){
         
         PeashooterCandicate = new BufferedImage[2];
@@ -85,8 +109,7 @@ public class ImageFrames {
         
         BeetrootBullet = ImageLoader.load("/plants/beetroot/bullet.png");
     }
-    public static void setUpZombieFrames(){
-        
+    public static void setUpNormalZombieFrames(){
         NormalZombieMove = new BufferedImage[2];
         NormalZombieMove[0] = ImageLoader.load("/zombies/normalZombie/move1.gif");
         NormalZombieMove[1] = ImageLoader.load("/zombies/normalZombie/move2.gif");
@@ -99,6 +122,32 @@ public class ImageFrames {
         NormalZombieDie[4] = ImageLoader.load("/zombies/normalZombie/die5.gif");    
         NormalZombieDie[5] = ImageLoader.load("/zombies/normalZombie/die6.gif");
         
+        
+    }
+    public static void setUpFootBallZombieFrames(){
+        FootBallZombieMove = new BufferedImage[2];
+        FootBallZombieMove[0] = ImageLoader.load("/zombies/footballZombie/move1.gif");
+        FootBallZombieMove[1] = ImageLoader.load("/zombies/footballZombie/move2.gif");
+        
+        FootBallZombieDie = new BufferedImage[6];
+        FootBallZombieDie[0] = ImageLoader.load("/zombies/footballZombie/die0.gif");
+        FootBallZombieDie[1] = ImageLoader.load("/zombies/footballZombie/die1.gif");
+        FootBallZombieDie[2] = ImageLoader.load("/zombies/footballZombie/die2.gif");
+        FootBallZombieDie[3] = ImageLoader.load("/zombies/footballZombie/die3.gif");
+        FootBallZombieDie[4] = ImageLoader.load("/zombies/footballZombie/die4.gif");    
+        FootBallZombieDie[5] = ImageLoader.load("/zombies/footballZombie/die5.gif");
+    
+    }
+    public static void setUpFlyZombie(){
+        FlyZombieMove = new BufferedImage[6];
+        FlyZombieMove[0] = ImageLoader.load("/zombies/flyZombie/fly0.gif");
+        FlyZombieMove[1] = ImageLoader.load("/zombies/flyZombie/fly1.gif");
+        FlyZombieMove[2] = ImageLoader.load("/zombies/flyZombie/fly2.gif");
+        FlyZombieMove[3] = ImageLoader.load("/zombies/flyZombie/fly3.gif");
+        FlyZombieMove[4] = ImageLoader.load("/zombies/flyZombie/fly4.gif");
+        FlyZombieMove[5] = ImageLoader.load("/zombies/flyZombie/fly5.gif");
+        
+    
     }
     
     public static void setupSunflowerFrames() {
@@ -147,8 +196,31 @@ public class ImageFrames {
         WalnutDie[3] = ImageLoader.load("/plants/walnut/die4.gif");
     }
     
+    public static void setUpLawnMower(){
+        LawnMowerFrames = new BufferedImage[2];
+        LawnMowerFrames[0] = ImageLoader.load("/lawn_mower1.gif");
+        LawnMowerFrames[1] = ImageLoader.load("/lawn_mower2.gif");
+    }
     public static void setUpBackground(){
         GameBackground = ImageLoader.load("/background/game.jpg");
+        MenuBackground = ImageLoader.load("/background/menu2.png");
+        
+        GameOverBackground = new BufferedImage[10];
+        
+        GameOverBackground[0] = ImageLoader.load("/background/gameover1.gif");
+        GameOverBackground[1] = ImageLoader.load("/background/gameover2.gif");
+        GameOverBackground[2] = ImageLoader.load("/background/gameover3.gif");
+        GameOverBackground[3] = ImageLoader.load("/background/gameover4.gif");
+        GameOverBackground[4] = ImageLoader.load("/background/gameover5.gif");
+        GameOverBackground[5] = ImageLoader.load("/background/gameover6.gif");
+        GameOverBackground[6] = ImageLoader.load("/background/gameover7.gif");
+        GameOverBackground[7] = ImageLoader.load("/background/gameover8.gif");
+        GameOverBackground[8] = ImageLoader.load("/background/gameover9.gif");
+        GameOverBackground[9] = ImageLoader.load("/background/gameover10.gif");
+        
+        HugeWaveHint = ImageLoader.load("/background/huge_wave.png");
+        
+        
 
     }
     
@@ -164,10 +236,6 @@ public class ImageFrames {
     public static BufferedImage getBeetrootBullet(){ return BeetrootBullet; }
     public static BufferedImage[] getBeetrootDie() { return BeetrootDie; }
     
-    // Image NormalZombie
-    public static BufferedImage[] getNormalZombieMove(){ return NormalZombieMove; }
-    public static BufferedImage[] getNormalZombieDie(){ return NormalZombieDie; }
-    
     // Image Sunflower
     public static BufferedImage[] getSunflowerCandicate() { return SunflowerCandicate; }
     public static BufferedImage[] getSunflowerAct() { return SunflowerAct; }
@@ -180,7 +248,24 @@ public class ImageFrames {
     public static BufferedImage[] getWalnutHalfHealth() { return WalnutHalfHealth; }
     public static BufferedImage[] getWalnutDie() { return WalnutDie; }
     
+    
+    // Image Normal Zombie
+    public static BufferedImage[] getNormalZombieMove(){ return NormalZombieMove; }
+    public static BufferedImage[] getNormalZombieDie(){ return NormalZombieDie; }
+    
+    // Image Football Zombie
+    public static BufferedImage[] getFootBallZombieMove(){ return FootBallZombieMove; }
+    public static BufferedImage[] getFootBallZombieDie(){ return FootBallZombieDie; }
+    
+    // Image Fly Zombie
+    public static BufferedImage[] getFlyZombieMove(){ return FlyZombieMove; }
+    
+    // Image Lawn Mower
+    public static BufferedImage[] getLawnMower(){ return LawnMowerFrames; }
             
     // Image Background
     public static BufferedImage getGameBackground(){ return GameBackground; }
+    public static BufferedImage getMenuBackground(){ return MenuBackground; }
+    public static BufferedImage[] getGameOverBackground(){ return GameOverBackground; }
+    public static BufferedImage getHugeWaveHint(){ return HugeWaveHint; }
 }

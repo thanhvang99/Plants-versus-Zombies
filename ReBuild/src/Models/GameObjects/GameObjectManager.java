@@ -1,5 +1,7 @@
 package Models.GameObjects;
 
+import Controllers.Spawner;
+import Views.GameBackground;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -51,6 +53,10 @@ public class GameObjectManager {
             }
         }
         return tempList;
+    }
+    public void resetList(){
+        list.clear();
+        GameBackground.setUpLawnMower();
     }
     
 }

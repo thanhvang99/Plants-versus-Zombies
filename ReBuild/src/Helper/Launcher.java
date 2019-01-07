@@ -1,6 +1,7 @@
 package Helper;
 
 import Controllers.Game;
+import Services.AudioPlayer;
 import Services.ImageFrames;
 
 
@@ -12,6 +13,8 @@ public class Launcher {
         // Set up for game
         
         ImageFrames.setUpAllFrames();       // Load all image
+        AudioPlayer.setUpMusicAndSound();
+        
         Gui.setUp();                        // Create canvas, frame as Window
         
         Game game = new Game(Gui);          // Create Game run by Gui

@@ -16,13 +16,12 @@ public class Beetroot extends BasicPlant {
         super(x,y);
         
         timer = new Timer(DEFAULT_SPEED);
-        setAnimation();
         setXYPadding();
     }
     
     @Override
     public void render(Graphics g) {
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
+        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
         
         drawRect(g);
     }
@@ -72,15 +71,15 @@ public class Beetroot extends BasicPlant {
 
     @Override
     public void setXYPadding() {
+        setY((getYCordinate() + 0.1f));
         if (getXCordinate() >= 4) {
             setX((getXCordinate() + 0.2f));
-            setY((getYCordinate() + 0.1f));
         } else {
-            setX((getXCordinate() + 0.2f));
+            setX((getXCordinate() + 0.1f));
             setY(getYCordinate());
         }
-        updateXYPixel();
     }
+
 
     
 

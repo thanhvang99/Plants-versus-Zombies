@@ -31,4 +31,9 @@ public class Timer {
     public void setTimeOut(int timeOut){
         this.timeOut = timeOut;
     }
+    public void reClock(){
+        delta = 0;
+        endTime = 0;
+        startTime = System.currentTimeMillis();
+    }
 }   

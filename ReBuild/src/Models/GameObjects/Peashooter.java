@@ -13,19 +13,15 @@ public class Peashooter extends BasicPlant {
     private Timer timer;
     public Peashooter(float x,float y) {
         super(x, y);
-
-        setXYPadding();
-        moveRect();
         
         timer = new Timer(DEFAULT_SPEED_SHOOT);
-        setAnimation();
         
     }
     
     @Override
     public void render(Graphics g) {
         
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), DEFAULT_WIDTH,DEFAULT_HEIGHT,null);
+        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
         
         drawRect(g);
 
@@ -34,7 +30,6 @@ public class Peashooter extends BasicPlant {
     @Override
     public void tick() {
         animation[getState()].tick();
-        
         act();
         checkDied();
     }
@@ -65,14 +60,12 @@ public class Peashooter extends BasicPlant {
 
     @Override
     public void setXYPadding() {
+         setY((getYCordinate() + 0.2f));
         if (getXCordinate() >= 4) {
             setX((getXCordinate() + 0.2f));
-            setY((getYCordinate() + 0.1f));
         } else {
             setX((getXCordinate() + 0.15f));
-            setY(getYCordinate() + 0.1f);
         }
-        updateXYPixel();
         
     }
     

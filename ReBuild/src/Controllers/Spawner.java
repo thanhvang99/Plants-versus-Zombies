@@ -15,6 +15,8 @@ import java.awt.Graphics;
 import java.util.Random;
 
 public class Spawner implements GameLogic,GameDraw {
+    private static float speedInitial = 5;
+    private int currentNumberHugeWave = 0;
     
     private Random r = new Random();
     private static  Timer timerForRandomZombie,
@@ -43,7 +45,7 @@ public class Spawner implements GameLogic,GameDraw {
         if( timerForRandomZombie.isTimeOut() ){
             int xRandom = r.nextInt(1) + 10;
             int yRandom = r.nextInt(5);
-            int speedRandom = r.nextInt(3) + 5;
+            float speedRandom = r.nextInt(3) + speedInitial;
             switch (r.nextInt(5)) {
                 case 1:
                     GameObjectManager.getInstance().addObject(new FootBallZombie(xRandom, yRandom, speedRandom));
@@ -63,8 +65,11 @@ public class Spawner implements GameLogic,GameDraw {
             if (timerOfHugeWaveZombie.isTimeOut()) {
                 timerForRandomZombie.setTimeOut(5000);
                 isHugeWave = false;
+                speedInitial = 5;
                 if (timerForMakingHugeWaveZombie.isTimeOut()) {
-                    timerForRandomZombie.setTimeOut(2000);
+                    currentNumberHugeWave++;
+                    timerForRandomZombie.setTimeOut(3000 - 200*currentNumberHugeWave);
+                    speedInitial = currentNumberHugeWave*0.5f + 6;
                     isShowing = true;
                     isHugeWave = true;
                     

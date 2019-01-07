@@ -12,6 +12,7 @@ public class ImageFrames {
     private static BufferedImage[] PeashooterAct,
                                    PeashooterDie,
                                    PeashooterCandicate;
+    private static BufferedImage[] NewPeashooterAct;
     
     // Betroot
     private static BufferedImage   BeetrootBullet;
@@ -24,7 +25,9 @@ public class ImageFrames {
     private static BufferedImage[] SunflowerCandicate,
                                    SunflowerAct,
                                    SunflowerDie,
-                                   Sun;
+                                   Sun,
+                                   NewSunflowerAct;
+    
     
     // walnut
     private static BufferedImage[] WalnutCandicate, 
@@ -38,7 +41,8 @@ public class ImageFrames {
     
     // Normal Zombie
     private static BufferedImage[] NormalZombieDie,
-                                   NormalZombieMove;
+                                   NormalZombieMove,
+                                   NormalZombieAttack;
     // Fly Zombie
     private static BufferedImage[] FlyZombieMove,
                                    FlyZombieDie;
@@ -91,6 +95,24 @@ public class ImageFrames {
         
         PeashooterBullet = ImageLoader.load("/plants/peashooter/bullet.png");
         
+        NewPeashooterAct = new BufferedImage[15];
+        
+        NewPeashooterAct[0] = ImageLoader.load("/plants/newPeashooter/act0.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[1] = ImageLoader.load("/plants/newPeashooter/act1.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[2] = ImageLoader.load("/plants/newPeashooter/act2.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[3] = ImageLoader.load("/plants/newPeashooter/act3.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[4] = ImageLoader.load("/plants/newPeashooter/act4.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[5] = ImageLoader.load("/plants/newPeashooter/act5.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[6] = ImageLoader.load("/plants/newPeashooter/act6.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[7] = ImageLoader.load("/plants/newPeashooter/act7.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[8] = ImageLoader.load("/plants/newPeashooter/act8.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[9] = ImageLoader.load("/plants/newPeashooter/act9.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[10] = ImageLoader.load("/plants/newPeashooter/act10.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[11] = ImageLoader.load("/plants/newPeashooter/act11.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[12] = ImageLoader.load("/plants/newPeashooter/act12.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[13] = ImageLoader.load("/plants/newPeashooter/act13.gif").getSubimage(100, 110, 480, 400);
+        NewPeashooterAct[14] = ImageLoader.load("/plants/newPeashooter/act14.gif").getSubimage(100, 110, 480, 400);
+        
     }
     public static void setUpBeetrootFrames(){
         
@@ -122,6 +144,29 @@ public class ImageFrames {
         NormalZombieDie[4] = ImageLoader.load("/zombies/normalZombie/die5.gif");    
         NormalZombieDie[5] = ImageLoader.load("/zombies/normalZombie/die6.gif");
         
+        NormalZombieAttack = new BufferedImage[20];
+        NormalZombieAttack[0] = ImageLoader.load("/zombies/normalZombie/act0.gif");
+        NormalZombieAttack[1] = ImageLoader.load("/zombies/normalZombie/act1.gif");
+        NormalZombieAttack[2] = ImageLoader.load("/zombies/normalZombie/act2.gif");
+        NormalZombieAttack[3] = ImageLoader.load("/zombies/normalZombie/act3.gif");
+        NormalZombieAttack[4] = ImageLoader.load("/zombies/normalZombie/act4.gif");
+        NormalZombieAttack[5] = ImageLoader.load("/zombies/normalZombie/act5.gif");
+        NormalZombieAttack[6] = ImageLoader.load("/zombies/normalZombie/act6.gif");
+        NormalZombieAttack[7] = ImageLoader.load("/zombies/normalZombie/act7.gif");
+        NormalZombieAttack[7] = ImageLoader.load("/zombies/normalZombie/act7.gif");
+        NormalZombieAttack[8] = ImageLoader.load("/zombies/normalZombie/act8.gif");
+        NormalZombieAttack[9] = ImageLoader.load("/zombies/normalZombie/act9.gif");
+        NormalZombieAttack[10] = ImageLoader.load("/zombies/normalZombie/act10.gif");
+        NormalZombieAttack[11] = ImageLoader.load("/zombies/normalZombie/act11.gif");
+        NormalZombieAttack[12] = ImageLoader.load("/zombies/normalZombie/act12.gif");
+        NormalZombieAttack[13] = ImageLoader.load("/zombies/normalZombie/act13.gif");
+        NormalZombieAttack[14] = ImageLoader.load("/zombies/normalZombie/act14.gif");
+        NormalZombieAttack[15] = ImageLoader.load("/zombies/normalZombie/act15.gif");
+        NormalZombieAttack[16] = ImageLoader.load("/zombies/normalZombie/act16.gif");
+        NormalZombieAttack[17] = ImageLoader.load("/zombies/normalZombie/act17.gif");
+        NormalZombieAttack[18] = ImageLoader.load("/zombies/normalZombie/act18.gif");
+        NormalZombieAttack[19] = ImageLoader.load("/zombies/normalZombie/act19.gif");
+        
         
     }
     public static void setUpFootBallZombieFrames(){
@@ -146,6 +191,24 @@ public class ImageFrames {
         FlyZombieMove[3] = ImageLoader.load("/zombies/flyZombie/fly3.gif");
         FlyZombieMove[4] = ImageLoader.load("/zombies/flyZombie/fly4.gif");
         FlyZombieMove[5] = ImageLoader.load("/zombies/flyZombie/fly5.gif");
+        
+        NewSunflowerAct = new BufferedImage[15];
+        
+        NewSunflowerAct[0] = ImageLoader.load("/plants/newSunflower/act0.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[1] = ImageLoader.load("/plants/newSunflower/act1.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[2] = ImageLoader.load("/plants/newSunflower/act2.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[3] = ImageLoader.load("/plants/newSunflower/act3.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[4] = ImageLoader.load("/plants/newSunflower/act4.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[5] = ImageLoader.load("/plants/newSunflower/act5.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[6] = ImageLoader.load("/plants/newSunflower/act6.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[7] = ImageLoader.load("/plants/newSunflower/act7.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[8] = ImageLoader.load("/plants/newSunflower/act8.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[9] = ImageLoader.load("/plants/newSunflower/act9.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[10] = ImageLoader.load("/plants/newSunflower/act10.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[11] = ImageLoader.load("/plants/newSunflower/act11.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[12] = ImageLoader.load("/plants/newSunflower/act12.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[13] = ImageLoader.load("/plants/newSunflower/act13.gif").getSubimage(100, 100, 450, 500);
+        NewSunflowerAct[14] = ImageLoader.load("/plants/newSunflower/act14.gif").getSubimage(100, 100, 450, 500);
         
     
     }
@@ -226,6 +289,7 @@ public class ImageFrames {
     
     // Image Peashooter
     public static BufferedImage[] getPeashooterAct(){ return PeashooterAct; }
+    public static BufferedImage[] getNewPeashooterAct(){ return NewPeashooterAct; }
     public static BufferedImage[] getPeashooterCandicate(){ return PeashooterCandicate; }
     public static BufferedImage[] getPeashooterDie(){ return PeashooterDie; }
     public static BufferedImage getPeashooterBullet(){ return PeashooterBullet; }
@@ -241,6 +305,8 @@ public class ImageFrames {
     public static BufferedImage[] getSunflowerAct() { return SunflowerAct; }
     public static BufferedImage[] getSunflowerDie() { return SunflowerDie; }
     public static BufferedImage[] getSun(){ return Sun; }
+    public static BufferedImage[] getNewSunflowerAct(){ return NewSunflowerAct; }
+    
     
     // Image Walnut
     public static BufferedImage[] getWalnutCandicate() { return WalnutCandicate; }
@@ -252,6 +318,7 @@ public class ImageFrames {
     // Image Normal Zombie
     public static BufferedImage[] getNormalZombieMove(){ return NormalZombieMove; }
     public static BufferedImage[] getNormalZombieDie(){ return NormalZombieDie; }
+    public static BufferedImage[] getNormalZombieAttack(){ return NormalZombieAttack; }
     
     // Image Football Zombie
     public static BufferedImage[] getFootBallZombieMove(){ return FootBallZombieMove; }

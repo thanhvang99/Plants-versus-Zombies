@@ -6,6 +6,7 @@ import Services.Timer;
 import java.awt.Graphics;
 
 public class NormalZombie extends BasicZombie {
+    
     public NormalZombie(float x,float y,float speed){
         super(x,y,speed);
         
@@ -30,6 +31,7 @@ public class NormalZombie extends BasicZombie {
     @Override
     public void setAnimation() {
         animation = new Animation[2];
+        
         animation[ACT] = new Animation(200,ImageFrames.getNormalZombieMove());
         animation[DIE] = new Animation(100,ImageFrames.getNormalZombieDie());
     }

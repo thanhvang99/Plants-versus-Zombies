@@ -9,11 +9,13 @@ public class Peashooter extends BasicPlant {
     
     private static final int DEFAULT_SPEED_SHOOT = 3000;     // ms
     private Animation[] animation;
+    private boolean isShoot = false;
     
     private Timer timer;
     public Peashooter(float x,float y) {
         super(x, y);
         
+        setSizeImage(DEFAULT_WIDTH+10,DEFAULT_HEIGHT+10);
         timer = new Timer(DEFAULT_SPEED_SHOOT);
         
     }
@@ -36,8 +38,13 @@ public class Peashooter extends BasicPlant {
 
     @Override
     public void act() {
-        if (timer.isTimeOut()) {
-            GameObjectManager.getInstance().addObject(new NormalBullet(getXCordinate(), getYCordinate(), 15f, ImageFrames.getPeashooterBullet(), 0.5f, 0.1f));
+        if( animation[getState()].isNewLoop() ){
+            isShoot = false;
+        }
+        if( animation[getState()].getCurrentIndex() == 9 && !isShoot ){
+            GameObjectManager.getInstance().addObject(new NormalBullet(getXCordinate(), getYCordinate(), 20f, ImageFrames.getPeashooterBullet(), 0.6f, 0.2f));
+            isShoot = true;
+            
         }
     }
 
@@ -45,7 +52,7 @@ public class Peashooter extends BasicPlant {
     public void checkDied() {
         if( getHealth() <= 0 ){
             setState(DIE);
-            if( !animation[getState()].isFirstLoop() ){
+            if( animation[getState()].isNewLoop() ){
                 GameObjectManager.getInstance().removeObject(this);
             }
         }
@@ -54,7 +61,7 @@ public class Peashooter extends BasicPlant {
     @Override
     public void setAnimation() {
         animation = new Animation[2];
-        animation[0] = new Animation(500,ImageFrames.getPeashooterAct());
+        animation[0] = new Animation(110,ImageFrames.getNewPeashooterAct());
         animation[1] = new Animation(500,ImageFrames.getPeashooterDie());
     }
 

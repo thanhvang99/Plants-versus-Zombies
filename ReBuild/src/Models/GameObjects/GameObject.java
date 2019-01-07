@@ -13,7 +13,8 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
                             STUFF_NO_MOUSE = 2,
                             STUFF_WITH_MOUSE = 3;
     public static final int ACT = 0,
-                            DIE = 1;
+                            DIE = 1,
+                            ATTACK = 2;
     private int width,height;
 
     private int kind,state;
@@ -84,7 +85,7 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
     
     
     public void drawRect(Graphics g){
-//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
     }
     public void setSizeImage(int width,int height){
         this.width = width;

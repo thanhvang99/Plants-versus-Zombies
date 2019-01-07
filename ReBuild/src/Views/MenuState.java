@@ -23,7 +23,6 @@ public class MenuState extends State {
     @Override
     public void render(Graphics g) {
         g.drawImage(ImageFrames.getMenuBackground(), 0, 0, GUI.DEFAULT_WIDTH,GUI.DEFAULT_HEIGHT,null);
-
         
     }
 

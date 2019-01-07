@@ -3,33 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/NormalBullet.java</file>
             <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Services/ImageFrames.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/GameObjectManager.java</file>
             <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/Peashooter.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Controllers/Mouse.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Controllers/GameOverMouse.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/FlyZombie.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/GameObject.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Controllers/Spawner.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Views/MenuState.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Controllers/MenuKey.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Views/GameState.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Views/GameBackground.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Services/AudioPlayer.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/BasicZombie.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/Walnut.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/BackgroundComponents/Score.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/Sunflower.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Services/Animation.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/FootBallZombie.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Controllers/GameMouse.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/LawnMower.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/Sun.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/Beetroot.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/NormalZombie.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Models/GameObjects/BasicPlant.java</file>
-            <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Services/Timer.java</file>
             <file>file:/Users/vang/Documents/Git/Plants-versus-Zombies/ReBuild/src/Helper/Launcher.java</file>
         </group>
     </open-files>

@@ -63,7 +63,7 @@ public class Playground implements GameLogic {
 //            }
             int XCeil = (int)object.getXCordinate();
             int YCeil = (int)object.getYCordinate();
-            if( XCeil >= 0 && XCeil <= x && object.isSolid()) {
+            if( XCeil >= 0 && XCeil < x && object.isSolid()) {
                 ground[YCeil][XCeil] = true;
             }
         }

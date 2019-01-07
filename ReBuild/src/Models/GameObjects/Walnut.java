@@ -28,7 +28,7 @@ public class Walnut extends BasicPlant {
     @Override
     public void setXYPadding() {
         setX(getXCordinate() + 0.15f);
-        setY(getYCordinate() + 0.15f);
+        setY(getYCordinate() + 0.25f);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class Walnut extends BasicPlant {
         } else {
             setState(DIE);
             
-            if(!animation[getState()].isFirstLoop()) {
+            if(animation[getState()].isNewLoop()) {
                 GameObjectManager.getInstance().removeObject(this);
             }
         }

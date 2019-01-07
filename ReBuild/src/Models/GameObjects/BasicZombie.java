@@ -9,6 +9,7 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public abstract class BasicZombie extends GameObject {
+    
     protected final int DEFAULT_WIDTH = 96,
                         DEFAULT_HEIGHT = 130;
     private float currentSpeed,
@@ -60,6 +61,7 @@ public abstract class BasicZombie extends GameObject {
     @Override
     public void act() {
         if (plantCollision == null) {
+            setState(ACT);
             changeSpeedTo(getInitialSpeed());
             
         }else{
@@ -90,7 +92,7 @@ public abstract class BasicZombie extends GameObject {
     public void checkDied() {
         if( getHealth() <= 0 ){
             setState(DIE);
-            if ( !animation[getState()].isFirstLoop()) {
+            if ( animation[getState()].isNewLoop()) {
                 increaseScoreAfterDied();
                 GameObjectManager.getInstance().removeObject(this);
             }

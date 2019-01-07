@@ -21,6 +21,8 @@ public class Sunflower extends BasicPlant {
     
     public Sunflower(float x, float y) {
         super(x, y);
+        
+        setSizeImage(DEFAULT_WIDTH+10,DEFAULT_HEIGHT+10);
         timer = new Timer(15000);
         
     }
@@ -43,7 +45,7 @@ public class Sunflower extends BasicPlant {
     @Override
     public void setAnimation() {
         animation = new Animation[2];
-        animation[0] = new Animation(500, ImageFrames.getSunflowerAct());
+        animation[0] = new Animation(110, ImageFrames.getNewSunflowerAct());
         animation[1] = new Animation(500, ImageFrames.getSunflowerDie());
     }
 
@@ -61,7 +63,7 @@ public class Sunflower extends BasicPlant {
         if ( getHealth() <= 0 ) {
             setState(DIE);
             
-            if (!animation[getState()].isFirstLoop()) {
+            if (animation[getState()].isNewLoop()) {
                 GameObjectManager.getInstance().removeObject(this);
             }
             

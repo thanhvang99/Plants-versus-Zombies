@@ -5,7 +5,7 @@ import Services.GameLogic;
 
 public class Animation implements GameLogic{
     private BufferedImage[] frames;
-    private boolean isFirstLoop = true;
+    private boolean isNewLoop = false;
     private int index = 0;
     private int timeSpeed;
     private Timer timer;
@@ -17,21 +17,23 @@ public class Animation implements GameLogic{
         
         
     }
-    public boolean isFirstLoop(){
-        return isFirstLoop;
+    public boolean isNewLoop(){
+        return isNewLoop;
     }
 
     @Override
     public void tick() {
         if( timer.isTimeOut() ){
+            isNewLoop = false;
             index++;
             if( index >= frames.length ){
                 index = 0;
-                isFirstLoop = false;
+                isNewLoop = true;
             }
         }
     }
             
-        
+    
     public BufferedImage getCurrentFrame(){ return frames[index]; }
+    public int getCurrentIndex(){ return index; }
 }

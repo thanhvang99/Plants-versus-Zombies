@@ -48,7 +48,7 @@ public class Beetroot extends BasicPlant {
         if(getHealth() <= 0) {
             setState(DIE);
             
-            if(!animation[getState()].isFirstLoop()) {
+            if(animation[getState()].isNewLoop()) {
                 GameObjectManager.getInstance().removeObject(this);
             }
             

@@ -54,7 +54,8 @@ public class ImageFrames {
     // Backgrounds
     private static BufferedImage GameBackground,
                                  MenuBackground,
-                                 HugeWaveHint;
+                                 HugeWaveHint,
+                                 Shovel;
     private static BufferedImage[] GameOverBackground;
     
     public static void setUpAllFrames(){
@@ -67,8 +68,8 @@ public class ImageFrames {
     public static void setUpPlantFrames(){
         setUpPeashooterFrames();
         setUpBeetrootFrames();
-        setupSunflowerFrames();
-        setupWalnutFrames();
+        setUpSunflowerFrames();
+        setUpWalnutFrames();
     }
     public static void setUpZombieFrames(){
         setUpNormalZombieFrames();
@@ -213,7 +214,7 @@ public class ImageFrames {
     
     }
     
-    public static void setupSunflowerFrames() {
+    public static void setUpSunflowerFrames() {
         SunflowerCandicate = new BufferedImage[2];
         SunflowerCandicate[0] = ImageLoader.load("/plants/sunflower/candicate_on.png");
         SunflowerCandicate[1] = ImageLoader.load("/plants/sunflower/candicate_off.png");
@@ -235,7 +236,7 @@ public class ImageFrames {
         Sun[2] = ImageLoader.load("/plants/sunflower/sun3.gif");
     }
     
-    public static void setupWalnutFrames() {
+    public static void setUpWalnutFrames() {
         WalnutCandicate = new BufferedImage[2];
         WalnutCandicate[0] = ImageLoader.load("/plants/walnut/candicate_on.png");
         WalnutCandicate[1] = ImageLoader.load("/plants/walnut/candicate_off.png");
@@ -282,6 +283,7 @@ public class ImageFrames {
         GameOverBackground[9] = ImageLoader.load("/background/gameover10.gif");
         
         HugeWaveHint = ImageLoader.load("/background/huge_wave.png");
+        Shovel = ImageLoader.load("/background/shovel.png");
         
         
 
@@ -335,4 +337,5 @@ public class ImageFrames {
     public static BufferedImage getMenuBackground(){ return MenuBackground; }
     public static BufferedImage[] getGameOverBackground(){ return GameOverBackground; }
     public static BufferedImage getHugeWaveHint(){ return HugeWaveHint; }
+    public static BufferedImage getShovel(){ return Shovel; }
 }

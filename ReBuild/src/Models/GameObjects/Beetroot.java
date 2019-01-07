@@ -32,21 +32,6 @@ public class Beetroot extends BasicPlant {
     }
 
     @Override
-    public void checkDied() {
-        
-        if(getHealth() <= 0) {
-            setState(DIE);
-            
-            if(animation[getState()].isNewLoop()) {
-                GameObjectManager.getInstance().removeObject(this);
-            }
-            
-        }
-        
-    }
-
-
-    @Override
     public void setAnimation() {
         animation = new Animation[2];
         animation[0] = new Animation(500,ImageFrames.getBeetrootAct());

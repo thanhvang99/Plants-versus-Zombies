@@ -1,6 +1,5 @@
 package Views;
 
-import Controllers.Spawner;
 import Models.GameObject.Cards.BeetrootCard;
 import Models.BackgroundComponents.Score;
 import Models.GameObject.Cards.SunflowerCard;
@@ -9,6 +8,7 @@ import Models.BackgroundComponents.Money;
 import Models.GameObject.Cards.PeashooterCard;
 import Models.GameObject.Cards.ListCardComponent;
 import Helper.GUI;
+import Models.GameObject.Cards.ShovelCard;
 import Models.GameObjects.BasicZombie;
 import Models.GameObjects.GameObjectManager;
 import Models.GameObjects.LawnMower;
@@ -68,6 +68,7 @@ public class GameBackground extends Background {
         listCard.addNewCard(new BeetrootCard(125));
         listCard.addNewCard(new SunflowerCard(50));
         listCard.addNewCard(new WalnutCard(25));
+        listCard.addNewCard(new ShovelCard());
         
     }   
     public static void setUpLawnMower(){

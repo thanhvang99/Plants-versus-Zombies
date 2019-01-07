@@ -11,9 +11,10 @@ public abstract class BasicZombie extends GameObject {
     protected final int DEFAULT_WIDTH = 96,
             DEFAULT_HEIGHT = 130;
     private float currentSpeed,
-            initialSpeed;
+                  initialSpeed;
     protected static Score score;
-
+    
+    private int damage = 10;
     private Timer timer;
     private GameObject plantCollision = null;
 
@@ -55,7 +56,7 @@ public abstract class BasicZombie extends GameObject {
             changeSpeedTo(0);
             attack(plantCollision);
 
-            if (plantCollision.getHealth() <= 0) {
+            if (plantCollision.getState() == GameObject.DIE ) {
                 plantCollision = null;
             }
         }
@@ -64,7 +65,7 @@ public abstract class BasicZombie extends GameObject {
 
     public void attack(GameObject object) {
         if (timer.isTimeOut()) {
-            object.setHealth(object.getHealth() - 30);
+            object.setHealth(object.getHealth() - damage);
             AudioPlayer.loadSound("chomp").play();
         }
     }
@@ -119,7 +120,7 @@ public abstract class BasicZombie extends GameObject {
     public void setTimer(Timer timer){
         this.timer = timer;
     }
-    
-    
-
+    public void setDamage(int damage){this.damage = damage;}
+    @Override
+    public boolean isSolid(){ return false; }
 }

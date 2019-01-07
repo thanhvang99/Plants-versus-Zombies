@@ -1,8 +1,11 @@
 package Models.GameObject.Cards;
 
+import Models.BackgroundComponents.Playground;
+import Models.GameObjects.GameObject;
+import Models.GameObjects.GameObjectManager;
 import Services.GameDraw;
-import Services.GameLogic;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public abstract class Card implements GameDraw{
     public static final int DEFAULT_WIDTH_CARD = 110,
@@ -25,7 +28,22 @@ public abstract class Card implements GameDraw{
     }
     
     
-    public abstract void createObject(int x,int y);
+    public abstract void createObject(int xCordinate,int yCordinate);
+    
+    public void act(int xPixel,int yPixel,Playground playground){
+        int xCordinate = Playground.convert_Pixel_to_CordinateX(xPixel);
+        int yCordinate = Playground.convert_Pixel_to_CordinateY(yPixel);
+        
+        if( !playground.isExistCreature(xCordinate, yCordinate) ){
+            createObject(xCordinate,yCordinate);
+        }else{
+            ArrayList<GameObject> listPlant = GameObjectManager.getInstance().getList(GameObject.PLANT);
+            for( GameObject object : listPlant ){
+                object.checkMouseClick(xPixel,yPixel);
+            }
+        }
+    }
+    
     public int getIndex(){ return index; }
     public abstract BufferedImage getImageCard();
     public int getCost(){ return cost; }

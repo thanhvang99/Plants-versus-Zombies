@@ -51,18 +51,6 @@ public class Sunflower extends BasicPlant {
     }
 
     @Override
-    public void checkDied() {
-        if ( getHealth() <= 0 ) {
-            setState(DIE);
-            
-            if (animation[getState()].isNewLoop()) {
-                GameObjectManager.getInstance().removeObject(this);
-            }
-            
-        }
-    }
-
-    @Override
     public void setXYPadding() {
         setY((getYCordinate() + 0.2f));
         if (getXCordinate() >= 4) {

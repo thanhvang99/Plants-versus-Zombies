@@ -18,7 +18,7 @@ public class Walnut extends BasicPlant {
     public Walnut(float x, float y) {
         super(x, y);
         
-        setHealth(300);
+        setHealth(400);
         
     }
     @Override
@@ -49,10 +49,13 @@ public class Walnut extends BasicPlant {
 
     @Override
     public void checkDied() {
-        
-        if(getHealth() <= 300 && getHealth() >= 150) {
+        if( isRemove ){
+            setState(DIE);
+            GameObjectManager.getInstance().removeObject(this);
+        }
+        else if(getHealth() <= 400 && getHealth() >= 200) {
             setState(ACT);
-        } else if(getHealth() < 150 && getHealth() >= 0) {
+        } else if(getHealth() < 200 && getHealth() >= 0) {
             setState(HALF);
         } else {
             setState(DIE);

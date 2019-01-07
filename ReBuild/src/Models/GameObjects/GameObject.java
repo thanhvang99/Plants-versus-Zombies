@@ -76,6 +76,7 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
     
     // DEFAULT checkMouseClick()
     public void checkMouseClick(int xPixel,int yPixel){
+    
     }
     public void setState(int STATE){ this.state = STATE; }
     public int getState(){ return state; }

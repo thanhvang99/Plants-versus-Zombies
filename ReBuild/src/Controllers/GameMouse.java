@@ -35,13 +35,13 @@ public class GameMouse extends Mouse {
         int x = e.getX();
         int y = e.getY();
         
-        clickAndReleaseCard(x,y);
+        ClickMouse(x,y);
         checkBuySuccess();
         checkCollectSun(x,y);
         
             
     }
-    public void clickAndReleaseCard(int x,int y){
+    public void ClickMouse(int x,int y){
         ListCardComponent cardsComponent = background.getCardComponent();
         if( cardsComponent.isInside(x, y) ){
             tempCard = cardsComponent.getList().get(cardsComponent.calculateIndexCard(x, y));
@@ -51,16 +51,8 @@ public class GameMouse extends Mouse {
                 tempCard = null;
             
         }else if( playground.isInSide(x, y) && tempCard != null ){
-            int xPosition = Playground.convert_Pixel_to_CordinateX(x);
-            int yPosition = Playground.convert_Pixel_to_CordinateY(y);
             
-            if( !playground.isExistCreature(xPosition, yPosition) ){
-                tempCard.createObject(xPosition, yPosition);
-                isBuySuccess = true;
-            }else{
-                tempCard = null;
-            }
-            
+            tempCard.act(x, y,playground);
             tempImage = null;
         }else{
             tempImage = null;
@@ -93,6 +85,8 @@ public class GameMouse extends Mouse {
         xCurrent = e.getX();
         yCurrent = e.getY();
     }
+    public int getCurrentX(){ return xCurrent; }
+    public int getCurrnetY(){ return yCurrent; }
 
     @Override
     public void mousePressed(MouseEvent e) {

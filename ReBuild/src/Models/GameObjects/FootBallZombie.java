@@ -13,6 +13,7 @@ public class FootBallZombie extends BasicZombie {
     public FootBallZombie(float x,float y,float speed){
         super(x,y,speed);
         
+        setDamage(20);
         setHealth(150);
         setSizeImage(DEFAULT_WIDTH + 20,DEFAULT_HEIGHT + 20);
         setTimer(new Timer(3000));

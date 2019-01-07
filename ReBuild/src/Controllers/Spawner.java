@@ -20,9 +20,9 @@ public class Spawner implements GameLogic,GameDraw {
     
     private Random r = new Random();
     private static  Timer timerForRandomZombie,
-                    timerForMakingHugeWaveZombie,
-                    timerOfHugeWaveZombie,
-                    timerForShowingHint;
+                          timerForMakingHugeWaveZombie,
+                          timerOfHugeWaveZombie,
+                          timerForShowingHint;
     private static Score score;
     private boolean isHugeWave = false,
                     isShowing = false;
@@ -70,10 +70,18 @@ public class Spawner implements GameLogic,GameDraw {
                     currentNumberHugeWave++;
                     timerForRandomZombie.setTimeOut(3000 - 200*currentNumberHugeWave);
                     speedInitial = currentNumberHugeWave*0.5f + 6;
-                    isShowing = true;
-                    isHugeWave = true;
-                    
-                    AudioPlayer.loadSound("zombies_coming").play();
+                    if( currentNumberHugeWave%3 == 0 ){
+                        timerForRandomZombie.setTimeOut(10_000);
+                        isShowing = false;
+                        isHugeWave = false;
+                    }else{
+                        isShowing = true;
+                        isHugeWave = true;
+                        timerForRandomZombie.setTimeOut(3000 - 200 * currentNumberHugeWave);
+                        speedInitial = currentNumberHugeWave * 0.5f + 6;
+                        AudioPlayer.loadSound("zombies_coming").play();
+                    }
+                        
                 }
             }
         }

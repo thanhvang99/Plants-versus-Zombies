@@ -34,7 +34,7 @@ public class NormalBullet extends GameObject {
     public void act() {
         setX(getXCordinate() + speed/ 1000);        //  x += speed/1000;
 
-        if (getXCordinate() >= 9) {
+        if (getXCordinate() >= 10) {
             GameObjectManager.getInstance().removeObject(this);
         }
     }
@@ -55,7 +55,7 @@ public class NormalBullet extends GameObject {
         ArrayList<GameObject> listZombie = GameObjectManager.getInstance().getList(ZOMBIE);
         for( GameObject object : listZombie ){
             if( getCurrentRect().intersects(object.getCurrentRect()) ){
-                object.setHealth(object.getHealth()-30);                // health -= 30;
+                object.setHealth(object.getHealth()-10);                // health -= 30;
                 isDisappear = true;
             }
         }

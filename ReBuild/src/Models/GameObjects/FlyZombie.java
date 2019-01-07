@@ -11,6 +11,7 @@ public class FlyZombie extends BasicZombie {
     public FlyZombie(float x,float y,float speed){
         super(x,y,speed);
         
+        setDamage(30);
         setHealth(200);
         setSizeImage(DEFAULT_WIDTH+20,DEFAULT_HEIGHT+20);
         setTimer(new Timer(3000));

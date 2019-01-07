@@ -1,5 +1,6 @@
 package Helper;
 
+import Command.Command;
 import Views.GameOverState;
 import Views.GameState;
 import Views.MenuState;
@@ -37,6 +38,9 @@ public class GUI extends Application {
     @Override
     public void tick() {
         State.getCurrentState().tick();
+        if( Command.getCurrentCommand() != null ){
+            Command.getCurrentCommand().excute();
+        }
     }
     @Override
     public void render() {

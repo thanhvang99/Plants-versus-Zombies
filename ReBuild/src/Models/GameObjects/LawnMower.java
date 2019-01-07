@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class LawnMower extends GameObject {
     private final int DEFAULT_WIDTH = 90,
                       DEFAULT_HEIGHT = 90;
-    private Animation animation;
+    private boolean isMove = false;
     
     public LawnMower(float x,float y){
         super(x,y,STUFF_NO_MOUSE);
@@ -21,15 +21,8 @@ public class LawnMower extends GameObject {
     }
 
     @Override
-    public void render(Graphics g) {
-        g.drawImage(animation.getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
-        
-        drawRect(g);
-    }
-
-    @Override
     public void tick() {
-        animation.tick();
+        animation[getState()].tick();
         checkCollision();
         act();
         checkDied();
@@ -37,12 +30,13 @@ public class LawnMower extends GameObject {
 
     @Override
     public void setAnimation() {
-        animation = new Animation(100,ImageFrames.getLawnMower());
+        animation = new Animation[1];
+        animation[ACT] = new Animation(100,ImageFrames.getLawnMower());
     }
 
     @Override
     public void act() {
-        if( getState() == DIE ){
+        if( isMove ){
             setX(getXCordinate()+0.2f);
         }
     }
@@ -53,7 +47,7 @@ public class LawnMower extends GameObject {
         for( GameObject object : list ){
             if( getCurrentRect().intersects(object.getCurrentRect()) ){
                 object.setHealth(0);
-                setState(DIE);
+                isMove = true;
             }
         }
     }

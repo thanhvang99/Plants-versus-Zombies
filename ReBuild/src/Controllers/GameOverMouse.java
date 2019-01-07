@@ -35,14 +35,14 @@ public class GameOverMouse extends Mouse {
         Mouse.addCurrentMouseTo(gui);
         Spawner.reClock();
         
-        AudioPlayer.loadMusic("background").loop();
+//        AudioPlayer.loadMusic("background").loop();
     }
     public void switchToMenu() {
         GUI gui = GUI.getInstance();
         Mouse.removeCurrentMouseFrom(gui);
         State.setState(gui.getMenuState());
         
-        AudioPlayer.loadMusic("menu").loop();
+//        AudioPlayer.loadMusic("menu").loop();
 
     }
 

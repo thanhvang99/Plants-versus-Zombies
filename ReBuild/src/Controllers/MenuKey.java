@@ -30,7 +30,7 @@ public class MenuKey implements KeyListener {
         Mouse.addCurrentMouseTo(gui);
         Spawner.reClock();
         
-        AudioPlayer.loadMusic("background").loop();
+//        AudioPlayer.loadMusic("background").loop();
         
     }
     

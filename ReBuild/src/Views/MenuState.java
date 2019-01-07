@@ -16,7 +16,7 @@ public class MenuState extends State {
         
         GUI.getInstance().getFrame().addKeyListener(key);
         GUI.getInstance().getCanvas().addKeyListener(key);
-        AudioPlayer.loadMusic("menu").loop();
+//        AudioPlayer.loadMusic("menu").loop();
     }
     
     

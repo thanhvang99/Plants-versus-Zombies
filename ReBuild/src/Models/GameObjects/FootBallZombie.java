@@ -17,22 +17,6 @@ public class FootBallZombie extends BasicZombie {
         setSizeImage(DEFAULT_WIDTH + 20,DEFAULT_HEIGHT + 20);
         setTimer(new Timer(3000));
     }
-
-    @Override
-    public void render(Graphics g) {
-        
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
-        
-        drawRect(g);
-    }
-
-    @Override
-    public void tick() {
-        animation[getState()].tick();
-        checkCollision();
-        act();
-        checkDied();
-    }
     @Override
     public void setAnimation() {
         animation = new Animation[2];

@@ -8,9 +8,7 @@ import java.awt.Graphics;
 public class Peashooter extends BasicPlant {
     
     private static final int DEFAULT_SPEED_SHOOT = 3000;     // ms
-    private Animation[] animation;
     private boolean isShoot = false;
-    
     private Timer timer;
     public Peashooter(float x,float y) {
         super(x, y);
@@ -19,16 +17,6 @@ public class Peashooter extends BasicPlant {
         timer = new Timer(DEFAULT_SPEED_SHOOT);
         
     }
-    
-    @Override
-    public void render(Graphics g) {
-        
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
-        
-        drawRect(g);
-
-    }
-
     @Override
     public void tick() {
         animation[getState()].tick();

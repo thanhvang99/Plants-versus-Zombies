@@ -1,7 +1,7 @@
 package Models.GameObjects;
 
+import Services.Animation;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -9,28 +9,25 @@ public class NormalBullet extends GameObject {
 
     private BufferedImage image;
     private float speed;
+    private boolean isDisappear = false;
     private static final int DEFAULT_WIDTH = 20,
                              DEFAULT_HEIGHT = 20;
 
     public NormalBullet(float x, float y, float speed, BufferedImage image, float xAlign, float yAlign) {
         super(x + xAlign, y + yAlign, STUFF_NO_MOUSE);
         
-        setSizeImage(DEFAULT_WIDTH,DEFAULT_HEIGHT);
         this.image = image;
         this.speed = speed;
         
-    }
-
-    @Override
-    public void render(Graphics g) {
-        g.drawImage(image, (int) getXPixel(), (int) getYPixel(), getWidth(), getHeight(), null);
-        
-        drawRect(g);
+        setSizeImage(DEFAULT_WIDTH,DEFAULT_HEIGHT);
+        setAnimation();
     }
 
     @Override
     public void tick() {
         act();
+        checkCollision();
+        checkDied();
     }
 
     @Override
@@ -40,7 +37,6 @@ public class NormalBullet extends GameObject {
         if (getXCordinate() >= 9) {
             GameObjectManager.getInstance().removeObject(this);
         }
-        checkCollision();
     }
 
 
@@ -51,6 +47,8 @@ public class NormalBullet extends GameObject {
 
     @Override
     public void setAnimation() {
+        animation = new Animation[1];
+        animation[ACT] = new Animation(image);
     }
     @Override
     public void checkCollision(){
@@ -58,16 +56,17 @@ public class NormalBullet extends GameObject {
         for( GameObject object : listZombie ){
             if( getCurrentRect().intersects(object.getCurrentRect()) ){
                 object.setHealth(object.getHealth()-30);                // health -= 30;
-                GameObjectManager.getInstance().removeObject(this);
-                
+                isDisappear = true;
             }
         }
     }
 
     @Override
     public void checkDied() {
+        if( isDisappear ){
+            GameObjectManager.getInstance().removeObject(this);
+        }
     }
-
     @Override
     public void setXYPadding() {
     

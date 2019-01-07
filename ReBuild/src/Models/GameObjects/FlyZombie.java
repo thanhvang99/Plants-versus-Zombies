@@ -24,14 +24,6 @@ public class FlyZombie extends BasicZombie {
     }
 
     @Override
-    public void tick() {
-        animation[getState()].tick();
-        checkCollision();
-        act();
-        checkDied();
-    }
-    
-    @Override
     public void setAnimation() {
         animation = new Animation[2];
         animation[ACT] = new Animation(200,ImageFrames.getFlyZombieMove());

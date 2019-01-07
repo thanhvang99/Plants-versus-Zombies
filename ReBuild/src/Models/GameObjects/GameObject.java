@@ -1,6 +1,7 @@
     package Models.GameObjects;
 
 import Models.BackgroundComponents.Playground;
+import Services.Animation;
 import Services.GameLogic;
 import Services.GameDraw;
 import Services.ObjectInterface;
@@ -15,9 +16,12 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
     public static final int ACT = 0,
                             DIE = 1,
                             ATTACK = 2;
-    private int width,height;
-
     private int kind,state;
+    private int width,height;
+    protected Animation[] animation;
+    
+    
+    
     private float xCordinate,yCordinate,
                   xPixel,yPixel;
     private int health;
@@ -33,7 +37,12 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
         
         this.kind = kind;
         
+    }
+    @Override
+    public void render(Graphics g){
+        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
         
+        drawRect(g);
     }
     
     public void setRect(Rectangle rect){ this.currentRect = rect; }
@@ -85,7 +94,7 @@ public abstract class GameObject implements GameDraw,GameLogic,ObjectInterface {
     
     
     public void drawRect(Graphics g){
-        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
+//        g.drawRect(getCurrentRect().x, getCurrentRect().y, getCurrentRect().width, getCurrentRect().height);
     }
     public void setSizeImage(int width,int height){
         this.width = width;

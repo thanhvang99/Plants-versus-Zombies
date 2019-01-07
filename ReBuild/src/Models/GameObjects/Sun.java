@@ -17,7 +17,6 @@ public class Sun extends GameObject {
                              DEFAULT_HEIGHT = 50;
     
     private boolean isClickByMouse = false;
-    private Animation animation;
     
     public Sun(float x,float y){
         super(x,y,STUFF_WITH_MOUSE);
@@ -28,22 +27,17 @@ public class Sun extends GameObject {
         setAnimation();
         
     }
-    @Override
-    public void render(Graphics g) {
-        g.drawImage(animation.getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
-        
-        drawRect(g);
-    }
 
     @Override
     public void tick() {
-        animation.tick();
+        animation[getState()].tick();
         act();
     }
 
     @Override
     public void setAnimation() {
-        animation = new Animation(300,ImageFrames.getSun());
+        animation = new Animation[1];
+        animation[ACT] = new Animation(300,ImageFrames.getSun());
         
     }
     public void makeRandomMoveTo(){

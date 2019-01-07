@@ -7,15 +7,12 @@ package Models.GameObjects;
 
 import Services.Animation;
 import Services.ImageFrames;
-import java.awt.Graphics;
 
 /**
  *
  * @author ldakhoa
  */
 public class Walnut extends BasicPlant {
-    
-    private Animation[] animation;
     private static int HALF = 2;
     
     public Walnut(float x, float y) {
@@ -24,18 +21,10 @@ public class Walnut extends BasicPlant {
         setHealth(300);
         
     }
-
     @Override
     public void setXYPadding() {
         setX(getXCordinate() + 0.15f);
         setY(getYCordinate() + 0.25f);
-    }
-
-    @Override
-    public void render(Graphics g) {
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(), (int)getYPixel(), getWidth(), getHeight(), null);
-
-        drawRect(g);
     }
 
     @Override
@@ -48,7 +37,6 @@ public class Walnut extends BasicPlant {
     public void setAnimation() {
         animation = new Animation[3];
         animation[ACT] = new Animation(500, ImageFrames.getWalnutFullHealth());
-        
         animation[DIE] = new Animation(500, ImageFrames.getWalnutDie());
         animation[HALF] = new Animation(500, ImageFrames.getWalnutHalfHealth());
     }

@@ -1,10 +1,10 @@
 package Services;
 
 import java.awt.image.BufferedImage;
-import Services.GameLogic;
 
 public class Animation implements GameLogic{
     private BufferedImage[] frames;
+    private BufferedImage oneFrame;
     private boolean isNewLoop = false;
     private int index = 0;
     private int timeSpeed;
@@ -16,6 +16,9 @@ public class Animation implements GameLogic{
         timer = new Timer(timeSpeed);
         
         
+    }
+    public Animation(BufferedImage oneFrame){
+        this.oneFrame = oneFrame;
     }
     public boolean isNewLoop(){
         return isNewLoop;
@@ -33,7 +36,14 @@ public class Animation implements GameLogic{
         }
     }
             
+    public BufferedImage getCurrentFrame(){
+        if( frames != null ){
+            return frames[index];
+        }else
+            return oneFrame;
     
-    public BufferedImage getCurrentFrame(){ return frames[index]; }
+    }
+    
+    
     public int getCurrentIndex(){ return index; }
 }

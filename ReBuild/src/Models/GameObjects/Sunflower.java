@@ -16,7 +16,6 @@ import java.util.Random;
  * @author ldakhoa
  */
 public class Sunflower extends BasicPlant {
-    private Animation[] animation;
     private Timer timer;
     
     public Sunflower(float x, float y) {
@@ -25,13 +24,6 @@ public class Sunflower extends BasicPlant {
         setSizeImage(DEFAULT_WIDTH+10,DEFAULT_HEIGHT+10);
         timer = new Timer(15000);
         
-    }
-
-    @Override
-    public void render(Graphics g) {
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
-        
-        drawRect(g);
     }
 
     @Override

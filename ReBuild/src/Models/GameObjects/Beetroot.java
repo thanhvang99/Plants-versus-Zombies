@@ -8,10 +8,6 @@ import java.awt.Graphics;
 public class Beetroot extends BasicPlant {
     private static final int DEFAULT_SPEED = 1800;
     private Timer timer;
-    
-    private Animation[] animation;
-                      
-
     public Beetroot(float x,float y){
         super(x,y);
         
@@ -19,13 +15,6 @@ public class Beetroot extends BasicPlant {
         setXYPadding();
     }
     
-    @Override
-    public void render(Graphics g) {
-        g.drawImage(animation[getState()].getCurrentFrame(), (int)getXPixel(),(int)getYPixel(), getWidth(),getHeight(),null);
-        
-        drawRect(g);
-    }
-
     @Override
     public void tick() {
         animation[getState()].tick();

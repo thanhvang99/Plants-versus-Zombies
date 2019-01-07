@@ -1,7 +1,6 @@
 package Models.GameObject.Cards;
 
 import Models.BackgroundComponents.Money;
-import Helper.GUI;
 import Services.GameDraw;
 import Services.GameLogic;
 import java.awt.Graphics;
